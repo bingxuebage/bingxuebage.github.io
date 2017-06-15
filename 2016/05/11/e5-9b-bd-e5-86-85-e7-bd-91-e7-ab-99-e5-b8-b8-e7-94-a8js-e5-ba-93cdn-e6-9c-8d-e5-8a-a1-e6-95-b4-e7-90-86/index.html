@@ -1,0 +1,771 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="很早很早以前使用Jquery的时候，Jquery文件一般都不是从本地获取，一直使用的Jquery的CDN公共库，一来节约本地网络资源，二来在这些使用这些公共库的js速度通常也是很快的，很多比放在本地要快。 一 般的CDN公共库都会包含全球所有最流行的开源JavaScript库，你可以在自己的网页上直接通过script标记引用这些资源。这样做不仅可以为您 节省流量，还能通过CDN加速，获得更快的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="国内网站常用JS库CDN服务整理">
+<meta property="og:url" content="http://www.yangjungou.com/2016/05/11/e5-9b-bd-e5-86-85-e7-bd-91-e7-ab-99-e5-b8-b8-e7-94-a8js-e5-ba-93cdn-e6-9c-8d-e5-8a-a1-e6-95-b4-e7-90-86/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="很早很早以前使用Jquery的时候，Jquery文件一般都不是从本地获取，一直使用的Jquery的CDN公共库，一来节约本地网络资源，二来在这些使用这些公共库的js速度通常也是很快的，很多比放在本地要快。 一 般的CDN公共库都会包含全球所有最流行的开源JavaScript库，你可以在自己的网页上直接通过script标记引用这些资源。这样做不仅可以为您 节省流量，还能通过CDN加速，获得更快的">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.184Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="国内网站常用JS库CDN服务整理">
+<meta name="twitter:description" content="很早很早以前使用Jquery的时候，Jquery文件一般都不是从本地获取，一直使用的Jquery的CDN公共库，一来节约本地网络资源，二来在这些使用这些公共库的js速度通常也是很快的，很多比放在本地要快。 一 般的CDN公共库都会包含全球所有最流行的开源JavaScript库，你可以在自己的网页上直接通过script标记引用这些资源。这样做不仅可以为您 节省流量，还能通过CDN加速，获得更快的">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2016/05/11/e5-9b-bd-e5-86-85-e7-bd-91-e7-ab-99-e5-b8-b8-e7-94-a8js-e5-ba-93cdn-e6-9c-8d-e5-8a-a1-e6-95-b4-e7-90-86/"/>
+
+
+
+
+
+  <title>国内网站常用JS库CDN服务整理 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2016/05/11/e5-9b-bd-e5-86-85-e7-bd-91-e7-ab-99-e5-b8-b8-e7-94-a8js-e5-ba-93cdn-e6-9c-8d-e5-8a-a1-e6-95-b4-e7-90-86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">国内网站常用JS库CDN服务整理</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-11T10:32:29+08:00">
+                2016-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2016/" itemprop="url" rel="index">
+                    <span itemprop="name">2016</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2016/文摘/" itemprop="url" rel="index">
+                    <span itemprop="name">文摘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div>
+
+<p>很早很早以前使用Jquery的时候，Jquery文件一般都不是从本地获取，一直使用的Jquery的CDN公共库，一来节约本地网络资源，二来在这些使用这些公共库的js速度通常也是很快的，很多比放在本地要快。</p>
+<p>一 般的CDN公共库都会包含全球所有最流行的开源JavaScript库，你可以在自己的网页上直接通过script标记引用这些资源。这样做不仅可以为您 节省流量，还能通过CDN加速，获得更快的访问速度。<span id="more-545"></span></p>
+<p>记得最早之前使用的是谷歌的，后来谷歌被和谐之后，国内的新浪、百度、360等也提供了自家的CDN加速服务。这几家的都试用过，百度的感觉最快，新浪的偶尔有加载慢的情况，360的useso有次在家使用移动网络访问竟然访问不了，遂被弃用。本文记录一下各个CDN公共库的入口，方便以后使用。</p>
+<h5 id="百度静态资源公共库"><a href="#百度静态资源公共库" class="headerlink" title="百度静态资源公共库"></a>百度静态资源公共库</h5><p>百度静态资源公共库是稳定，快速，全面，开源的国内CDN加速服务。由百度遍布全国各地100+个CDN节点提供加速服务。让开源库享受与百度首页静态资源同等待遇。收录超过180+开源库，并且这个数字正在不断增加。</p>
+<blockquote>
+<p><a href="http://cdn.code.baidu.com/" target="_blank" rel="external">http://cdn.code.baidu.com/</a></p>
+</blockquote>
+<h5 id="新浪云计算CDN公共库"><a href="#新浪云计算CDN公共库" class="headerlink" title="新浪云计算CDN公共库"></a>新浪云计算CDN公共库</h5><p>SAE的为很多流行的开源js/css库提供了CDN加速服务，开发者可以引用我们的js/css库来提升你的应用的访问速度。</p>
+<blockquote>
+<p><a href="http://lib.sinaapp.com/" target="_blank" rel="external">http://lib.sinaapp.com/</a></p>
+</blockquote>
+<h5 id="360网站卫士常用前端公共库CDN"><a href="#360网站卫士常用前端公共库CDN" class="headerlink" title="360网站卫士常用前端公共库CDN"></a>360网站卫士常用前端公共库CDN</h5><p>提供常用的JavaScript前端库，托管在360众多的全国CDN节点上，覆盖电信、联通、移动等主流运营商线路，您可以在自己的网页上直接通过script标记引用这些资源，让网站访问速度瞬间提速！</p>
+<blockquote>
+<p><a href="http://libs.useso.com/" target="_blank" rel="external">http://libs.useso.com/</a></p>
+</blockquote>
+<h5 id="又拍云常用JS库CDN服务"><a href="#又拍云常用JS库CDN服务" class="headerlink" title="又拍云常用JS库CDN服务"></a>又拍云常用JS库CDN服务</h5><p>又拍云为您托管常用的JavaScript库，您可以在自己的网页上直接通过script标记引用这些资源。这样做不仅可以为您节省流量，还能通过我们的CDN加速，获得更快的访问速度。</p>
+<blockquote>
+<p><a href="http://jscdn.upai.com/" target="_blank" rel="external">http://jscdn.upai.com/</a></p>
+</blockquote>
+<h5 id="CDNJS前端公共库CDN加速"><a href="#CDNJS前端公共库CDN加速" class="headerlink" title="CDNJS前端公共库CDN加速"></a>CDNJS前端公共库CDN加速</h5><p>阿里云CDN加速，永久免费，保护隐私，500+节点毫秒级响应。每日同步cdnjs.com，支持https及请求合并，安全稳定快速</p>
+<blockquote>
+<p><a href="http://cdnjs.net/" target="_blank" rel="external">http://cdnjs.net/</a></p>
+</blockquote>
+<h5 id="BootCDN"><a href="#BootCDN" class="headerlink" title="BootCDN"></a>BootCDN</h5><p>稳定、快速、免费的开源项目 CDN 服务</p>
+<blockquote>
+<p><a href="http://www.bootcdn.cn/" target="_blank" rel="external">http://www.bootcdn.cn/</a><br></p></blockquote></div><br><span class="fixed_link">本文固定链接: <a href="http://www.weisay.com/blog/js-libraries-cdn.html" title="国内网站常用JS库CDN服务整理" target="_blank" rel="external">http://www.weisay.com/blog/js-libraries-cdn.html | 威言威语</a></span><p></p>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/11/e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-13-e7-a7-8d-e5-99-a9-e6-a2-a6-ef-bc-8c-e4-bd-a0-e9-81-87-e5-88-b0-e8-bf-87-e5-93-aa-e4-ba-9b-ef-bc-9f/" rel="next" title="程序员的 13 种噩梦，你遇到过哪些？">
+                <i class="fa fa-chevron-left"></i> 程序员的 13 种噩梦，你遇到过哪些？
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/21/e6-8b-be-e9-81-97-e9-84-99-e8-a7-86-java/" rel="prev" title="面试拾遗-JAVA">
+                面试拾遗-JAVA <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#百度静态资源公共库"><span class="nav-number">1.</span> <span class="nav-text">百度静态资源公共库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#新浪云计算CDN公共库"><span class="nav-number">2.</span> <span class="nav-text">新浪云计算CDN公共库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#360网站卫士常用前端公共库CDN"><span class="nav-number">3.</span> <span class="nav-text">360网站卫士常用前端公共库CDN</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#又拍云常用JS库CDN服务"><span class="nav-number">4.</span> <span class="nav-text">又拍云常用JS库CDN服务</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#CDNJS前端公共库CDN加速"><span class="nav-number">5.</span> <span class="nav-text">CDNJS前端公共库CDN加速</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BootCDN"><span class="nav-number">6.</span> <span class="nav-text">BootCDN</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,743 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="2012 总结," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="准备工具： 1， JDK                   sudo apt-get install sun-java6-jdk 2， Eclipse        sudo apt-get install eclipse 3， Glade          sudo apt-get install glade 4，编译的GTK-arm开发包，参考文章【又7】 &amp;nbsp; 软件配置： 1， 配">
+<meta name="keywords" content="2012 总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【又8】在Eclipse 用Arm-linux 编译GTK程序">
+<meta property="og:url" content="http://www.yangjungou.com/2013/01/01/e3-80-90-e5-8f-888-e3-80-91-e5-9c-a8eclipse-e7-94-a8arm-linux-e7-bc-96-e8-af-91gtk-e7-a8-8b-e5-ba-8f/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="准备工具： 1， JDK                   sudo apt-get install sun-java6-jdk 2， Eclipse        sudo apt-get install eclipse 3， Glade          sudo apt-get install glade 4，编译的GTK-arm开发包，参考文章【又7】 &amp;nbsp; 软件配置： 1， 配">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.176Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【又8】在Eclipse 用Arm-linux 编译GTK程序">
+<meta name="twitter:description" content="准备工具： 1， JDK                   sudo apt-get install sun-java6-jdk 2， Eclipse        sudo apt-get install eclipse 3， Glade          sudo apt-get install glade 4，编译的GTK-arm开发包，参考文章【又7】 &amp;nbsp; 软件配置： 1， 配">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2013/01/01/e3-80-90-e5-8f-888-e3-80-91-e5-9c-a8eclipse-e7-94-a8arm-linux-e7-bc-96-e8-af-91gtk-e7-a8-8b-e5-ba-8f/"/>
+
+
+
+
+
+  <title>【又8】在Eclipse 用Arm-linux 编译GTK程序 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2013/01/01/e3-80-90-e5-8f-888-e3-80-91-e5-9c-a8eclipse-e7-94-a8arm-linux-e7-bc-96-e8-af-91gtk-e7-a8-8b-e5-ba-8f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【又8】在Eclipse 用Arm-linux 编译GTK程序</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-01-01T12:50:30+08:00">
+                2013-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/个人生活/" itemprop="url" rel="index">
+                    <span itemprop="name">个人生活</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>准备工具：</strong></p>
+<p>1， JDK                   sudo apt-get install sun-java6-jdk</p>
+<p>2， Eclipse        sudo apt-get install eclipse</p>
+<p>3， Glade          sudo apt-get install glade</p>
+<p>4，编译的GTK-arm开发包，参考文章【又7】</p>
+<p>&nbsp;</p>
+<p><strong>软件配置：</strong></p>
+<p>1， 配置 arm-linux-gcc  参考QT 配置，用 arm-linux-gcc –v 检查配置是否成功</p>
+<p>2， 安装 Eclipse CDT 插件 : <a href="http://update.eclipse.org/tools/cdt/releases/new/" title="http://update.eclipse.org/tools/cdt/releases/new/" target="_blank" rel="external">http://update.eclipse.org/tools/cdt/releases/new</a></p>
+<p>3， 配置Eclipse  arm gtk 版本库，</p>
+<p>新建一个C工程以后选择工程的Properties，在弹出的页面上进行如下图设置：</p>
+<p>3.1添加arm版本编译环境，新建arm debug 和arm release 配置</p>
+<p>3.2修改arm debug 和arm release 默认配置，</p>
+<p>1）将它下面GCC C Compiler和GCC C Linker的Command改成arm-linux-gcc，</p>
+<p>将GCC Assembler 修改成arm-linux-as</p>
+<p>2)添加include选项</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/include/cairo</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/include/libglade-2.0</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/include/gtk-2.0</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/lib/gtk-2.0/include</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/include/atk-1.0</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/include/pango-1.0</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/include/X11</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/include/freetype2</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/include/glib-2.0</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/lib/glib-2.0/include</p>
+<p>/home/ats/SDK/gtk-arm/rootfs/usr/include/libpng</p>
+<p>3在GCC C Compiler后 添加LIB库  Miscellaneous在 -c -fmessage-length=0 后：在GCC C Linker后 Miscellaneou添加LIB：</p>
+<p>-L/home/ats/SDK/gtk-arm/rootfs/usr/lib -Wl,–export-dynamic -lgtk-x11-2.0 -lgdk-x11-2.0 -latk-1.0 -lgdk_pixbuf-2.0 -lm -lpangoxft-1.0 -lpangox-1.0 -lpango-1.0 -lgobject-2.0 -lgmodule-2.0 -ldl -lglib-2.0 -lcairo -lpng -lgio-2.0 -lfontconfig -lfreetype -lX11 -lxcb -lXext -lpangoft2-1.0 -lexpat -lpixman-1 -lXrender -lXfixes -lcairo -lXft -lxcb-xlib -lpangocairo-1.0 -lz -lXau -lpng12 –lXdamage</p>
+<p>然后保存就万事OK了，你现在就可以通过Eclipse利用arm-linux-gcc来进行交叉编译了。</p>
+<div style="padding-left: 30px;"><br><br>3.3 交叉编译<br><br>选择工程右键-》Build Configurations –》set Active-》刚刚配置的debug或release 设置<br><br>编译成功的的程序会存在设置的目录里<br><br>4. 配置PC版Eclipse gcc gtk 版本库，方法参考<a href="http://www.ruchee.com/code/c/gtk/eclipse.html" title="http://www.ruchee.com/code/c/gtk/eclipse.html" target="_blank" rel="external">http://www.ruchee.com/code/c/gtk/eclipse.html</a><br><br>5，将Glade设计的文件保存在工程的目录下，修改界面后，重新编译！<br><br>这样就可以用PC版的调试，ARM版release了！<br><br>参考文档：<br><br>1， <a href="http://blog.csdn.net/signsmile/article/details/5930846" title="http://blog.csdn.net/signsmile/article/details/5930846" target="_blank" rel="external">http://blog.csdn.net/signsmile/article/details/5930846</a><br><br>2， <a href="http://www.ruchee.com/code/c/gtk/eclipse.html" title="http://www.ruchee.com/code/c/gtk/eclipse.html" target="_blank" rel="external">http://www.ruchee.com/code/c/gtk/eclipse.html</a><br><br>&nbsp;<br><br></div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/2012-总结/" rel="tag"># 2012 总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/01/01/e3-80-90-e5-8f-887-e3-80-91arm-e7-89-88gtk-e7-bc-96-e8-af-91-e8-bd-ac/" rel="next" title="【又7】Arm 版GTK编译-转">
+                <i class="fa fa-chevron-left"></i> 【又7】Arm 版GTK编译-转
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/01/05/e5-a5-87-e8-99-8e-360-e5-b7-b2-e7-bb-8f-e7-a1-ae-e8-ae-a4-e5-92-8c-google-e8-be-be-e6-88-90-e5-90-88-e4-bd-9c/" rel="prev" title="奇虎 360 已经确认和 Google 达成合作">
+                奇虎 360 已经确认和 Google 达成合作 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

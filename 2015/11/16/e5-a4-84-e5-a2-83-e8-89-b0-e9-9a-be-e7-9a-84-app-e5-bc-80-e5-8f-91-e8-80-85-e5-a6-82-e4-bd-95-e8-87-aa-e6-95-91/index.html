@@ -1,0 +1,770 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="「因为这个行业太饱和了，障碍太多而且难以从中获利。相比之下研发网页就容易的多。」 这是我朋友的公司不再研发原生 App 的原因——在网页端创业简单得多。怎么会这样呢？基于浏览器的网页端生态系统已经存在了 20 多年，而 App 系统却仅存世 5-6 年。可以肯定的说，这并不是因为网站数量少于 App 。 我的脑海中浮现出「饱和」这两个字。如果你还记得高中化学，你应该知道饱和是一种不再溶解新物质的状">
+<meta property="og:type" content="article">
+<meta property="og:title" content="处境艰难的 APP 开发者如何自救">
+<meta property="og:url" content="http://www.yangjungou.com/2015/11/16/e5-a4-84-e5-a2-83-e8-89-b0-e9-9a-be-e7-9a-84-app-e5-bc-80-e5-8f-91-e8-80-85-e5-a6-82-e4-bd-95-e8-87-aa-e6-95-91/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="「因为这个行业太饱和了，障碍太多而且难以从中获利。相比之下研发网页就容易的多。」 这是我朋友的公司不再研发原生 App 的原因——在网页端创业简单得多。怎么会这样呢？基于浏览器的网页端生态系统已经存在了 20 多年，而 App 系统却仅存世 5-6 年。可以肯定的说，这并不是因为网站数量少于 App 。 我的脑海中浮现出「饱和」这两个字。如果你还记得高中化学，你应该知道饱和是一种不再溶解新物质的状">
+<meta property="og:image" content="http://www.yangjungou.com/wp-content/uploads/2015/11/处境艰难的-APP-开发者如何自救1-600x314.jpeg">
+<meta property="og:image" content="http://www.yangjungou.com/wp-content/uploads/2015/11/处境艰难的-APP-开发者如何自救2.jpeg">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="处境艰难的 APP 开发者如何自救">
+<meta name="twitter:description" content="「因为这个行业太饱和了，障碍太多而且难以从中获利。相比之下研发网页就容易的多。」 这是我朋友的公司不再研发原生 App 的原因——在网页端创业简单得多。怎么会这样呢？基于浏览器的网页端生态系统已经存在了 20 多年，而 App 系统却仅存世 5-6 年。可以肯定的说，这并不是因为网站数量少于 App 。 我的脑海中浮现出「饱和」这两个字。如果你还记得高中化学，你应该知道饱和是一种不再溶解新物质的状">
+<meta name="twitter:image" content="http://www.yangjungou.com/wp-content/uploads/2015/11/处境艰难的-APP-开发者如何自救1-600x314.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2015/11/16/e5-a4-84-e5-a2-83-e8-89-b0-e9-9a-be-e7-9a-84-app-e5-bc-80-e5-8f-91-e8-80-85-e5-a6-82-e4-bd-95-e8-87-aa-e6-95-91/"/>
+
+
+
+
+
+  <title>处境艰难的 APP 开发者如何自救 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2015/11/16/e5-a4-84-e5-a2-83-e8-89-b0-e9-9a-be-e7-9a-84-app-e5-bc-80-e5-8f-91-e8-80-85-e5-a6-82-e4-bd-95-e8-87-aa-e6-95-91/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">处境艰难的 APP 开发者如何自救</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-16T14:19:28+08:00">
+                2015-11-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2015/" itemprop="url" rel="index">
+                    <span itemprop="name">2015</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2015/文摘/" itemprop="url" rel="index">
+                    <span itemprop="name">文摘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>「因为这个行业太饱和了，障碍太多而且难以从中获利。相比之下研发网页就容易的多。」</p>
+<p>这是我朋友的公司不再研发原生 App 的原因——在网页端创业简单得多。怎么会这样呢？基于浏览器的网页端生态系统已经存在了 20 多年，而 App 系统却仅存世 5-6 年。可以肯定的说，这并不是因为网站数量少于 App 。</p>
+<p>我的脑海中浮现出「饱和」这两个字。如果你还记得高中化学，你应该知道饱和是一种不再溶解新物质的状态。比如，你一边搅拌一边不停往水里加盐，直到 溶液饱和。如果你继续向水中加盐，无论你如何大力又快速地搅拌，这些盐都会沉到杯底。因为在其中某个时刻，水中已经溶解了足够的盐。</p>
+<p>为什么手机 App 已经趋于饱和时，手机网页仍可持续吸纳新的网站？对于这种现象，我们可以采取哪些措施呢？</p>
+<p><strong>行动 APP 的开发环境究竟有多糟糕？</strong></p>
+<p><a href="http://www.yangjungou.com/wp-content/uploads/2015/11/处境艰难的-APP-开发者如何自救1.jpeg"><img src="http://www.yangjungou.com/wp-content/uploads/2015/11/处境艰难的-APP-开发者如何自救1-600x314.jpeg" alt="处境艰难的 APP 开发者如何自救1"></a></p>
+<p>我们在 Branch 上建立了一个 App 深度连结标准，这些 App 开发者们有着相当的帮助。每天有五亿人通过 Branch 网络转到上千个应用。</p>
+<p>我对 iOS 应用商店里排名前 1000 的非游戏类应用按照相对流量排名，从这张图可以看出结果非常令人震惊。</p>
+<p>我们可以发现，排名第十的 Skype 和排名第一的 Facebook 相比差异悬殊。而排名第 1000 的 Pixable 只占 Facebook 的 0.2%。</p>
+<p>在过去的四周时间里， 45000 个新 App 向 Apple Store 提交了申请。可以说，它们迈入前 1000 的可能性几乎为 0 ；即使它们挤进了前 1000 ，那么一点的造访量根本不可能帮助它们获得任何成功。</p>
+<p>想要获利就更加艰难，因为这些 App 还要支付租金以及营运成本。 Active 的一项研究结果发现，排名前 20 的 APP 仅占 APP 总量的 0.005% ，却赚走了 60% 的利润。</p>
+<p>这种关系在数学上被称为幂律，幂律能够描述二八定律（80% 的价值掌握在20% 的人手里）。更直白地说，幂律能解释为什么 App 系统的价值都集中在一小部分 App 上。</p>
+<p>App 系统非常符合幂律分布，整个系统的下载量和含金量集中于排名在前的少数 App 。而且与 80/20 的比例不同。</p>
+<p>0.01% 的应用掌握着超过 99% 的价值。我们可以叫它应用商店 99/0.01 定律。</p>
+<p>早在 2008 年，手机应用程序的数量就已达到 1000 。这时候应用商店已经饱和。</p>
+<p>困境之源：新出现的 App 难以被用户发现</p>
+<p>为什么应用程序生态系统的幂律如此残酷？为什么用户访问量如此集中？我们看看行动产品消费者是怎样决定是否采纳一个 App 的。</p>
+<p>你只能找到你已经知道的那些 App</p>
+<p>首先，使用 App 的第一步就是让用户要发现潜在的新应用，这是开发人员目前为止面临的最具挑战性的问题。目前主要的解决方法有两个：</p>
+<ol>
+<li>付费促销，这个方法已经被 Facebook 掌控；</li>
+<li>应用商店。然而，最大的问题是这两种方式只适用于已经广为人知的 APP 。<br>付费促销对于大部分应用而言难以维持，因为近几个月的时间里安装的费用已经涨到了 4.14 美元。能够负担如此巨额费用的 App 屈指可数。这意味着付费促销只适用于少数获利高的 App，对大多数 APP 而言是不可能的。</li>
+</ol>
+<p>第二种方法是应用商店的结构和布局。除非你知道你要找的 App 的名字，否则搜寻功能就是鸡肋，因此寻找新上架 App 只有两条出路：主页和排名表。主页是为一些特殊 App 保留的，比如和 Apple、Google 有关的 APP ，还有一些则是对不为大众所知但是非常值得推荐的 APP 集中推荐。</p>
+<p>排行榜是幂律最大的推手，因为它会使排名在前的应用越来越受欢迎。一旦你进入总体排名前六或者分类排名前六，那么你将永远存活在 App 生态系统中。排行榜会不停地将你推送给新用户，因为新用户获取新应用的基本方法就是排行榜，在不断循环往复中你就会保持领先定位。从左图中可以看到排名最 前的六个App 中有四个是家喻户晓的应用，另外两个是游戏。所以要挤进榜单简直是难上加难。</p>
+<p>一些投机的经销商甚至花钱「刷榜」——在海外购买虚假的下载量，只要很短的时间就能让你的 App 登上分类排名榜的前列。一旦登榜，你就不再需要「刷榜」了，因为你的 App 就会永远位于顶端。这不是个令人不齿的方法，但是从某些方面说明了目前 App 的生存状况。</p>
+<p><strong>用户为什么不下载你的 App？</strong></p>
+<p><strong><a href="http://www.yangjungou.com/wp-content/uploads/2015/11/处境艰难的-APP-开发者如何自救2.jpeg"><img src="http://www.yangjungou.com/wp-content/uploads/2015/11/处境艰难的-APP-开发者如何自救2.jpeg" alt="处境艰难的 APP 开发者如何自救2"></a></strong></p>
+<p>虽然有人发现了你的 App ，还是会有许多因素会导致你的 App 无法被采用，例如安装和配置 App 的步骤。</p>
+<p>应用商店的界面非常小，但是却直接关系到用户是否会下载安装你的 APP 。打开界面，你就能看到位于中间靠上部分的用户评分。据不完全调查结果，那些有精力对大部分 App 评论和打分的人对于 App 来说并不算是见多识广。除非你经常管理评论，否则你的 App 很可能是 2 星或者 3 星。没有什么比低分更要命的。</p>
+<p>其次，如果你已经使出浑身解数得到了 4 星评价，接下来你要做的就是利用标题、截图和描述来吸引用户下载。因为这不是动态可变的，你必须得做出最吸引人的界面。为了吸引眼球，很多开发者绞尽脑汁，比如大写每一个字母或者高亮度显示。</p>
+<p><strong>宝贵的存储空间</strong></p>
+<p>最后一个决定性的因素是用户是否愿意将他们宝贵的储存空间让给你的 App 。每个人的手机储存空间有限，如果你的 App 需要占用很多存储空间，许用户连装都装不上。</p>
+<p>雪上加霜的是手机制造商还会利用手机储存空间来赚取额外利润。固态硬盘的容量成长非常迅速，在计算机市场已经达到 TB 等级，但是 iPhone 的标准配备还是和几年前一样的 16 GB。苹果在手机储存空间上赚了不少钱。如果你的手机要升级到 64 GB，每 GB 你得花费 2 美元，而市场上的固态硬盘的价格是每 GB 0.4 美元。</p>
+<p>在空间有限的情况下，用户不得不在他们心爱的照片集和新的 App 之间做一个取舍。</p>
+<p><strong>打破 APP 的幂律</strong></p>
+<p>由于目前的状况，越来越多的开发人员离开 App 市场另寻沃土。我们能否解决这个问题呢？</p>
+<p>更优化的发现 App 的途径</p>
+<p>第一个要解决的问题就是如何发掘 APP 。</p>
+<p>我提出一个与 Hacker News 以及 Reddit 相似的算法计算应用商店的排行榜。用这个方法，随着 App 存在的时间变长，它的排名会逐渐下降。一旦 App 更新了，那么它的存在时间也会相应更新。同时 App 的下载量也决定了它的排名高低，随着时间的推移，一个广为人知的 App 下载量会相应减少，它将逐渐退出榜单。</p>
+<p>这样做的好处是让相对而言总采用量少的 App 能够出现在排行榜上，当它们被介绍给新的用户时就会获得更多的下载量。如此一来，那些永远都没有办法出现在排行榜上的 App 才有出头的日子。</p>
+<p>App 内存清理与手机储存空间的释放</p>
+<p>第二个要解决的问题是获取途径。</p>
+<p>随着 App 数量的不断增加， App 已经成为了生活的一部分。用户真正关心的是这款 App 的内容而不是花哨的外表。我们需要获取原生 App 的新方法，需要 APP 与 APP 之间流畅转换，需要打破 APP 使用的障碍。</p>
+<p>我们看看网页端 App 是怎么做的。你在网页上获取感兴趣的内容的这个过程是完全无缝的。一个用户一天可能要访问30 到40 个网页，每一次链接过程在眨眼间完成。网页 APP 的访问很便捷，因为这个系统设计要应对的就是临时访问和浏览。</p>
+<p>如果安卓和苹果系统也采用与浏览器相似的访问方法会怎样？一旦用户表现出获取某App 的「意图」，它就会立即下载并且打开这个App，而不需要访问应用商店。如果这款APP 近日被打入冷宫，那么操作系统就会自动清理相关的文件，为新的App 腾出空间。</p>
+<p>「意图」的定义是多样的。例如，用户在推特上点击了一个 App 连结——目前来说这个链接将会打开应用商店。点击链接可能是用户「意图」的表现方式，这个App 应该开始自动下载，并且弹出内容，如果技术允许整个过程只用几秒钟。</p>
+<p>要强调的一点是，需要从浏览器的授权域获得授权后才能下载App。这是App 开发阶段的审批过程的一部分，可以确保应用程序的质量同时防止App 诈骗行为。如果用户点击了授权域的某个链接，下载进度就会全屏显示在屏幕上，直到下载完成并显示其内容。这和网页早期基于flash 的应用非常相似。</p>
+<p><strong>必须要做的事情</strong></p>
+<p>最后，App 的命运掌握在研发平台的手中，因为平台决定了整个实施的过程，比如 App 是如何被发现、排名的。开发人员已经做了大量努力，作为用户我们必须做的就是说出我们的忧虑，推动 App 发展。如果我们什么都不做，那么 App 的市场就会停滞不前，开发人员们不得不转向别的开发平台。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/10/11/e4-b8-aa-e4-ba-ba-e6-95-b0-e6-8d-ae-e5-a4-87-e4-bb-bd-e7-9a-84-e5-b8-b8-e8-a7-81-e6-96-b9-e6-a1-88/" rel="next" title="个人数据备份的常见方案">
+                <i class="fa fa-chevron-left"></i> 个人数据备份的常见方案
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/02/26/google-protocol-buffer-e4-bb-8b-e7-bb-8d-e4-b8-8e-e4-bd-bf-e7-94-a8/" rel="prev" title="Google Protocol Buffer 介绍与使用">
+                Google Protocol Buffer 介绍与使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

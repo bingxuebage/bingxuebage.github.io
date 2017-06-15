@@ -1,0 +1,794 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="1. ArrayList对象在创建时如果不指定初始容量，那么它的初始容量会是多少？[code lang=java]探索ArrayList自动改变size真相ArrayList的列表对象实质上是存储在一个引用型数组里的，有人认为该数组有“自动增长机制”可以自动改变size大小。正式地说，该数组是无法改变大小的，实际上它只是改变了该引用型数组的指向而已。下面，让我们来看看java是怎样实现ArrayL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试拾遗-JAVA">
+<meta property="og:url" content="http://www.yangjungou.com/2016/07/21/e6-8b-be-e9-81-97-e9-84-99-e8-a7-86-java/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="1. ArrayList对象在创建时如果不指定初始容量，那么它的初始容量会是多少？[code lang=java]探索ArrayList自动改变size真相ArrayList的列表对象实质上是存储在一个引用型数组里的，有人认为该数组有“自动增长机制”可以自动改变size大小。正式地说，该数组是无法改变大小的，实际上它只是改变了该引用型数组的指向而已。下面，让我们来看看java是怎样实现ArrayL">
+<meta property="og:image" content="http://7xohph.com1.z0.glb.clouddn.com/201607212304.jpg">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.184Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="面试拾遗-JAVA">
+<meta name="twitter:description" content="1. ArrayList对象在创建时如果不指定初始容量，那么它的初始容量会是多少？[code lang=java]探索ArrayList自动改变size真相ArrayList的列表对象实质上是存储在一个引用型数组里的，有人认为该数组有“自动增长机制”可以自动改变size大小。正式地说，该数组是无法改变大小的，实际上它只是改变了该引用型数组的指向而已。下面，让我们来看看java是怎样实现ArrayL">
+<meta name="twitter:image" content="http://7xohph.com1.z0.glb.clouddn.com/201607212304.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2016/07/21/e6-8b-be-e9-81-97-e9-84-99-e8-a7-86-java/"/>
+
+
+
+
+
+  <title>面试拾遗-JAVA | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2016/07/21/e6-8b-be-e9-81-97-e9-84-99-e8-a7-86-java/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">面试拾遗-JAVA</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-21T23:13:06+08:00">
+                2016-07-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2016/" itemprop="url" rel="index">
+                    <span itemprop="name">2016</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2016/面试/" itemprop="url" rel="index">
+                    <span itemprop="name">面试</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="1-ArrayList对象在创建时如果不指定初始容量，那么它的初始容量会是多少？"><a href="#1-ArrayList对象在创建时如果不指定初始容量，那么它的初始容量会是多少？" class="headerlink" title="1. ArrayList对象在创建时如果不指定初始容量，那么它的初始容量会是多少？"></a>1. ArrayList对象在创建时如果不指定初始容量，那么它的初始容量会是多少？</h1><p>[code lang=java]<br>探索ArrayList自动改变size真相<br>ArrayList的列表对象实质上是存储在一个引用型数组里的，有人认为该数组有“自动增长机制”可以自动改变size大小。正式地说，该数组是无法改变<br>大小的，实际上它只是改变了该引用型数组的指向而已。下面，让我们来看看java是怎样实现ArrayList类的。<br>一、ArrayList类的实质<br>     ArrayList底层采用Object类型的数组实现，当使用不带参数的构造方法生成ArrayList对象时，<br>实际上会在底层生成一个长度为10的Object类型数组。<br>    首先，ArrayList定义了一个私有的未被序列化的数组elementData，用来存储ArrayList的对象列表（注意只定义未初始）：<br>　　private transient Object[] elementData;</p>
+<pre><code>其次，以指定初始容量（Capacity）或把指定的Collection转换为引用型数组后实例化elementData数组；如果没有指定，则预置初始容量为10进行
+</code></pre><p>实例化。把私有数组预先实例化，然后通过copyOf方法覆盖原数组，是实现自动改变ArrayList的大小(size)的关键。有人说ArrayList是复杂的数组，我<br>认为不如说ArrayList是关于数组的系统的方法组合。<br>　　ArrayList的构造方法源码如下：<br>    // 用指定的初始容量构造一个空列表。<br>    public ArrayList(int initialCapacity) {<br>        super();<br>        if (initialCapacity &lt; 0)<br>            throw new IllegalArgumentException(&quot;Illegal Capacity: &quot;+initialCapacity);<br>        this.elementData = new Object[initialCapacity];//属性指向新建长度为初始容量的临时数组<br>    }<br>    // 使用初始容量10构造一个空列表<br>    public ArrayList() {<br>        this(10);<br>    }<br>    / *构造包含利用collection的迭代器按顺序返回的指定collection元素的列表</p>
+<pre><code> * @param c 集合，它的元素被用来放入列表t
+ * @throws NullPointerException 如果指定集合为 null
+ */
+public ArrayList(Collection&amp;lt;? extends E&amp;gt; c) {
+    elementData = c.toArray();//用Collection初始化数组elementData
+    size = elementData.length;
+    if (elementData.getClass() != Object[].class)
+        elementData = Arrays.copyOf(elementData, size, Object[].class);
+}
+</code></pre><p>二、ArrayList实现自动改变size机制<br>   为了实现这一机制，java引进了Capacity和size概念，以区别数组的length。为了保证用户增加新的列表对象，java设置了最小容量（minCapacity）<br>，通常情况上，它大于列表对象的数目，所以Capactiy虽然就是底层数组的长度（length），但是对于最终用户来讲，它是无意义的。而size存储着列表<br>对象的数量，才是最终用户所需要的。为了防止用户错误修改，这一属性被设置为privae的，不过可以通过size()获取。<br>   下面，对ArrayList的初始以及其列表对象的增加和删除等三种情况下的size自动改变机制进行分析。<br>   1、初始Capacity和size值。<br>   从上面给出的ArrayList构造方法源码中，我们不难看出Capacity初始值（initialCapacity）可以由用户直接指定或由用户指定的Collection集合存<br>储的对象数目确定，如果没有指定，系统默认为10。而size的被声明为int型变量，默认为0，当用户指定Collection创建ArrayList时，size值等于<br>initialCapacity。</p>
+<p>   2、add()方法<br>    该方法的源码如下：<br>    public boolean add(E e) {<br>        ensureCapacityInternal(size + 1);<br>        elementData[size++] = e;//添加对象时，自增size<br>        return true;<br>    }<br>    方法中调用的ensureCapacityInternal主要用来调整容量，修改elementData数组的指向。其中涉及到3个方法的调用，其核心在于grow方法：</p>
+<pre><code>private void ensureCapacityInternal(int minCapacity) {
+    modCount++;//定义于ArrayList的父类AbstractList，用于存储结构修改次数
+    // overflow-conscious code
+    if (minCapacity - elementData.length &amp;gt; 0)
+        grow(minCapacity);
+}  
+private void grow(int minCapacity) {
+    // overflow-conscious code
+    int oldCapacity = elementData.length;
+    int newCapacity = oldCapacity + (oldCapacity &amp;gt;&amp;gt; 1);//新容量扩大到原容量的1.5倍，右移一位相关于原数值除以2。
+    if (newCapacity - minCapacity &amp;lt; 0)
+        newCapacity = minCapacity;
+    if (newCapacity - MAX_ARRAY_SIZE &amp;gt; 0)
+        newCapacity = hugeCapacity(minCapacity);
+    // minCapacity is usually close to size, so this is a win:
+    elementData = Arrays.copyOf(elementData, newCapacity);
+}
+private static int hugeCapacity(int minCapacity) {
+    if (minCapacity &amp;lt; 0) // overflow
+        throw new OutOfMemoryError();
+    return (minCapacity &amp;gt; MAX_ARRAY_SIZE) ?
+        Integer.MAX_VALUE :
+        MAX_ARRAY_SIZE;//MAX_ARRAY_SIZE和Integer.MAX_VALUE为常量，详细请参阅下面的注解
+}
+</code></pre><p>   通过以上代码，我们可知java自动增加ArrayList大小的思路是：向ArrayList添加对象时，原对象数目加1如果大于原底层数组长度，则以适当长度新<br>建一个原数组的拷贝，并修改原数组，指向这个新建数组。原数组自动抛弃（java垃圾回收机制会自动回收）。size则在向数组添加对象，自增1。</p>
+<p>   注解：<br>    //定义于该类的常量，用来分配数组的size最大值。一些 VMs在数组里保留字头，试图分配更大数组时可能导致OutOfMemoryError:被请求数组的<br>size超出VM界限。<br>    private static final int MAX_ARRAY_SIZE = Integer.MAX_VALUE - 8;<br>   //在java.lang.Integer类中常量MIN_VALUE、MAX_VALUE如下：<br>   public static final int   MIN_VALUE = 0x80000000;//整型取值区间下界：－2147483648<br>   public static final int   MAX_VALUE = 0x7fffffff;//整型取值区间上界：2147483647<br>　　//在java.util.AbstractList中modCount定义如下：<br>　　protected transient int modCount = 0;<br>    3、remove()方法<br>    该重构方法其一源码如下（其它的就不累述了）：<br>    public E remove(int index) {<br>        rangeCheck(index);<br>        modCount++;<br>        E oldValue = elementData(index);<br>        int numMoved = size - index - 1;<br>        if (numMoved &gt; 0)<br>            System.arraycopy(elementData, index+1, elementData, index,<br>                             numMoved);//将后面的列表对象前移<br>        elementData[–size] = null; // 数组前移一位，size自减，空出来的位置置null，具体的对象的销毁由Junk收集器负责<br>        return oldValue;<br>    }<br>    private void rangeCheck(int index) {//边界检查<br>        if (index &lt; 0 || index &gt;= this.size)<br>           throw new IndexOutOfBoundsException(outOfBoundsMsg(index));<br>    }<br>    E elementData(int index) {//获取指定index所在位置的对象<br>        return (E) elementData[index];<br>    }</p>
+<pre><code>通过remove()源码的学习，我们不难看出，其改变ArrayList大小的核心与add()方法相似，都是同数组拷贝。
+另外，如果确有必要，用户也可以指定ArrayList实例的容量，可以有效的降低时间成本。它是通过调用ensureCapacityInternal来实现的，源代码
+</code></pre><p>如下：<br>    public void ensureCapacity(int minCapacity) {<br>        if (minCapacity &gt; 0)<br>            ensureCapacityInternal(minCapacity);<br>    }<br>    因为size为private的，java给出方法来访问它：<br>    public int size() {<br>         checkForComodification();<br>         return this.size;<br>    }</p>
+<pre><code>综上所述，在用户向ArrayList追加对象时，Java总是要先计算容量（Capacity）是否适当，若容量不足则把原数组拷贝到以指定容量为长度创建的
+</code></pre><p>新数组内，并对原数组变量重新赋值，指向新数组。在这同时，size进行自增1。在删除对象时，先使用拷贝方法把指定index后面的对象前移1位（如果<br>有的话），然后把空出来的位置置null，交给Junk收集器销毁，size自减1，即完成了。</p>
+<p>[/code]</p>
+<h1 id="2-Java-IO详解"><a href="#2-Java-IO详解" class="headerlink" title="2  Java IO详解"></a>2  Java IO详解</h1><ul>
+<li>初学java，一直搞不懂java里面的io关系，在网上找了很多大多都是给个结构图草草描述也看的不是很懂。而且没有结合到java7 的最新技术，所以自己来整理一下，有错的话请指正，也希望大家提出宝贵意见。<br>首先看个图：（如果你也是初学者，我相信你看了真个人都不好了，想想java设计者真是煞费苦心啊！）</li>
+</ul>
+<p><img src="http://7xohph.com1.z0.glb.clouddn.com/201607212304.jpg" alt=""></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/05/11/e5-9b-bd-e5-86-85-e7-bd-91-e7-ab-99-e5-b8-b8-e7-94-a8js-e5-ba-93cdn-e6-9c-8d-e5-8a-a1-e6-95-b4-e7-90-86/" rel="next" title="国内网站常用JS库CDN服务整理">
+                <i class="fa fa-chevron-left"></i> 国内网站常用JS库CDN服务整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/21/e3-80-8ajava-e4-b8-8e-e6-a8-a1-e5-bc-8f-e3-80-8b-e4-b9-8b-e8-a3-85-e9-a5-b0-e6-a8-a1-e5-bc-8f/" rel="prev" title="《JAVA与模式》之装饰模式">
+                《JAVA与模式》之装饰模式 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-ArrayList对象在创建时如果不指定初始容量，那么它的初始容量会是多少？"><span class="nav-number">1.</span> <span class="nav-text">1. ArrayList对象在创建时如果不指定初始容量，那么它的初始容量会是多少？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-Java-IO详解"><span class="nav-number">2.</span> <span class="nav-text">2  Java IO详解</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

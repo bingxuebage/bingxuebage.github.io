@@ -1,0 +1,731 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="osc," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="oschina 发布于： 2012年12月10日 如果问100个软件公司的CEO，问他们是否愿意发布含有bug的软件。他们会说什么？50个根本不愿意回答，会说一些软件bug是这个行业中一个 需要解决的大问题等不着边的话；40个会说“当然不会！”，并立即给他们的投资者打电话说这是诬陷，会追究法律责任。9位会低着头说“无能为力”。而这最 后一位会直盯着你的眼睛说“当然会。” 我不知道这最后一位是如何领">
+<meta name="keywords" content="osc">
+<meta property="og:type" content="article">
+<meta property="og:title" content="完美软件的经济学分析">
+<meta property="og:url" content="http://www.yangjungou.com/2012/12/10/e5-ae-8c-e7-be-8e-e8-bd-af-e4-bb-b6-e7-9a-84-e7-bb-8f-e6-b5-8e-e5-ad-a6-e5-88-86-e6-9e-90/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="oschina 发布于： 2012年12月10日 如果问100个软件公司的CEO，问他们是否愿意发布含有bug的软件。他们会说什么？50个根本不愿意回答，会说一些软件bug是这个行业中一个 需要解决的大问题等不着边的话；40个会说“当然不会！”，并立即给他们的投资者打电话说这是诬陷，会追究法律责任。9位会低着头说“无能为力”。而这最 后一位会直盯着你的眼睛说“当然会。” 我不知道这最后一位是如何领">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.175Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="完美软件的经济学分析">
+<meta name="twitter:description" content="oschina 发布于： 2012年12月10日 如果问100个软件公司的CEO，问他们是否愿意发布含有bug的软件。他们会说什么？50个根本不愿意回答，会说一些软件bug是这个行业中一个 需要解决的大问题等不着边的话；40个会说“当然不会！”，并立即给他们的投资者打电话说这是诬陷，会追究法律责任。9位会低着头说“无能为力”。而这最 后一位会直盯着你的眼睛说“当然会。” 我不知道这最后一位是如何领">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2012/12/10/e5-ae-8c-e7-be-8e-e8-bd-af-e4-bb-b6-e7-9a-84-e7-bb-8f-e6-b5-8e-e5-ad-a6-e5-88-86-e6-9e-90/"/>
+
+
+
+
+
+  <title>完美软件的经济学分析 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2012/12/10/e5-ae-8c-e7-be-8e-e8-bd-af-e4-bb-b6-e7-9a-84-e7-bb-8f-e6-b5-8e-e5-ad-a6-e5-88-86-e6-9e-90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">完美软件的经济学分析</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-10T14:06:41+08:00">
+                2012-12-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/文摘/" itemprop="url" rel="index">
+                    <span itemprop="name">文摘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://my.oschina.net/osadmin" target="_blank" rel="external">oschina</a> 发布于： 2012年12月10日</p>
+<p>如果问100个软件公司的CEO，问他们是否愿意发布含有bug的软件。他们会说什么？50个根本不愿意回答，会说一些软件bug是这个行业中一个 需要解决的大问题等不着边的话；40个会说“当然不会！”，并立即给他们的投资者打电话说这是诬陷，会追究法律责任。9位会低着头说“无能为力”。而这最 后一位会直盯着你的眼睛说“当然会。”</p>
+<p>我不知道这最后一位是如何领导一个软件公司的，因为他明显学过<em>经济学</em>。</p>
+<p>软件不可能没有bug，如果你希望发布一个完美的软件，你必须解决藏在代码里的所有bug。(想把它们挡在门外？不可能，单元测试，敏捷方法，scrum，以及任何当今你能想到的方法论，都不能防止bug进入你的代码库。如果我错了，我相信你会在评论里告诉我。)</p>
+<p>正如你期望的，你在修补bug中投入越多的时间和资金，你就能解决越多的bug。但是，不幸的是，我们的来自经济学的死对头，<a href="http://en.wikipedia.org/wiki/Diminishing_returns" target="_blank" rel="external">受益递减法则</a>， 同样适用于这个过程。专业的讲，这个法则指在投入生产要素后，每单位生产要素所能提供的产量增加发生递减的现象。用通俗的话讲，这就是说，你能从这个过程 中得到的并不等同于你所有投入的。相反，你的产出会随着投入到增加形成一条迅速下降的曲线，曲线的末端、投入到轴线上，最终成为一条长尾。</p>
+<p>举个例子，假如一个程序有100个bug，我们知道这需要投入100分的努力来找到并修复这所有100个bug。受益递减法则告诉我们，头40分努 力将会找到70个bug，而接下来的30分努力能找到20个bug，剩下的30分努力能找到最后的10个bug。这就是说，头70个bug(很简单的 bug)很便宜，容易找到，算起来每个bug只消耗<code>40 / 70 = 0.571</code>分努力。接下来的20个bug(藏的较深的bug)要昂贵的多，每个消耗<code>30 / 20 = 1.5</code>分努力，而最后的10个bug(真正难发现的bug)惊人的昂贵，每个消耗<code>30 / 10 = 3</code>分努力。消灭这最后的10个bug要比消灭起初的70个bug，每个bug需要投入的时间或资金要多出5倍。从付出的努力看，消灭大多数bug(70%-90%)和消灭所有bug，它们的成本有巨大差别，从数字上看相差两倍之多。</p>
+<p>而在现实中，实际情况比这更糟糕。因为你不知道何时能干掉这最后一个bug——没有一个像上面例子那样的倒计数——你不得不不断的去寻找更多的bug，即使是它们已经全部被干掉了，你也要去证明它们确是全部被干掉了。如果你想消灭所有的bug，你还要计算你的成本。</p>
+<p>所以，消灭一个程序中所有的bug是一件代价很大的事。不妨让我们花一分钟这样思考一下：一个软件公司最终决定要这么做。软件公司并没有设定像“发 布没有bug的软件”的目标——他们设定的目标是“11月19号发布”——于是，这个目标改变了公司的测试计划和开发计划(不论有没有计划)，这必然意味 着的预算的增加。现在，你想象一下，谁会为这多出的预算买单？公司？(嗨!)如果你没有在软件公司工作过，让我来给你一点提示：<em>非也。</em>软件公司会把成本转嫁到客户身上。因此可以得出，你喜欢的软件都是你支付的起的软件。我得到的消息是：你喜欢有bug的软件。(开源软件也是如此。除非你愿意花更多的钱或等更长的时间。很有可能你会接受去忍受次等的软件事实。)</p>
+<p>现在澄清一下，我并不是说软件公司应该发布有大量严重bug的软件。我是说他们的软件里可以有少量的小bug。</p>
+<p>如何知道一个bug是大还是小？你应该思考谁会遇到它，当遇到时会发生什么样的坏情况。如果一个用户，进入第三层菜单，打开一个高级配置窗口，选中 三个复选框，在敲击“A”键时得到了一个奇怪的错误信息，这是小bug。它埋的很深，当碰到它时人们会说“靠”，然后改为点击按钮，然后就会愉快的做其它 事情去了。如果在使用你的程序中一个常用的操作时崩溃，那这就是个大bug。大部分人遇到这样的bug时都会愤怒不已。</p>
+<p>所以，我要提出一个判断你的软件何时满足发布条件的黄金法则。这个黄金法则内容是，你应该不断的测试并修复软件中的bug，直到发现这些bug是：</p>
+<ol>
+<li>不会让你的公司蒙羞。</li>
+<li>不会激怒你的客户。<br>相比起让一些用户遇到这些并不在于的bug的代价，你的要找出程序中所有bug并确保全部纠正的做法代价实在太高。前提条件是，不要让用户做你的测 试员——如果你这样做，必定会跟黄金法则冲突——宁愿相信所有的bug并非生来平等，有些能影响一个产品的发布，而另一些则不然。不要害怕发布的产品中有 bug。如果你开发的是人们想要的好软件，一些bug的存在并不会打搅他们，尤其是当软件升级操作简便时，比如通过SaaS或Web应用。</li>
+</ol>
+<p>如果你的软件测试符合黄金法则，那么，你的客户最迫切得到的是你的软件，而不是希望你去修改那些小bug。所以，准备发布吧！</p>
+<p>哦，别忘了去问那最后一个CEO关于炒股的技巧。经济学家的公文包里总有最好的数据。</p>
+<p>[本文英文原文链接：<a href="http://sigpwned.com/content/economics-perfect-software?v=1" target="_blank" rel="external">The Economics of Perfect Software</a> ]</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/osc/" rel="tag"># osc</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/12/10/e7-a0-94-e7-a9-b6-e4-ba-ba-e5-91-98-e5-8f-91-e7-8e-b0-gps-e7-b3-bb-e7-bb-9f-e7-9a-84-e4-b8-a5-e9-87-8d-e6-bc-8f-e6-b4-9e/" rel="next" title="研究人员发现 GPS 系统的严重漏洞">
+                <i class="fa fa-chevron-left"></i> 研究人员发现 GPS 系统的严重漏洞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2012/12/11/e9-93-81-e9-81-93-e9-83-a8-e7-a7-b0-e7-81-ab-e8-bd-a6-e7-a5-a8-e4-ba-8c-e7-bb-b4-e7-a0-81-e5-b7-b2-e8-a2-ab-e5-bc-ba-e5-8a-a0-e5-af-86/" rel="prev" title="铁道部称火车票二维码已被强加密">
+                铁道部称火车票二维码已被强加密 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

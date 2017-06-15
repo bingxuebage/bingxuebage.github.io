@@ -1,0 +1,866 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="testpbprotocol buffer Android demo Google Protocol Buffer 介绍与使用简介 官网https://developers.google.com/protocol-buffers/ Google Protocol Buffer( 以下简称PB) 是 Google 公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Google Protocol Buffer 介绍与使用">
+<meta property="og:url" content="http://www.yangjungou.com/2016/02/26/google-protocol-buffer-e4-bb-8b-e7-bb-8d-e4-b8-8e-e4-bd-bf-e7-94-a8/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="testpbprotocol buffer Android demo Google Protocol Buffer 介绍与使用简介 官网https://developers.google.com/protocol-buffers/ Google Protocol Buffer( 以下简称PB) 是 Google 公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Google Protocol Buffer 介绍与使用">
+<meta name="twitter:description" content="testpbprotocol buffer Android demo Google Protocol Buffer 介绍与使用简介 官网https://developers.google.com/protocol-buffers/ Google Protocol Buffer( 以下简称PB) 是 Google 公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2016/02/26/google-protocol-buffer-e4-bb-8b-e7-bb-8d-e4-b8-8e-e4-bd-bf-e7-94-a8/"/>
+
+
+
+
+
+  <title>Google Protocol Buffer 介绍与使用 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2016/02/26/google-protocol-buffer-e4-bb-8b-e7-bb-8d-e4-b8-8e-e4-bd-bf-e7-94-a8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Google Protocol Buffer 介绍与使用</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-02-26T14:24:54+08:00">
+                2016-02-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2016/" itemprop="url" rel="index">
+                    <span itemprop="name">2016</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="testpb"><a href="#testpb" class="headerlink" title="testpb"></a>testpb</h1><p>protocol buffer Android demo</p>
+<h2 id="Google-Protocol-Buffer-介绍与使用"><a href="#Google-Protocol-Buffer-介绍与使用" class="headerlink" title="Google Protocol Buffer 介绍与使用"></a><a href="https://github.com/bingxuebage/testpb#google-protocol-buffer-介绍与使用" target="_blank" rel="external"></a>Google Protocol Buffer 介绍与使用</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a><a href="https://github.com/bingxuebage/testpb#简介" target="_blank" rel="external"></a>简介</h3><ul>
+<li>官网<a href="https://developers.google.com/protocol-buffers/" target="_blank" rel="external">https://developers.google.com/protocol-buffers/</a></li>
+<li>Google Protocol Buffer( 以下简称PB) 是 Google 公司内部的混合语言数据标准，目前已经正在使用的有超过 48,162 种报文格式定义和超过 12,183 个 .proto 文件。他们用于 RPC 系统和持续数据存储系统。PB是一种轻便高效的结构化数据存储格式，可以用于结构化数据串行化，或者说序列化。它很适合做数据存储或 RPC 数据交换格式。可用于通讯协议、数据存储等领域的语言无关、平台无关、可扩展的序列化结构数据格式。<blockquote>
+<p>“Protocol Buffers是一种以有效并可扩展的格式编码结构化数据的方式。”</p>
+<pre><code>message Person {
+  required int32 id = 1;
+  required string name = 2;
+  optional string email = 3;
+}
+</code></pre></blockquote>
+</li>
+</ul>
+<h3 id="PB-的优点"><a href="#PB-的优点" class="headerlink" title="PB 的优点"></a><a href="https://github.com/bingxuebage/testpb#pb-的优点" target="_blank" rel="external"></a>PB 的优点</h3><ul>
+<li><p>性能好，效率高</p>
+<blockquote>
+<p>同 XML 相比， PB 的主要优点在于性能高。它以高效的二进制方式存储，比 XML 小 3 到 10 倍，快 20 到 100 倍。Protobuf 序列化后所生成的二进制消息非常紧凑，这得益于 Protobuf 采用的非常巧妙的 <a href="https://developers.google.com/protocol-buffers/docs/encoding" target="_blank" rel="external">Encoding</a> 方法。</p>
+<p>Total Time 指一个对象操作的整个时间，包括创建对象，将对象序列化为内存中的字节序列，然后再反序列化的整个过程。从测试结果可以看到 Protobuf 的成绩很好，感兴趣的读者可以自行到<a href="http://code.google.com/p/thrift-protobuf-compare/wiki/Benchmarking" target="_blank" rel="external">网站</a>上了解更详细的测试结果。</p>
+</blockquote>
+</li>
+<li><p>代码生成机制，数据解析类自动生成</p>
+<blockquote>
+<p>PB 语义更清晰，无需类似 XML 解析器的东西（因为 PB 编译器会将 .proto 文件编译生成对应的数据访问类以对 PB数据进行序列化、反序列化操作）。使用 PB无需学习复杂的文档对象模型，PB 的编程模式比较友好，简单易学，同时它拥有良好的文档和示例，对于喜欢简单事物的人们而言，PB 比其他的技术更加有吸引力</p>
+</blockquote>
+</li>
+<li><p>支持向后兼容和向前兼容</p>
+<blockquote>
+<p>它有一个非常棒的特性，即“向后”兼容性好，人们不必破坏已部署的、依靠“老”数据格式的程序就可以对数据结构进行升级。这样您的程序就可以不必担心因为消息结构的改变而造成的大规模的代码重构或者迁移的问题。因为添加新的消息中的 field 并不会引起已经发布的程序的任何改变。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="PB-使用-java"><a href="#PB-使用-java" class="headerlink" title="PB 使用(java)"></a><a href="https://github.com/bingxuebage/testpb#pb-使用java" target="_blank" rel="external"></a>PB 使用(java)</h3><ul>
+<li><p>step1： 下载protobuf</p>
+<blockquote>
+<p><a href="https://github.com/google/protobuf" target="_blank" rel="external">下载</a>并编译获得proto.exe和protobuf-java.jar 也可以直接从网上下载proto.exe <a href="http://repo1.maven.org/maven2/com/google/protobuf/protoc/" target="_blank" rel="external">下载</a>和protobuf-java-2.4.1.jar（<a href="https://github.com/google/protobuf/releases" target="_blank" rel="external">下载</a>）</p>
+</blockquote>
+</li>
+<li><p>step2：编写.proto文件，eg：</p>
+<div class="highlight highlight-source-c"><br><pre>    option java_package = <span class="pl-s"><span class="pl-pds">“</span>com.jeson.roster.proto<span class="pl-pds">“</span></span>;<br>option java_outer_classname = <span class="pl-s"><span class="pl-pds">“</span>Roster<span class="pl-pds">“</span></span>;<br><br>message Student{<br>required int32 id = <span class="pl-c1">1</span>;<br>required string name = <span class="pl-c1">2</span>;<br><br><span class="pl-k">enum</span> Sex{<br>MALE = <span class="pl-c1">0</span>;<br>FEMALE = <span class="pl-c1">1</span>;<br>}<br><br>required Sex sex = <span class="pl-c1">3</span>;<br><br>}<br><br>message StudentRoster{<br>repeated Student student = <span class="pl-c1">1</span>;<br>}<br></pre><br></div>
+</li>
+<li><p>step3：编译.proto文件生成 java类文件：在proto.exe目录下：protoc –java_out=./src ./proto/msg.proto</p>
+<blockquote>
+<p>在所使用的proto文件路径下打开cmd窗口执行以下命令</p>
+<div class="highlight highlight-source-c"><br><pre>    protoc -I=源地址 –java_out=目标地址  源地址/xxx.proto</pre><br></div>
+</blockquote>
+</li>
+<li><p>step4：导入java类文件和依赖包直接使用</p>
+<blockquote>
+<p>Android Studio eg : <a href="https://github.com/bingxuebage/testpb" target="_blank" rel="external">完整demo地址</a></p>
+<blockquote>
+<p>1 添加依赖包 compile ‘com.google.protobuf:protobuf-java:3.0.0-beta-2’</p>
+<p>2 导入生成的 Roster 到对应的package下</p>
+<p>3 使用Roster 序列化或反序列化数据<br><div class="highlight highlight-source-java"><br><pre>    <span class="pl-k">package</span> <span class="pl-smi">com.jeson.testpb</span>;</pre></div></p>
+</blockquote>
+</blockquote>
+<p><span class="pl-k">import</span> <span class="pl-smi">com.jeson.roster.proto.Roster.Student</span>;<br><span class="pl-k">import</span> <span class="pl-smi">com.jeson.roster.proto.Roster.Student.Sex</span>;<br><span class="pl-k">import</span> <span class="pl-smi">com.jeson.roster.proto.Roster.StudentRoster</span>;</p>
+<p><span class="pl-k">import</span> <span class="pl-smi">java.io.FileInputStream</span>;<br><span class="pl-k">import</span> <span class="pl-smi">java.io.FileNotFoundException</span>;<br><span class="pl-k">import</span> <span class="pl-smi">java.io.FileOutputStream</span>;<br><span class="pl-k">import</span> <span class="pl-smi">java.io.IOException</span>;<br><span class="pl-k">import</span> <span class="pl-smi">java.util.ArrayList</span>;<br><span class="pl-k">import</span> <span class="pl-smi">java.util.List</span>;</p>
+<p><span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-en">InfoHelper</span> {</p>
+<pre><code>&lt;span class=&quot;pl-k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;final&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;FILE_NAME&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;/mnt/sdcard/roster.dat&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;;
+
+&lt;span class=&quot;pl-c&quot;&gt;/**&lt;/span&gt;
+</code></pre><p><span class="pl-c">         <em> 反序列化</em></span><br><span class="pl-c">         /</span></p>
+<pre><code>&lt;span class=&quot;pl-k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;List&amp;lt;&lt;span class=&quot;pl-smi&quot;&gt;StudentInfo&lt;/span&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;getStudentsFromFile&lt;/span&gt;() {
+
+    &lt;span class=&quot;pl-k&quot;&gt;ArrayList&amp;lt;&lt;span class=&quot;pl-smi&quot;&gt;StudentInfo&lt;/span&gt;&amp;gt;&lt;/span&gt; list &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;ArrayList&amp;lt;&lt;span class=&quot;pl-smi&quot;&gt;StudentInfo&lt;/span&gt;&amp;gt;&lt;/span&gt;();
+    &lt;span class=&quot;pl-smi&quot;&gt;FileInputStream&lt;/span&gt; fis &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;null&lt;/span&gt;;
+
+    &lt;span class=&quot;pl-k&quot;&gt;try&lt;/span&gt; {
+        fis &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;FileInputStream&lt;/span&gt;(&lt;span class=&quot;pl-c1&quot;&gt;FILE_NAME&lt;/span&gt;);
+        &lt;span class=&quot;pl-smi&quot;&gt;StudentRoster&lt;/span&gt; roster &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;StudentRoster&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;parseFrom(fis);
+        &lt;span class=&quot;pl-k&quot;&gt;int&lt;/span&gt; student_count &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; roster&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;getStudentCount();
+
+        &lt;span class=&quot;pl-k&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;pl-k&quot;&gt;int&lt;/span&gt; i &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;0&lt;/span&gt;; i &lt;span class=&quot;pl-k&quot;&gt;&amp;lt;&lt;/span&gt; student_count; i&lt;span class=&quot;pl-k&quot;&gt;++&lt;/span&gt;) {
+            &lt;span class=&quot;pl-smi&quot;&gt;Student&lt;/span&gt; student &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; roster&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;getStudent(i);
+            &lt;span class=&quot;pl-smi&quot;&gt;StudentInfo&lt;/span&gt; info &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;StudentInfo&lt;/span&gt;();
+            info&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;setId(student&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;getId());
+            info&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;setName(student&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;getName());
+            info&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;setSex(student&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;getSex()&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;toString());
+            list&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;add(info);
+        }
+
+    } &lt;span class=&quot;pl-k&quot;&gt;catch&lt;/span&gt; (&lt;span class=&quot;pl-smi&quot;&gt;FileNotFoundException&lt;/span&gt; e) {
+        &lt;span class=&quot;pl-c&quot;&gt;// TODO Auto-generated catch block&lt;/span&gt;
+        e&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;printStackTrace();
+    } &lt;span class=&quot;pl-k&quot;&gt;catch&lt;/span&gt; (&lt;span class=&quot;pl-smi&quot;&gt;IOException&lt;/span&gt; e) {
+        &lt;span class=&quot;pl-c&quot;&gt;// TODO Auto-generated catch block&lt;/span&gt;
+        e&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;printStackTrace();
+    } &lt;span class=&quot;pl-k&quot;&gt;finally&lt;/span&gt; {
+        &lt;span class=&quot;pl-k&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;pl-c1&quot;&gt;null&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;!=&lt;/span&gt; fis) {
+            &lt;span class=&quot;pl-k&quot;&gt;try&lt;/span&gt; {
+                fis&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;close();
+            } &lt;span class=&quot;pl-k&quot;&gt;catch&lt;/span&gt; (&lt;span class=&quot;pl-smi&quot;&gt;IOException&lt;/span&gt; e) {
+                &lt;span class=&quot;pl-c&quot;&gt;// TODO Auto-generated catch block&lt;/span&gt;
+                e&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;printStackTrace();
+            }
+        }
+    }
+
+    &lt;span class=&quot;pl-k&quot;&gt;return&lt;/span&gt; list;
+}
+
+&lt;span class=&quot;pl-c&quot;&gt;/**&lt;/span&gt;
+</code></pre><p><span class="pl-c">         <em> 序列化</em></span><br><span class="pl-c">         /</span></p>
+<pre><code>&lt;span class=&quot;pl-k&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;static&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;pl-en&quot;&gt;saveStudentIntoFile&lt;/span&gt;(&lt;span class=&quot;pl-k&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;pl-v&quot;&gt;id&lt;/span&gt;, &lt;span class=&quot;pl-smi&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;pl-v&quot;&gt;name&lt;/span&gt;, &lt;span class=&quot;pl-smi&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;pl-v&quot;&gt;sex&lt;/span&gt;) {
+    &lt;span class=&quot;pl-smi&quot;&gt;FileOutputStream&lt;/span&gt; fos &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-c1&quot;&gt;null&lt;/span&gt;;
+
+    &lt;span class=&quot;pl-smi&quot;&gt;StudentRoster&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pl-smi&quot;&gt;Builder&lt;/span&gt; rosterBuid &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;StudentRoster&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;newBuilder();
+
+    &lt;span class=&quot;pl-smi&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;pl-smi&quot;&gt;Builder&lt;/span&gt; student &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;Student&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;newBuilder();
+    student&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;setId(id);
+    student&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;setName(name);
+    &lt;span class=&quot;pl-k&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;pl-s&quot;&gt;&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;MALE&lt;span class=&quot;pl-pds&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;equalsIgnoreCase(sex)) {
+        student&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;setSex(&lt;span class=&quot;pl-smi&quot;&gt;Sex&lt;/span&gt;&lt;span class=&quot;pl-c1&quot;&gt;&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;MALE&lt;/span&gt;);
+    } &lt;span class=&quot;pl-k&quot;&gt;else&lt;/span&gt; {
+        student&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;setSex(&lt;span class=&quot;pl-smi&quot;&gt;Sex&lt;/span&gt;&lt;span class=&quot;pl-c1&quot;&gt;&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;FEMALE&lt;/span&gt;);
+    }
+
+    rosterBuid&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;addStudent(student&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;build());
+
+    &lt;span class=&quot;pl-k&quot;&gt;try&lt;/span&gt; {
+        fos &lt;span class=&quot;pl-k&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;pl-k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;pl-smi&quot;&gt;FileOutputStream&lt;/span&gt;(&lt;span class=&quot;pl-c1&quot;&gt;FILE_NAME&lt;/span&gt;, &lt;span class=&quot;pl-c1&quot;&gt;true&lt;/span&gt;);
+        rosterBuid&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;build()&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;writeTo(fos);
+        fos&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;close();
+    } &lt;span class=&quot;pl-k&quot;&gt;catch&lt;/span&gt; (&lt;span class=&quot;pl-smi&quot;&gt;FileNotFoundException&lt;/span&gt; e) {
+        &lt;span class=&quot;pl-c&quot;&gt;// TODO Auto-generated catch block&lt;/span&gt;
+        e&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;printStackTrace();
+    } &lt;span class=&quot;pl-k&quot;&gt;catch&lt;/span&gt; (&lt;span class=&quot;pl-smi&quot;&gt;IOException&lt;/span&gt; e) {
+        &lt;span class=&quot;pl-c&quot;&gt;// TODO Auto-generated catch block&lt;/span&gt;
+        e&lt;span class=&quot;pl-k&quot;&gt;.&lt;/span&gt;printStackTrace();
+    }
+
+}
+</code></pre><p>}<br><br></p>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/11/16/e5-a4-84-e5-a2-83-e8-89-b0-e9-9a-be-e7-9a-84-app-e5-bc-80-e5-8f-91-e8-80-85-e5-a6-82-e4-bd-95-e8-87-aa-e6-95-91/" rel="next" title="处境艰难的 APP 开发者如何自救">
+                <i class="fa fa-chevron-left"></i> 处境艰难的 APP 开发者如何自救
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/03/21/e8-87-aa-e7-94-b1-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-3-e4-b8-aa-e5-bc-80-e5-8f-91-e6-8a-80-e5-b7-a7/" rel="prev" title="自由程序员的 3 个开发技巧">
+                自由程序员的 3 个开发技巧 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#testpb"><span class="nav-number">1.</span> <span class="nav-text">testpb</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Google-Protocol-Buffer-介绍与使用"><span class="nav-number">1.1.</span> <span class="nav-text">Google Protocol Buffer 介绍与使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#简介"><span class="nav-number">1.1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PB-的优点"><span class="nav-number">1.1.2.</span> <span class="nav-text">PB 的优点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PB-使用-java"><span class="nav-number">1.1.3.</span> <span class="nav-text">PB 使用(java)</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

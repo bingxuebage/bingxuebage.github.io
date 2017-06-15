@@ -1,0 +1,758 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="A：兄弟，你真走运，能成为一个程序员。我也希望能成为一名程序员。 B：那你为什么不学习编程呢？ A：我试过，我在codecademy网站上学过，可是我真的没有编程的天分。 B：这也是，并不是每个人都适合编程。 A：你们的待遇又好，又能开发出东西。每天都有人敲你家门，要给你$100k甚至更多的薪水来聘用你。 B：这实在是太恭维了。夸的我都有点飘飘然了。 A：你们有高超的技术，所有人都羡慕做技术的。你">
+<meta property="og:type" content="article">
+<meta property="og:title" content="做程序员的苦于乐">
+<meta property="og:url" content="http://www.yangjungou.com/2012/11/01/e5-81-9a-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e8-8b-a6-e4-ba-8e-e4-b9-90/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="A：兄弟，你真走运，能成为一个程序员。我也希望能成为一名程序员。 B：那你为什么不学习编程呢？ A：我试过，我在codecademy网站上学过，可是我真的没有编程的天分。 B：这也是，并不是每个人都适合编程。 A：你们的待遇又好，又能开发出东西。每天都有人敲你家门，要给你$100k甚至更多的薪水来聘用你。 B：这实在是太恭维了。夸的我都有点飘飘然了。 A：你们有高超的技术，所有人都羡慕做技术的。你">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="做程序员的苦于乐">
+<meta name="twitter:description" content="A：兄弟，你真走运，能成为一个程序员。我也希望能成为一名程序员。 B：那你为什么不学习编程呢？ A：我试过，我在codecademy网站上学过，可是我真的没有编程的天分。 B：这也是，并不是每个人都适合编程。 A：你们的待遇又好，又能开发出东西。每天都有人敲你家门，要给你$100k甚至更多的薪水来聘用你。 B：这实在是太恭维了。夸的我都有点飘飘然了。 A：你们有高超的技术，所有人都羡慕做技术的。你">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2012/11/01/e5-81-9a-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e8-8b-a6-e4-ba-8e-e4-b9-90/"/>
+
+
+
+
+
+  <title>做程序员的苦于乐 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2012/11/01/e5-81-9a-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e8-8b-a6-e4-ba-8e-e4-b9-90/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">做程序员的苦于乐</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-01T09:19:01+08:00">
+                2012-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/热点新闻/" itemprop="url" rel="index">
+                    <span itemprop="name">热点新闻</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>A：兄弟，你真走运，能成为一个程序员。我也希望能成为一名程序员。</strong></p>
+<p><strong>B：那你为什么不学习编程呢？</strong></p>
+<p><strong>A：我试过，我在codecademy网站上学过，可是我真的没有编程的天分。</strong></p>
+<p><strong>B：这也是，并不是每个人都适合编程。</strong></p>
+<p><strong>A：你们的待遇又好，又能开发出东西。每天都有人敲你家门，要给你$100k甚至更多的薪水来聘用你。</strong></p>
+<p><strong>B：这实在是太恭维了。夸的我都有点飘飘然了。</strong></p>
+<p><strong>A：你们有高超的技术，所有人都羡慕做技术的。你们可以把任何想法变成一个应用程序，然后能通过它挣钱，不需要依赖外人开发。</strong></p>
+<p><strong>B：实际上，做一名程序员，我很痛苦。</strong></p>
+<p><strong>A：啊，兄弟，你什么意思？</strong></p>
+<p><strong>B：这种工作方式慢慢的让我变得忧郁。我注意到，在其他程序员中——并不是全部——但很多，都有这样的感觉。</strong></p>
+<p><strong>A：什么工作方式？</strong></p>
+<p><strong>B：关注负面的东西，而不是正面的东西。</strong></p>
+<p><strong>A：做一个好的程序员需要这样吗？</strong></p>
+<p><strong>B：我的工作流程基本上是这样：</strong></p>
+<ol>
+<li><strong>写出代码</strong></li>
+<li><strong>运行代码</strong></li>
+<li><strong>看到错误信息</strong></li>
+<li><strong>找出错误，回到第一步</strong></li>
+</ol>
+<p><strong>B：日复一日，年复一年，我就一直这样。一直在寻找我创造出来的东西里面的错误，很少会想到它们的好的一面。这是一个消极的反馈循环。</strong></p>
+<p><strong>A：疯了</strong></p>
+<p><strong>B：如果不是在编辑器里，我就会在bug跟踪系统里，那是一个麻烦问题的清单。一个告诉你什么出问题了，需要你去修改的清单。一个让我抓狂的清单。</strong></p>
+<p><strong>A：兄弟，我觉得你有点悲观。试想，纠正这些bug，努力将它们从清单中移除，这不是件很有成就的事情吗？</strong></p>
+<p><strong>B：没错，确实是这样。编程中有很多能让人感到非常有成就，非常满足的事情。但这并不能改变这样的事实，对我来说，编程就是在不断营造一种非常消极的思想氛围。我一直在问这样一个问题：“错在哪了？”而积极向上的人关注的应该是“它的亮点是什么？”</strong></p>
+<hr>
+<p>&nbsp;</p>
+<p> <em>Dude you’re so lucky to be a programmer. I wish I was a programmer.</em></p>
+<p> Why don’t you learn to code?</p>
+<p> <em>I’ve tried. I did codecademy and stuff but I’m just not cut-out for coding.</em></p>
+<p> Yeah, well, it’s definitely not for everyone.</p>
+<p> <em>They, like, pay you so well and you can build stuff. People are knocking on your door every day with mad offers for like $100k plus.</em></p>
+<p> It’s pretty flattering. Kinda blows my mind to be honest.</p>
+<p> <em>You get sweet equity and everyone respects the engineers. You can just build any idea you have into an app, and then you can get rich without having to hire other people.</em></p>
+<p> Actually being a programmer is making me miserable.</p>
+<p> <em>Woah, dude. What do you mean?</em></p>
+<p> In order to be a good programmer I need to adopt a certain mindset. That mindset is slowly making me unhappy. I notice it in other programmers - not all of them - but many.</p>
+<p> <em>What mindset?</em></p>
+<p> Focusing on the negatives, rather than the positives.</p>
+<p> <em>Why do you need to do that to be a good coder?</em></p>
+<p> My workflow is something like this.</p>
+<ol>
+<li>write some code</li>
+<li>run the code</li>
+<li>get an error message</li>
+<li>find the error and back to step 1<br>Hour by hour, day after day, I do this. Always searching for what’s wrong with what I’m creating, rarely thinking about what’s good about it. It’s a negative reinforcement feedback loop.</li>
+</ol>
+<p>&nbsp;</p>
+<p> <em>Crazy</em></p>
+<p> When I’m not in vim I’m in the bug-tracker, a list of negatives. A list of what’s broken and needs to be fixed. A list of ways in which I fucked up.</p>
+<p> <em>Dude, I think you’re being a little dramatic. Plus isn’t fixing bugs and striking them off that list incredibly satisfying?</em></p>
+<p> Sure it is. There’s so much about programming that is incredibly satisfying and empowering. But it doesn’t change the fact that, for me, programming builds an acutely negative mindset over time. I’m always asking the question “what’s wrong with this?” Positive people are always focusing on “what’s good about this?”</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/11/01/e4-b8-ad-e5-8e-9f-e5-b7-a5-e5-ad-a6-e9-99-a2-2012-e6-9c-8d-e8-a3-85-e5-b1-95-e6-bc-94-e3-80-8a-e5-90-af-e7-a8-8b-e3-80-8b/" rel="next" title="中原工学院 2012 服装展演《启程》">
+                <i class="fa fa-chevron-left"></i> 中原工学院 2012 服装展演《启程》
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2012/11/02/char-p/" rel="prev" title="char ****p">
+                char ****p <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

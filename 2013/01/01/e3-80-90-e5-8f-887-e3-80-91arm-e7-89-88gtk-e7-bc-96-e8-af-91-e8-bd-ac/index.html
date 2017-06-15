@@ -1,0 +1,713 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="2012 总结," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="###### 转自http://hi.baidu.com/wstone_h/item/b7fe9ac1f2ba7242a8ba94ec## 交叉编译gtk+dfb+arm手记参考文献1：http://blog.csdn.net/kendych/archive/2008/09/18/2947638.aspx参考文献2：https://wiki.mozilla.org/Mobile/DFBPortin">
+<meta name="keywords" content="2012 总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【又7】Arm 版GTK编译-转">
+<meta property="og:url" content="http://www.yangjungou.com/2013/01/01/e3-80-90-e5-8f-887-e3-80-91arm-e7-89-88gtk-e7-bc-96-e8-af-91-e8-bd-ac/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="###### 转自http://hi.baidu.com/wstone_h/item/b7fe9ac1f2ba7242a8ba94ec## 交叉编译gtk+dfb+arm手记参考文献1：http://blog.csdn.net/kendych/archive/2008/09/18/2947638.aspx参考文献2：https://wiki.mozilla.org/Mobile/DFBPortin">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.176Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【又7】Arm 版GTK编译-转">
+<meta name="twitter:description" content="###### 转自http://hi.baidu.com/wstone_h/item/b7fe9ac1f2ba7242a8ba94ec## 交叉编译gtk+dfb+arm手记参考文献1：http://blog.csdn.net/kendych/archive/2008/09/18/2947638.aspx参考文献2：https://wiki.mozilla.org/Mobile/DFBPortin">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2013/01/01/e3-80-90-e5-8f-887-e3-80-91arm-e7-89-88gtk-e7-bc-96-e8-af-91-e8-bd-ac/"/>
+
+
+
+
+
+  <title>【又7】Arm 版GTK编译-转 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2013/01/01/e3-80-90-e5-8f-887-e3-80-91arm-e7-89-88gtk-e7-bc-96-e8-af-91-e8-bd-ac/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">【又7】Arm 版GTK编译-转</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-01-01T12:43:25+08:00">
+                2013-01-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/个人生活/" itemprop="url" rel="index">
+                    <span itemprop="name">个人生活</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div><br><br>###### 转自<a href="http://hi.baidu.com/wstone_h/item/b7fe9ac1f2ba7242a8ba94ec" target="_blank" rel="external">http://hi.baidu.com/wstone_h/item/b7fe9ac1f2ba7242a8ba94ec</a><br><br>## 交叉编译<span style="font-family: Tahoma;">gtk+dfb+arm</span><span style="font-family: 宋体;">手记</span><br><br>参考文献<span style="font-family: Tahoma;">1</span><span style="font-family: 宋体;">：</span><span style="font-family: Tahoma;"><a href="http://blog.csdn.net/kendych/archive/2008/09/18/2947638.aspx" target="_blank" rel="external">http://blog.csdn.net/kendych/archive/2008/09/18/2947638.aspx</a></span><br>参考文献<span style="font-family: Tahoma;">2</span><span style="font-family: 宋体;">：</span><span style="font-family: Tahoma;"><a href="https://wiki.mozilla.org/Mobile/DFBPorting#GTK-DFB_Package_Installation" target="_blank" rel="external">https://wiki.mozilla.org/Mobile/DFBPorting#GTK-DFB_Package_Installation</a></span><br>参考文献<span style="font-family: Tahoma;">3</span><span style="font-family: 宋体;">：</span><span style="font-family: Tahoma;"><a href="http://blog.csdn.net/absurd/category/228434.aspx" target="_blank" rel="external">http://blog.csdn.net/absurd/category/228434.aspx</a></span><br>参考文献<span style="font-family: Tahoma;">4</span><span style="font-family: 宋体;">：</span><span style="font-family: Tahoma;"><a href="http://hi.baidu.com/chinalmy/blog/item/da814a5450a9e352574e0046.html" target="_blank" rel="external">http://hi.baidu.com/chinalmy/blog/item/da814a5450a9e352574e0046.html</a></span><br>藏文地址<span style="font-family: Tahoma;">1</span><span style="font-family: 宋体;">：</span><span style="font-family: Tahoma;"><a href="http://hi.baidu.com/wstone_h/blog/item/e415151f82a45564f724e46d.html" target="_blank" rel="external">http://hi.baidu.com/wstone_h/blog/item/e415151f82a45564f724e46d.html</a></span><br>藏文地址<span style="font-family: Tahoma;">2</span><span style="font-family: 宋体;">：</span><span style="font-family: Tahoma;"><a href="http://hi.baidu.com/wstone_h/blog/item/9cd8a010061bf6fbc3ce7901.html" target="_blank" rel="external">http://hi.baidu.com/wstone_h/blog/item/9cd8a010061bf6fbc3ce7901.html</a></span><br><br>说明:<span style="font-family: 宋体;">这里主要参考了文献</span><span style="font-family: Tahoma;">1</span><span style="font-family: 宋体;">，虽然编译后还有许多不足，但是交叉后的基本没啥大问题，哈哈。对于包的版本选择，考虑了依赖的关系，所以对于依赖包选择了最新的，不过在编译</span><span style="font-family: Tahoma;">gtk+</span><span style="font-family: 宋体;">时，好像新版本有较大的改动，因此这里选择了</span>gtk+-2.12.9。文中有一个不足的地方就是安装的路径了，因为这个路径是要加载到板子上的，所以要自行考虑。<br><br>包的下载地址<span style="font-family: Tahoma;">:</span><br>1<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">tslib</span><span style="font-family: 宋体;">：</span><span style="font-family: Tahoma;">tslib</span><span style="font-family: 宋体;">是</span><span style="font-family: Tahoma;">cvs</span><span style="font-family: 宋体;">的版本，所以只能在网络上找了</span><br>2<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">tiff : ftp://ftp.gtk.org/pub/gtk/v2.10/dependencies/tiff-3.7.4.tar.gz</span><br>3<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">jpegsrc.v6b :ftp://ftp.gtk.org/pub/gtk/v2.10/dependencies/</span><br>4<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">libpng-1.2.33 :<a href="http://www.libpng.org/pub/png/libpng.html" target="_blank" rel="external">http://www.libpng.org/pub/png/libpng.html</a></span><br>5<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">glib-2.19.0 :ftp://ftp.gtk.org/pub/glib/2.19/</span><br>6<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">pango-1.20.2 :ftp://ftp.gtk.org/pub/pango/1.20/</span><br>7<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">gtk+-2.12.9 :<a href="http://ftp.gnome.org/pub/gnome/sources/gtk+/2.12/" target="_blank" rel="external">http://ftp.gnome.org/pub/gnome/sources/gtk+/2.12/</a></span><br>8<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">atk-1.24.0 :<a href="http://ftp.gnome.org/pub/gnome/sources/atk/1.24/" target="_blank" rel="external">http://ftp.gnome.org/pub/gnome/sources/atk/1.24/</a></span><br>9<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">cairo-1.8.4 :<a href="http://www.cairographics.org/releases/" target="_blank" rel="external">http://www.cairographics.org/releases/</a></span><br>10<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">DirectFB-1.3.0 :<a href="http://www.directfb.org/downloads/Core/" target="_blank" rel="external">http://www.directfb.org/downloads/Core/</a></span><br>11<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">expat-2.0.1 :<a href="http://expat.sourceforge.net/" target="_blank" rel="external">http://expat.sourceforge.net/</a></span><br>12<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">fontconfig-2.6.0 :<a href="http://www.fontconfig.org/release/" target="_blank" rel="external">http://www.fontconfig.org/release/</a></span><br>13<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">freetype-2.3.7 :<a href="http://freetype.sourceforge.net/index2.html" target="_blank" rel="external">http://freetype.sourceforge.net/index2.html</a></span><br>14<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">libxml2-2.6.31 :<a href="http://xmlsoft.org/sources/" target="_blank" rel="external">http://xmlsoft.org/sources/</a></span><br>15<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">pixman-0.12.0 :<a href="http://www.cairographics.org/releases/" target="_blank" rel="external">http://www.cairographics.org/releases/</a></span><br>16<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">zlib-1.2.3 :<a href="http://www.zlib.net/" target="_blank" rel="external">http://www.zlib.net/</a></span><br>这里有很多的包，但是我们要理清顺序和依赖关系，象<span style="font-family: Tahoma;">jpegsrc.v6b</span><span style="font-family: 宋体;">，</span><span style="font-family: Tahoma;">libpng</span><span style="font-family: 宋体;">是图像的包，如不需要，可以考虑不下载，下载时要注意哪些是必须的包，哪些不是必要的包</span><br><br>1<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">tslib 1.4</span><br>export PREFIX=/usr/gtkdfb<br>./autogen.sh<br>echo “ac_cv_func_malloc_0_nonnull=yes” &gt;arm-linux.cache<br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX –cache-file=arm-linux.cache<br>make<br>make install<br>编译完成后可以在目标位置看到<span style="font-family: Tahoma;">4</span><span style="font-family: 宋体;">个文件夹</span><br><br>2<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">glib-2.19.0</span><br>export LDFLAGS=-L$PREFIX/lib<br>export CFLAGS=”-g -I$PREFIX/include”<br>export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig<br><br>echo ac_cv_type_long_long=yes&gt;arm-linux.cache<br>echo glib_cv_stack_grows=no&gt;&gt;arm-linux.cache<br>echo glib_cv_uscore=no&gt;&gt;arm-linux.cache<br>echo ac_cv_func_posix_getpwuid_r=yes&gt;&gt;arm-linux.cache<br>echo ac_cv_func_posix_getgrgid_r=yes&gt;&gt;arm-linux.cache<br>在网路上有些人是遇到<span style="font-family: Tahoma;">4</span><span style="font-family: 宋体;">个错误，可能本人比较特殊，呵呵。编译多次，每次都是</span><span style="font-family: Tahoma;">5</span><span style="font-family: 宋体;">个的，至于如何处理，请参考文献</span><span style="font-family: Tahoma;">3</span><span style="font-family: 宋体;">中对于</span>glib的详细分析，接着操作：<br>CC=arm-linux-gcc ./configure –host=arm-linux –build=i386-linux –prefix=$PREFIX –cache-file=arm-linux.cache<br>make<br>make install<br>交叉编译成功后在目标位置多出个<span style="font-family: Tahoma;">/share</span><span style="font-family: 宋体;">文件夹</span><br><br>3<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">atk-1.24.0</span><br>CC=arm-linux-gcc ./configure –host=arm-linux –build=i386-linux –prefix=$PREFIX<br>make<br>make install<br><br>4<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">jpeg-6b</span><br>export CC=arm-linux-gcc<br>CC=arm-linux-gcc ./configure   –host=arm-linux –prefix=$PREFIX<br>修改生成的<span style="font-family: Tahoma;">Makefile</span><span style="font-family: 宋体;">文件</span><span style="font-family: Tahoma;">:</span><br># The name of your C compiler:<br>CC= gcc <span style="font-family: 宋体;">该成 </span><span style="font-family: Tahoma;">CC=arm-linux-gcc (</span><span style="font-family: 宋体;">根据你自己交叉编译器的位置修改</span><span style="font-family: Tahoma;">)</span><br># library (.a) file creation command<br>AR= ar rc <span style="font-family: 宋体;">该成 </span><span style="font-family: Tahoma;">AR= arm-linux-ar rc (</span><span style="font-family: 宋体;">同上</span><span style="font-family: Tahoma;">)</span><br># second step in .a creation (use “touch” if not needed)<br>AR2= ranlib <span style="font-family: 宋体;">该成 </span><span style="font-family: Tahoma;">AR2=arm-linux-ranlib (</span><span style="font-family: 宋体;">同上</span><span style="font-family: Tahoma;">)</span><br>mkdir $PREFIX/man<br>mkdir $PREFIX/man/man1<br>make<br>make install<br>make install-lib<br><br>5<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">zlib-1.2.3</span><br>CC=arm-linux-gcc ./configure –prefix=$PREFIX -shared<br>make<br>make install<br><br>6<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">libpng-1.2.33</span><br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX<br>make<br>make install<br><br>7<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">expat-2.0.1</span><br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX<br>make<br>make install<br><br>8<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">freetype-2.3.7</span><br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX<br>make<br>make install<br><br>9<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">libxml2-2.6.31</span><br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX<br>make<br>make install<br><br>10<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">fontconfig-2.6.0</span><br>export LIBXML2_CFLAGS=-I$PREFIX/include/libxml2<br>export LIBXML2_LIBS=”-L$PREFIX/lib -lxml2”<br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX –with-freetype-config=$PREFIX/bin/freetype-config –with-arch=arm<br>make<br>make install<br><br>11<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">tiff-3.7.4</span><br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX –enable-shared<br>make<br>make install<br><br>12<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">DirectFB-1.3.0</span><br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX –with-gfxdrivers=none –enable-png –enable-jpeg –enable-tiff –enable-zlib –enable-sdl=no –enable-gif=no –disable-x11<br>make<br>make install<br><br>13<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">pixman-0.12.0</span><br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX<br>make<br>make install<br><br>14<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">cairo-1.8.4</span><br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX –without-x –disable-xlib –disable-xlib-xrender –enable-directfb –enable-freetype –disable-win32 –enable-pdf –enable-ps –disable-svg –enable-png<br>make<br>make install<br><br>15<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">pango-1.20.2</span><br>修改<span style="font-family: Tahoma;">configure</span><span style="font-family: 宋体;">文件，将下面一些参数改成</span><span style="font-family: Tahoma;">true</span><br>have_cairo=true<br>have_cairo_png=true<br>have_cairo_ps=true<br>have_cairo_pdf=true<br>have_cairo_freetype=true<br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX –enable-cairo –without-x<br>make<br>make install<br><br>16<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">gtk+-2.12.9</span><br>export LDFLAGS=”-L$PREFIX/lib -Wl,-rpath,$PREFIX/lib”<br>export CPPFLAGS=”-I$PREFIX/include”<br>CC=arm-linux-gcc ./configure –host=arm-linux –prefix=$PREFIX –with-gdktarget=directfb –without-x –without-libtiff<br>make<br>make install<br><br>在<span style="font-family: Tahoma;">./configure</span><span style="font-family: 宋体;">时可能会出现错误，这是由于</span><span style="font-family: Tahoma;">./configure</span><span style="font-family: 宋体;">的选项的原因，所以只要跟改下</span><span style="font-family: Tahoma;">,</span><span style="font-family: 宋体;">以下仅是</span><span style="font-family: Tahoma;">2</span><span style="font-family: 宋体;">中参考方案：</span><br>1<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">CC=arm-linux-gcc ./configure –host=arm-linux –build=i386-linux –prefix=$PREFIX –with-gdktarget=directfb –without-libtiff –disable-glibtest –disable-largefile –without-libpng</span><br><br>2<span style="font-family: 宋体;">、</span><span style="font-family: Tahoma;">CC=arm-linux-gcc ./configure –host=arm-linux –build=i386-linux –prefix=$PREFIX –with-gdktarget=directfb –without-libtiff</span><br><br>在开发板上运行：<br>1<span style="font-family: 宋体;">、拷贝编译后的文件</span>(<span style="font-family: 宋体;">即</span>/gtkdfb)到开发板上<br>以上操作有个很重要的地方，那就是<span style="font-family: Tahoma;">Directfb</span><span style="font-family: 宋体;">的目标位置，这个将直接影响到使用，呵呵</span><br>由于我的目标位置在 /usr/gtkdfb， 因此我要将文件挂载在相同的位置，这是因为<span style="font-family: Tahoma;">Directfb</span><span style="font-family: 宋体;">使用时默认查找的就是目标位置，如果目标位置没有相关文件，就会报以下的错误：</span><br>(!) DirectFB/core/system: No system found!<br>(#) DirectFBError [gdk_display_open: DirectFBCreate]: No (suitable) implementation found!<br><br>2<span style="font-family: 宋体;">、编写脚本</span><br>在运行之前，还要做几个脚本<span style="font-family: Tahoma;">(</span><span style="font-family: 宋体;">保存成</span><span style="font-family: Tahoma;">tslib.sh</span><span style="font-family: 宋体;">和</span><span style="font-family: Tahoma;">gtkdbf.sh)</span><span style="font-family: 宋体;">，</span>脚本<span style="font-family: Tahoma;">1</span>用于开发板上的<span style="font-family: Tahoma;">tslib</span><span style="font-family: 宋体;">指定环境，</span>脚本<span style="font-family: Tahoma;">2</span>用于<span style="font-family: Tahoma;">pc</span><span style="font-family: 宋体;">环境编译程序和开发板的</span><span style="font-family: Tahoma;">gtk</span><span style="font-family: 宋体;">环境。脚本</span><span style="font-family: Tahoma;">1</span><span style="font-family: 宋体;">和脚本</span><span style="font-family: Tahoma;">2</span><span style="font-family: 宋体;">要根据自己的情况修改，以下可能只适合我。</span>脚本<span style="font-family: Tahoma;">1</span>的修改请参见：<a href="http://hi.baidu.com/wstone_h/blog/item/3e45ee247496a22cd407428e.html" target="_blank" rel="external">http://hi.baidu.com/wstone%5Fh/blog/item/3e45ee247496a22cd407428e.html</a><br>脚本<span style="font-family: Tahoma;">1</span>：<br>#!/bin/bash<br>export TSLIB_ROOT=/usr/gtkdfb<br>export TSLIB_TSDEVICE=/dev/h3600_tsraw<br>export TSLIB_CALIBFILE=$TSLIB_ROOT/etc/pointercal<br>export TSLIB_CONFFILE=$TSLIB_ROOT/etc/ts.conf<br>export TSLIB_PLUGINDIR=$TSLIB_ROOT/lib/ts<br>export TSLIB_CONSOLEDEVICE=none<br>export TSLIB_FBDEVICE=/dev/fb0<br>export LD_LIBRARY_PATH=$TSLIB_ROOT/lib<br><br>脚本<span style="font-family: Tahoma;">2</span><span style="font-family: 宋体;">：</span><br>#!/bin/bash<br>export PREFIX=/usr/gtkdfb<br>export CFLAGS=”-g -I$PREFIX/include”<br>export LDFLAGS=-L$PREFIX/lib<br>export PKG_CONFIG_PATH=$PREFIX/lib/pkgconfig<br>export LIBXML2_CFLAGS=-I$PREFIX/include/libxml2<br>export LIBXML2_LIBS=”-L$PREFIX/lib -lxml2”<br>export LDFLAGS=”-L$PREFIX/lib -lts -Wl,-rpath,$PREFIX/lib”<br>export CPPFLAGS=”-I$PREFIX/include”<br><br>现在在开发板上运行脚本<span style="font-family: Tahoma;">1</span><span style="font-family: 宋体;">后</span>，就可以运行/gtkdfb/bin/目录下的ts_calibrate进行<span style="font-family: Tahoma;">tslib</span><span style="font-family: 宋体;">的校正</span><br><br>3<span style="font-family: 宋体;">、构造</span><span style="font-family: Tahoma;">2</span><span style="font-family: 宋体;">个文件</span><span style="font-family: Tahoma;">:</span><br>这<span style="font-family: Tahoma;">2</span><span style="font-family: 宋体;">个文件的位置在：</span><br>/usr/gtkdfb/etc/pango/pango.modules<br>/usr/gtkdfb/etc/gtk-2.0/gdk-pixbuf.loaders<br>使用以下方法构造，不然运行是会提示错误：<br>pango-querymodules &gt; $PREFIX/etc/pango/pango.modules<br>gdk-pixbuf-query-loaders &gt; /usr/gtkdfb/etc/gtk-2.0/gdk-pixbuf.loaders<br><br>4<span style="font-family: 宋体;">、编写</span><span style="font-family: Tahoma;">directfbrc</span><br>简易的directfbrc文件如下：<br>system=fbdev<br>fbdev=/dev/fb0<br>mode=240x320<br>depth=16<br>pixelformat=RGB16<br>保存成 .directfbrc(<span style="font-family: 宋体;">是隐藏文件，注意有个</span><span style="font-family: Tahoma;">“</span><span style="font-family: 宋体;">点</span><span style="font-family: Tahoma;">“)</span> ，并保存到<span style="font-family: Tahoma;">$HOME</span><span style="font-family: 宋体;">目录下</span><span style="font-family: Tahoma;">(</span><span style="font-family: 宋体;">直接</span><span style="font-family: Tahoma;">cd</span><span style="font-family: 宋体;">，切换到的目录即是</span><span style="font-family: Tahoma;">$HOME</span><span style="font-family: 宋体;">目录</span><span style="font-family: Tahoma;">)</span><br>这里可以根据运行后的警告和提示，或者自身对开发板的了解情况进行修改。<br>具体的可以参考：<span style="font-family: Tahoma;"><a href="http://hi.baidu.com/wstone_h/blog/item/cb7e332a62200a9c033bf614.html" target="_blank" rel="external">http://hi.baidu.com/wstone_h/blog/item/cb7e332a62200a9c033bf614.html</a></span><br><br>5<span style="font-family: 宋体;">、解决字体问题</span><br>当没有正确显示字体，显示是方框，这里是由于编译时使用的是<span style="font-family: Tahoma;">PC</span><span style="font-family: 宋体;">系统的字体库，当我移植时却没有了字体库，也就是那种后缀是</span>ttf的文件，所以要拷个字体库到开发板上。查看<span style="font-family: Tahoma;">/gtkdfb/etc/fonts</span><span style="font-family: 宋体;">下的</span><span style="font-family: Tahoma;">fonts.conf</span><span style="font-family: 宋体;">，使字库和文件中描述的位置对应上。可以看到如下内容：</span><br>&lt;!– Font directory list –&gt;<br>&lt;dir&gt;/usr/share/fonts&lt;/dir&gt;<br>&lt;dir&gt;~/.fonts&lt;/dir&gt;<br>/usr/share/fonts就是我们的字体库位置<span style="font-family: Tahoma;">(pc</span><span style="font-family: 宋体;">的字库也在</span><span style="font-family: Tahoma;">/usr/share/fonts</span><span style="font-family: 宋体;">路径下），从</span><span style="font-family: Tahoma;">PC</span><span style="font-family: 宋体;">上拷字体库到开发板的该目录下</span><span style="font-family: Tahoma;">(/usr/share/fonts)</span><br><br>6<span style="font-family: 宋体;">、运行</span><span style="font-family: Tahoma;">gtk</span><span style="font-family: 宋体;">示例程序</span><br>在运行脚本<span style="font-family: Tahoma;">1</span><span style="font-family: 宋体;">和脚本</span><span style="font-family: Tahoma;">2</span>后，运行/gtkdfb/bin/目录下的gtk-demo<span style="font-family: 宋体;">，</span>即<span style="font-family: Tahoma;">gtk</span><span style="font-family: 宋体;">的示例程序。</span><br><br>在<span style="font-family: Tahoma;">pc</span><span style="font-family: 宋体;">上编译程序</span>：<br>在<span style="font-family: Tahoma;">pc</span><span style="font-family: 宋体;">上运行</span>脚本<span style="font-family: Tahoma;">2</span>以后：<br>arm-linux-gcc -o hello hello.c -lts -Wl,-rpath,$PREFIX/lib <code>pkg-config gtk+-2.0 --cflags --libs</code><br>编译后<span style="font-family: Tahoma;">tslib</span><span style="font-family: 宋体;">已经自动包含在其中，呵呵。拷到开发板即可运行自己的</span><span style="font-family: Tahoma;">hello</span><span style="font-family: 宋体;">了。</span><br><br>&nbsp;<br><br></div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/2012-总结/" rel="tag"># 2012 总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/01/01/e3-80-90-e5-8f-886-e3-80-91qt-e4-ba-a4-e5-8f-89-e7-bc-96-e8-af-91/" rel="next" title="【又6】QT交叉编译">
+                <i class="fa fa-chevron-left"></i> 【又6】QT交叉编译
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/01/01/e3-80-90-e5-8f-888-e3-80-91-e5-9c-a8eclipse-e7-94-a8arm-linux-e7-bc-96-e8-af-91gtk-e7-a8-8b-e5-ba-8f/" rel="prev" title="【又8】在Eclipse 用Arm-linux 编译GTK程序">
+                【又8】在Eclipse 用Arm-linux 编译GTK程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

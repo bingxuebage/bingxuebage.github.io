@@ -1,0 +1,737 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="近场通讯技术（NFC）是移动领域里一种新兴的技术趋势，但实际上并没有多少用户会是经常使用自己手机里的这项功能，更别提看到它完全的潜力了。 我们都知道NFC的工作方式，但它最优秀的应用之一依然还处于隐藏和未被使用的状态，那就是谷歌的Android Beam。 为了帮助手机用户发挥自己设备的最大潜力，科技网站TechRadar日前就撰写了一篇Android Beam的功能指导文章。文章内容如下： 什么">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你最应该关注的 Android 隐藏功能">
+<meta property="og:url" content="http://www.yangjungou.com/2014/03/03/e4-bd-a0-e6-9c-80-e5-ba-94-e8-af-a5-e5-85-b3-e6-b3-a8-e7-9a-84-android-e9-9a-90-e8-97-8f-e5-8a-9f-e8-83-bd/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="近场通讯技术（NFC）是移动领域里一种新兴的技术趋势，但实际上并没有多少用户会是经常使用自己手机里的这项功能，更别提看到它完全的潜力了。 我们都知道NFC的工作方式，但它最优秀的应用之一依然还处于隐藏和未被使用的状态，那就是谷歌的Android Beam。 为了帮助手机用户发挥自己设备的最大潜力，科技网站TechRadar日前就撰写了一篇Android Beam的功能指导文章。文章内容如下： 什么">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你最应该关注的 Android 隐藏功能">
+<meta name="twitter:description" content="近场通讯技术（NFC）是移动领域里一种新兴的技术趋势，但实际上并没有多少用户会是经常使用自己手机里的这项功能，更别提看到它完全的潜力了。 我们都知道NFC的工作方式，但它最优秀的应用之一依然还处于隐藏和未被使用的状态，那就是谷歌的Android Beam。 为了帮助手机用户发挥自己设备的最大潜力，科技网站TechRadar日前就撰写了一篇Android Beam的功能指导文章。文章内容如下： 什么">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2014/03/03/e4-bd-a0-e6-9c-80-e5-ba-94-e8-af-a5-e5-85-b3-e6-b3-a8-e7-9a-84-android-e9-9a-90-e8-97-8f-e5-8a-9f-e8-83-bd/"/>
+
+
+
+
+
+  <title>你最应该关注的 Android 隐藏功能 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2014/03/03/e4-bd-a0-e6-9c-80-e5-ba-94-e8-af-a5-e5-85-b3-e6-b3-a8-e7-9a-84-android-e9-9a-90-e8-97-8f-e5-8a-9f-e8-83-bd/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你最应该关注的 Android 隐藏功能</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-03-03T09:37:13+08:00">
+                2014-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAY/" itemprop="url" rel="index">
+                    <span itemprop="name">JAY</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/JAY/文摘/" itemprop="url" rel="index">
+                    <span itemprop="name">文摘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>近场通讯技术（NFC）是移动领域里一种新兴的技术趋势，但实际上并没有多少用户会是经常使用自己手机里的这项功能，更别提看到它完全的潜力了。</p>
+<p>我们都知道NFC的工作方式，但它最优秀的应用之一依然还处于隐藏和未被使用的状态，那就是谷歌的Android Beam。</p>
+<p>为了帮助手机用户发挥自己设备的最大潜力，科技网站TechRadar日前就撰写了一篇Android Beam的功能指导文章。文章内容如下：</p>
+<p><strong>什么是Android Beam？</strong></p>
+<p>自从Android 4.0起，这项功能就被加入到了每一个版本的Android系统当中。Android Beam是一款应用程序，旨在最大程度地利用NFC技术，可让用户对几乎任何东西进行分享，无论是联系人、图片、网页链接还是YouTube链接。</p>
+<p><strong>我该怎么使用？</strong></p>
+<p>首先你需要确认自己和对方的手机是否支持NFC，然后把两部设备的机身靠在一起，让NFC芯片处于有效范围之内。如果成功识别，发送一方的设备屏幕上会显示“触摸以传输”的提示信息，在触摸屏幕之后，要分享的内容便会出现在另一部手机的屏幕上。</p>
+<p><strong>要是我的手机不支持Android Beam怎么办</strong>？</p>
+<p>Android Beam是直接集成到系统当中的，并没有特定的应用去运行。你只需要开启双方设备的NFC功能，然后把它们放在一起就可以了。设备厂商一般都会允许你单独开启或关闭NFC和Android Beam。</p>
+<p>即使你没有在NFC设置菜单当中找到Android Beam，也不必惊慌。HTC One就是一个典型的例子，其设置菜单当中并未提及Android Beam，但按照上述步骤进行操作，你依然能够成功地使用该功能。</p>
+<p>对于三星手机用户，他们会使用到的是NFC和S-Beam的组合，这基本上也是一回事。</p>
+<p><strong>什么是S-Beam？</strong></p>
+<p>S-Beam是三星自己制作的应用程序，其中就包含了Android Beam的功能。它依然会通过NFC进行设备连接，但数据的发送却是通过Wi-Fi Direct进行的。这种方式能够提升数据的发送速度，比较适合发送大型文件。</p>
+<p><strong>Android Beam有什么缺陷吗？</strong></p>
+<p>Android Beam最大的问题之一是NFC和芯片位置。现在，大多数智能手机都已经加入了NFC功能，所以这已经不再是个问题了。但想要找准NFC芯片的位置却依然是个麻烦事。</p>
+<p>由于智能手机的体形都相对较小，这个问题并不会太严重。但如果是平板电脑，想要找准NFC芯片的位置来执行分享操作就要麻烦多了。<br>这项功能的未来前景怎么样？</p>
+<p>从推出之时起，Android Beam就已经包含了通过蓝牙发送文件这种方式。其具体的操作方式是：使用NFC即刻对两款设备进行配对，然后自动开启蓝牙并发送文件，完成发送后会关闭 蓝牙。在配对完成之后你就可以把两部设备拿开，因为它们已经不再依赖于NFC进行数据传输了。</p>
+<p>就像是S-Beam一样，Android Beam也可以整合Wi-Fi Direct。考虑到谷歌和三星最近的专利授权协议，这样的情况的确可能会发生。而这将会进一步提升文件的传输速度。</p>
+<p>另外不难想象的是，Android Beam还可以成为物联网的重要组成部分，让你可以把手机放在支持Android的冰箱上来分享购物清单，或者是通过Wi-Fi Direct把多媒体内容传输到大屏设备上。</p>
+<p>虽然NFC作为一种支付手段并没有得到普及，但依然有许多人想要找到一种很酷的方式来进行连接，就让我们去期待Android Beam能够继续得到它所需的技术发展吧。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/02/24/google-e5-b7-a5-e7-a8-8b-e6-80-bb-e7-9b-91-ef-bc-9a-e8-ae-a9-e6-9c-ba-e5-99-a8-e7-90-86-e8-a7-a3-e4-ba-ba-e7-b1-bb-e7-9a-84-e8-af-ad-e8-a8-80/" rel="next" title="Google 工程总监：让机器理解人类的语言">
+                <i class="fa fa-chevron-left"></i> Google 工程总监：让机器理解人类的语言
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/03/24/e5-8c-97-e6-96-97-e5-af-bc-e8-88-aa-e4-b8-8egps-e6-89-93-e4-bb-b7-e6-a0-bc-e6-88-98-e7-9b-ae-e6-a0-87-e8-bf-9b-e5-86-9b-e6-89-8b-e6-9c-ba-e7-bb-88-e7-ab-af/" rel="prev" title="北斗导航与GPS打价格战 目标进军手机终端">
+                北斗导航与GPS打价格战 目标进军手机终端 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

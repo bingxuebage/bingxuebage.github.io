@@ -1,0 +1,782 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="【因为活在无法互信的世界，所以藏身层层密码之间保护自己。从烙在士兵身体上的古典密码，到现代加密算法，直至未来“回归”身体的密码药丸，本期《科技万有瘾力》将聊聊密码的“秘史”。】 　　密码被盗损失有多大？这个数字可能是1360亿美元。今年4月份，美联社推特账号曾被盗，并发布了一条假消息：“白宫两处发生爆炸，总统奥巴马受伤”。该条消息造成全球金融市场混乱，标普市值瞬间抹去1360亿美元。 损失也可">
+<meta property="og:type" content="article">
+<meta property="og:title" content="科技万有瘾力第35期:密码秘史">
+<meta property="og:url" content="http://www.yangjungou.com/2013/07/02/e7-a7-91-e6-8a-80-e4-b8-87-e6-9c-89-e7-98-be-e5-8a-9b-e7-ac-ac35-e6-9c-9f-e5-af-86-e7-a0-81-e7-a7-98-e5-8f-b2/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="【因为活在无法互信的世界，所以藏身层层密码之间保护自己。从烙在士兵身体上的古典密码，到现代加密算法，直至未来“回归”身体的密码药丸，本期《科技万有瘾力》将聊聊密码的“秘史”。】 　　密码被盗损失有多大？这个数字可能是1360亿美元。今年4月份，美联社推特账号曾被盗，并发布了一条假消息：“白宫两处发生爆炸，总统奥巴马受伤”。该条消息造成全球金融市场混乱，标普市值瞬间抹去1360亿美元。 损失也可">
+<meta property="og:image" content="http://img6.cache.netease.com/2008/2013/7/2/20130702051901dba35.jpg">
+<meta property="og:image" content="http://img1.cache.netease.com/2008/2013/7/2/201307020519257858c.jpg">
+<meta property="og:image" content="http://img6.cache.netease.com/2008/2013/7/2/201307020520004b80a.jpg">
+<meta property="og:image" content="http://img1.cache.netease.com/2008/2013/7/2/2013070205202736943.jpg">
+<meta property="og:image" content="http://img6.cache.netease.com/2008/2013/7/2/201307020521246f4f7.jpg">
+<meta property="og:image" content="http://img5.cache.netease.com/2008/2013/7/2/20130702052158a8631.jpg">
+<meta property="og:image" content="http://img1.cache.netease.com/2008/2013/7/2/20130702052240add00.png">
+<meta property="og:image" content="http://img4.cache.netease.com/2008/2013/7/2/2013070205230719842.jpg">
+<meta property="og:image" content="http://img1.cache.netease.com/2008/2013/7/2/20130702052338a6368.jpg">
+<meta property="og:image" content="http://img1.cache.netease.com/2008/2013/7/2/2013070205240568b70.jpg">
+<meta property="og:image" content="http://img5.cache.netease.com/2008/2013/7/2/20130702052434464fc.jpg">
+<meta property="og:image" content="http://img1.cache.netease.com/2008/2013/7/2/20130702052715ce695.jpg">
+<meta property="og:image" content="http://img4.cache.netease.com/2008/2013/7/2/2013070205274397c07.jpg">
+<meta property="og:image" content="http://img6.cache.netease.com/2008/2013/7/2/20130702052808688c2.jpg">
+<meta property="og:image" content="http://img3.cache.netease.com/2008/2013/7/2/2013070205284474b91.jpg">
+<meta property="og:image" content="http://img6.cache.netease.com/2008/2013/7/2/20130702052925043bb.png">
+<meta property="og:image" content="http://img4.cache.netease.com/2008/2013/7/2/2013070205295290ec8.jpg">
+<meta property="og:image" content="http://img6.cache.netease.com/2008/2013/7/2/20130702053027bff4b.jpg">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="科技万有瘾力第35期:密码秘史">
+<meta name="twitter:description" content="【因为活在无法互信的世界，所以藏身层层密码之间保护自己。从烙在士兵身体上的古典密码，到现代加密算法，直至未来“回归”身体的密码药丸，本期《科技万有瘾力》将聊聊密码的“秘史”。】 　　密码被盗损失有多大？这个数字可能是1360亿美元。今年4月份，美联社推特账号曾被盗，并发布了一条假消息：“白宫两处发生爆炸，总统奥巴马受伤”。该条消息造成全球金融市场混乱，标普市值瞬间抹去1360亿美元。 损失也可">
+<meta name="twitter:image" content="http://img6.cache.netease.com/2008/2013/7/2/20130702051901dba35.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2013/07/02/e7-a7-91-e6-8a-80-e4-b8-87-e6-9c-89-e7-98-be-e5-8a-9b-e7-ac-ac35-e6-9c-9f-e5-af-86-e7-a0-81-e7-a7-98-e5-8f-b2/"/>
+
+
+
+
+
+  <title>科技万有瘾力第35期:密码秘史 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2013/07/02/e7-a7-91-e6-8a-80-e4-b8-87-e6-9c-89-e7-98-be-e5-8a-9b-e7-ac-ac35-e6-9c-9f-e5-af-86-e7-a0-81-e7-a7-98-e5-8f-b2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">科技万有瘾力第35期:密码秘史</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-07-02T19:33:37+08:00">
+                2013-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2013/" itemprop="url" rel="index">
+                    <span itemprop="name">2013</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2013/文摘/" itemprop="url" rel="index">
+                    <span itemprop="name">文摘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div>
+
+<p>【因为活在无法互信的世界，所以藏身层层密码之间保护自己。从烙在士兵身体上的古典密码，到现代加密算法，直至未来“回归”身体的密码药丸，本期《科技万有瘾力》将聊聊密码的“秘史”。】</p>
+<p><img src="http://img6.cache.netease.com/2008/2013/7/2/20130702051901dba35.jpg" alt="“Password”一词多年蝉联最糟糕密码称号">　　密码被盗损失有多大？这个数字可能是1360亿美元。今年4月份，美联社推特账号曾被盗，并发布了一条假消息：“白宫两处发生爆炸，总统奥巴马受伤”。该条消息造成全球金融市场混乱，标普市值瞬间抹去1360亿美元。</p>
+<p>损失也可能并没有那么多，美国伊利诺伊大学近日发起一个项目，调查密码重复使用的情况，根据该项目估算，一个苹果账户的详细信息大约值8美元，一个亚马逊购物账户的详细信息大约值15美元。</p>
+<p><img src="http://img1.cache.netease.com/2008/2013/7/2/201307020519257858c.jpg" alt="未来的电子药丸原理图;吞进肚子，你的身体就是密码">　　且不论损失如何，既然人人无需密码的大同社会并无到来的迹象，那么也就不难理解从古到今，从理化生到数学，各种费尽心思的加密手段了。凯撒用烙在士兵头皮上的记号传递作战意图，密码破译机让二战提前两年结束，iPhone有10000种可能的解锁密码——当然，安卓更多。</p>
+<p><img src="http://img6.cache.netease.com/2008/2013/7/2/201307020520004b80a.jpg" alt="3×3的“迷宫解锁”即存在389 112种可能，4×4更是天文数字">　　而在未来，一方面指纹识别、面部识别、虹膜识别等应用于安保的技术将普及至日常的电子设备；另一方面，密码将越来越融入身体，从可穿戴设备，到吞入式电子设备，甚至是身体本身都能携带密码。</p>
+<p><img src="http://img1.cache.netease.com/2008/2013/7/2/2013070205202736943.jpg" alt="虹膜扫描比指纹安全性更高，但也更昂贵">　　凯撒时代的古典加密术</p>
+<p>在凯撒时代，就已经有了成熟的密码系统。那时密码的最大危险不是被破译，而是传令兵被俘后泄露情报。</p>
+<p><img src="http://img6.cache.netease.com/2008/2013/7/2/201307020521246f4f7.jpg" alt="古罗马军团作战想象图">　　为了解决这个难题，凯撒的部下建议用火烙铁在一批被剃掉头发的士兵的脑顶上烙上不同的印迹，被烙的士兵当然不明白这是为什么。大战之前，凯撒要求大将们牢记一组对应关系，如梅花疤代表“马上率部向我驰援”，三角疤代表“固守阵地”等等。</p>
+<p>在战斗中，凯撒若需增援，只需把烙梅花疤的几个人点出来，命令他们沿不同的路线到大将处报到，到达彼处后剃头查疤即可。即使被俘，严刑拷打也问不出情报，因为他的确不知道情报。</p>
+<p><img src="http://img5.cache.netease.com/2008/2013/7/2/20130702052158a8631.jpg" alt="计算机也并非万能，图为美国弗吉尼亚CIA广场上的雕塑作品，上面的密码至今未被破解">　　类似的加密术看起来非常巧妙，但随着计算机的诞生，这些“古典密码术”全部失效，因为它们根本抵挡不住计算机的穷举分析。现代密码学的思路跟古典密码术非常不同，它是先找出一个数学难题，然后把加密方法归结到这个难题，若解不出这个数学难题就破解不了他的密码。</p>
+<p>换言之，古典密码学藏秘密于物理和化学，现代密码学藏秘密于数据。</p>
+<p>密码破译机提前两年结束二战</p>
+<p>提到二战盟军的胜利，很多人会归功于蒙哥马利、巴顿、艾森豪威尔这些著名将军，还有美国那两枚超级炸弹，不过身在幕后的图灵功劳未必小过这些将领，他的”炸弹“密码破译机也不逊色于美国的核弹。</p>
+<p><img src="http://img1.cache.netease.com/2008/2013/7/2/20130702052240add00.png" alt="据传，图灵因其同性恋取向而服毒苹果自杀">　　在二战中，德军的“谜团”（enigma）密码机器让盟军的解码专家头痛不已。在计算机尚未诞生的年代，这个小小的盒子能够产生1亿亿种加密方案。并且，虽然enigma这台机器可以产生这么复杂的结果，但使用起来却异常简单，即使小学文化水平的德国大兵也轻松应对。当时，enigma受到希特勒和德军将领的欢迎，而且希特勒自信地认为这台机器“无人能破解”。</p>
+<p><img src="http://img4.cache.netease.com/2008/2013/7/2/2013070205230719842.jpg" alt="盟军密码破译机的对手:德军的enigma机器">　　为了对抗德军的密码，英国军情六处在一个小镇里买下了一个隐蔽的庄园，四处招兵买马网罗了全英国天才破译密码。原本在剑桥工作的计算机奇才图灵也放下手头工作，应邀加入其中。经过图灵的改进，盟军的解码器每天可以破译敌方三千条密码。据信，由于这些破译工作的显著成效，帮助盟军在多场战役中击败纳粹德军，并葬送了德军著名的U型潜艇部队，从而让战争提前两年结束。</p>
+<p><img src="http://img1.cache.netease.com/2008/2013/7/2/20130702052338a6368.jpg" alt="二战后所有的“炸弹”（Bombe）密码破译机全被销毁，图为一批二战老兵花14年复制出的破译机">　　和平年代，硝烟并未远，密码仍然扮演重要一角儿。据传，斯诺登已经将加密后的秘密档案的文件交给了几个人，并威胁一旦其遭遇不测，这些人将获得解读文档的密码。看来，当代谍战大片里，密码戏份仍不少。</p>
+<p>未来展望：回归物理密码介质</p>
+<p>现代数字密码容易被穷举、盗取信用证书、网络钓鱼等技术手段盗取。谷歌最近加入一个身份验证技术联盟——FIDO （Fast IDentity Online）。该联盟旨在开发互联网身份验证的新技术取代传统密码，可选用的手段包括生物特征识别、语音识别、脸部识别、USB验证令牌、NFC技术和一次性密码等。除谷歌外，该联盟成员还包括 PayPal、联想等。</p>
+<p><img src="http://img1.cache.netease.com/2008/2013/7/2/2013070205240568b70.jpg" alt="目前常见的验证工具中，动态密码令牌与短信验证码安全性最高">　　该联盟的理念代表了密码的未来发展趋势：将密码凭证储存在某种物理介质中，令犯罪者难以盗取密码。</p>
+<p>iPhone 5S集成指纹识别？</p>
+<p>在安保领域，指纹识别、面部识别、虹膜识别等技术早已不新鲜。在未来，这些技术将有望普遍地应用在消费级别的电子产品中。</p>
+<p>近日，iPhone5S的Home键被首次曝光，其没有采用传统的正方形图文设计。分析认为，这是为配合在Home键集成“革命性”的指纹解锁功能。</p>
+<p><img src="http://img5.cache.netease.com/2008/2013/7/2/20130702052434464fc.jpg" alt="曝光的iPhone 5S的Home键，将嵌入苹果LOGO">　　去年年中，苹果以3.56亿美元的价格收购指纹感应器制造商 AuthenTec。至此之后，苹果将在下代iPhone中集成指纹识别的流言就不绝于耳。若iPhone与iPad确实集成该功能，移动支付的安全性有望大大提高。</p>
+<p>凭指纹“备份”钥匙</p>
+<p>如果下代iPhone集成指纹识别，将大大普及这项技术。而在美国曼哈顿，一家名为KeyMe的初创公司则用另一种方式在普及指纹识别带来的便利。</p>
+<p><img src="http://img1.cache.netease.com/2008/2013/7/2/20130702052715ce695.jpg" alt="如此高科技配钥匙，小区的师傅表示压力很大">　　该公司设计了一款机器，可以帮助用户备份钥匙的相关数据。万一钥匙丢失、损坏，用户能用指纹作为身份识别的依据，通过验证后，就能利用备份的数据直接复制一把钥匙。</p>
+<p>戴在手指上的密码</p>
+<p>使用可穿戴设备来携带密码是另一种“密码随身”的思路，盛大果壳在上个月发布的“GEAK魔戒”可内置个人信息，当手机与GEAK魔戒足够接近时戒指会驱动手机做出相应反应，无需密码设置，触摸便能实现安全解锁、浏览个人资料等。</p>
+<p><img src="http://img4.cache.netease.com/2008/2013/7/2/2013070205274397c07.jpg" alt="目前“GEAK魔戒”仅能配合同系列的“GEAK手机”使用">　　吞进身体里的密码</p>
+<p>比可穿戴设备更“随身”的密码可以被吞进肚子里。5月份，摩托罗拉演示了一个电子药丸人体身份识别的例子。当药丸被服下后，胃酸就会作为电解液来驱动药丸包含的电路中的芯片向外发射信号。此时，整个人体就成了一个密钥。此时，用户就可以拿出智能手机，不必输入任何密码随意使用各种应用。更进一步的可能性是：吞吃了药丸后，你可以发动汽车，可以打开门锁，而无需其他的验证。</p>
+<p><img src="http://img6.cache.netease.com/2008/2013/7/2/20130702052808688c2.jpg" alt="摩托罗拉移动认为现有的电子产品形态太死板；图为其演示的电子药丸">　　此类吞进肚子的可摄入传感器并无安全隐患，此前已有另一款名为Proteus Digital Health的药丸获得了美国食品及药物管理局的批准。该药丸用于医药领域，可检测用户之前服用了何种药物，比如，它可以解决“奶奶今天是不是吃药了，什么时候吃的？”这个问题。</p>
+<p>用“意念”验证密码</p>
+<p>今年4月份，美国一所学校的研究人员发明了一种新的密码验证方法：用生物传感技术来验证密码。其前提是用户需要头戴一个名为NeuroSky Mindset的设备。该设备通过蓝牙与电脑连接，其传感器贴着用户的前额，从大脑获得脑电图信号。而使用者进行特性思考所产生的脑电图模式，就能作为身份验证的凭据。</p>
+<p><img src="http://img3.cache.netease.com/2008/2013/7/2/2013070205284474b91.jpg" alt="NeuroSky Mindset价值100美元">　　在实验中，一些简单的动作就可以成功验证密码，比如专注于呼吸或者专注思考某件事情10秒左右。而更加厉害的是，每个人的脑电波都是独一无二的。比如，即使知道你通过默念“李天一”3遍作为密码，但他人进行相同思考所呈现出来的脑电图信号还是不一样的，没有被破解之虞。</p>
+<p>利用无意识记忆的节奏密码</p>
+<p>再厉害的密码，只要有人知道，有说出口的可能。然而，美国几所大学的研究人员们已经研制出一种程序可以让你在并不知道密码是什么的情况下输入它。它利用是人类在无意中的记忆力，研究人员认为，通过特定的练习，使用者可以流畅输入一个他无法写出或者背诵的密码。</p>
+<p><img src="http://img6.cache.netease.com/2008/2013/7/2/20130702052925043bb.png" alt="节奏密码的缺陷在于:为了设置密码而接受训练实在太麻烦">　　在研究人员设计的游戏中，使用者会反复练习一些半随机节奏的序列，其中之一会多次重复出现，这就是他们的“密码”。而两周以后，当使用者再次玩这个游戏，他们无意识中击打出的节奏中识别出此前的“密码”序列。</p>
+<p>当“眼睛”被黑 一切不再安全</p>
+<p>正如《科技万用瘾力》一贯观点，科技永远是把双刃剑。在密码这个话题中，技术帮助密码藏身物理世界、远离数字世界的盗取者，但也令虚拟的黑客有机会入侵保存于物理世界的密码。</p>
+<p><img src="http://img4.cache.netease.com/2008/2013/7/2/2013070205295290ec8.jpg" alt="在智能眼睛普及的未来，与一名黑客约会非常危险">　　谷歌眼镜正是未来黑客的“后门”之一。iOS越狱界著名黑客Saurik在评价谷歌眼镜的安全性时如是认为：谷歌眼镜与安卓手机一样容易攻陷，而一旦攻陷，造成的破坏则要大得多：谷歌眼镜知道你所有的密码，因为它能看着你输入这些密码。它还能看到你输入门锁密码、拍下你钥匙的形状、记录你用笔纸写下的东西。一旦你的谷歌眼镜被黑，那就没有什么密码是安全的了。</p>
+<p><img src="http://img6.cache.netease.com/2008/2013/7/2/20130702053027bff4b.jpg" alt="国外媒体对虚拟财产继承争议的报道">　　将密码融入身体，还将引发一个衍生问题：在使用数字密码的现在，继承QQ号、游戏帐号等虚拟财产已属不易。为了解决这一问题，国外一家创业公司提供的方案是：用户可以将自己重要的网络账户密码保存在网站上，并指定一个自己死后继续保管这些账户密码的人。但是，未来若身份验证的凭据随着逝者一同到了另一个世界，虚拟财产的继承会更加困难。</p>
+<p>财产和情报的损失，密码被攻陷的有之；“人”被花言巧语迷惑，乖乖献城投降的更有之。电子药丸也拯救不了情商不足，两军对垒最怕猪一样的队友。归根结底，还是加密高一尺，解密高一丈呀。</p>
+<p>（本文素材采编自网络，部分文字及图片引用自爱范儿、科学松鼠会、雷锋网等媒体。）</p>
+<p></p></div><br><a href="http://3g.163.com/touch/article.html?docid=92ON2H3P00963VRT" target="_blank" rel="external">网易原文链接</a><p></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/06/27/e7-a5-9e-e7-a7-98-e7-9a-84-e7-a8-8b-e5-ba-8f-e7-8c-bf/" rel="next" title="神秘的程序猿">
+                <i class="fa fa-chevron-left"></i> 神秘的程序猿
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/01/26/e4-b8-ad-e5-9b-bd-e7-94-a8-e6-88-b7-e4-bd-bf-e7-94-a8-e4-bb-a3-e7-90-86-e8-bd-af-e4-bb-b6-e7-9a-84-e5-88-86-e6-9e-90/" rel="prev" title="中国用户使用代理软件的分析">
+                中国用户使用代理软件的分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

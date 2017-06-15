@@ -1,0 +1,731 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="无人驾驶，为什么是 Google？ 2013-3-21, 06:35 | 王超文无人驾驶的愿望十分美好，但能提供这项服务的公司寥寥无几。无人驾驶车依赖的技术很多，比如导航、雷达、庞大数据计算等，要实现这些技术并不难，但和实际场景结合起来则是另外一回事。一辆无人驾驶汽车要上路，必须时刻掌握周身环境、十字路口的状况、计算交通状况、精确到厘米级别的导航等，这些都依赖庞大的地图数据以及强大的计算处理能力。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="无人驾驶，为什么是 Google？">
+<meta property="og:url" content="http://www.yangjungou.com/2013/03/21/e6-97-a0-e4-ba-ba-e9-a9-be-e9-a9-b6-ef-bc-8c-e4-b8-ba-e4-bb-80-e4-b9-88-e6-98-af-google-ef-bc-9f/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="无人驾驶，为什么是 Google？ 2013-3-21, 06:35 | 王超文无人驾驶的愿望十分美好，但能提供这项服务的公司寥寥无几。无人驾驶车依赖的技术很多，比如导航、雷达、庞大数据计算等，要实现这些技术并不难，但和实际场景结合起来则是另外一回事。一辆无人驾驶汽车要上路，必须时刻掌握周身环境、十字路口的状况、计算交通状况、精确到厘米级别的导航等，这些都依赖庞大的地图数据以及强大的计算处理能力。">
+<meta property="og:image" content="http://cdn.ifanr.cn/wp-content/uploads/2013/03/131.jpg">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.177Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="无人驾驶，为什么是 Google？">
+<meta name="twitter:description" content="无人驾驶，为什么是 Google？ 2013-3-21, 06:35 | 王超文无人驾驶的愿望十分美好，但能提供这项服务的公司寥寥无几。无人驾驶车依赖的技术很多，比如导航、雷达、庞大数据计算等，要实现这些技术并不难，但和实际场景结合起来则是另外一回事。一辆无人驾驶汽车要上路，必须时刻掌握周身环境、十字路口的状况、计算交通状况、精确到厘米级别的导航等，这些都依赖庞大的地图数据以及强大的计算处理能力。">
+<meta name="twitter:image" content="http://cdn.ifanr.cn/wp-content/uploads/2013/03/131.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2013/03/21/e6-97-a0-e4-ba-ba-e9-a9-be-e9-a9-b6-ef-bc-8c-e4-b8-ba-e4-bb-80-e4-b9-88-e6-98-af-google-ef-bc-9f/"/>
+
+
+
+
+
+  <title>无人驾驶，为什么是 Google？ | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2013/03/21/e6-97-a0-e4-ba-ba-e9-a9-be-e9-a9-b6-ef-bc-8c-e4-b8-ba-e4-bb-80-e4-b9-88-e6-98-af-google-ef-bc-9f/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">无人驾驶，为什么是 Google？</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-03-21T09:19:16+08:00">
+                2013-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2013/" itemprop="url" rel="index">
+                    <span itemprop="name">2013</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2013/google/" itemprop="url" rel="index">
+                    <span itemprop="name">google</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2013/google/文摘/" itemprop="url" rel="index">
+                    <span itemprop="name">文摘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="http://www.ifanr.com/265342" title="Permalink to 无人驾驶，为什么是 Google？" target="_blank" rel="external">无人驾驶，为什么是 Google？</a></p>
+<div>2013-3-21, 06:35 | <a href="http://www.ifanr.com/author/wangchaowen" title="Posts by 王超文" target="_blank" rel="external">王超文</a></div><br><div id="entry-content"><br><br><a href="http://cdn.ifanr.cn/wp-content/uploads/2013/03/131.jpg" target="_blank" rel="external"><img src="http://cdn.ifanr.cn/wp-content/uploads/2013/03/131.jpg" alt="1"></a><br><br>无人驾驶的愿望十分美好，但能提供这项服务的公司寥寥无几。无人驾驶车依赖的技术很多，比如导航、雷达、庞大数据计算等，要实现这些技术并不难，但和实际场景结合起来则是另外一回事。<br><br>一辆无人驾驶汽车要上路，必须时刻掌握周身环境、十字路口的状况、计算交通状况、精确到厘米级别的导航等，这些都依赖庞大的地图数据以及强大的计算处理能力。而如果是几万辆、几百万辆无人驾驶汽车同时上路的话，处理需求又是另一个级别。<br><br>那么谁才是当前最有能力搞定这些的公司呢？答案无疑是 Google，<a href="http://www.guardian.co.uk/technology/2013/mar/18/google-driverless-cars-data-monday-note" target="_blank" rel="external">卫报</a>撰文从几个方面分析了 Google 在自动驾驶领域的领先优势，这些优势让 Google 在无人驾驶领域独树一帜。<br><br>### 地图<br><br>地图是 Google 无人驾驶的基础架构，Google 在地图上的业务要追溯到 2004 年，Google 通过收购 Where2 科技公司以及 Keyhole 公司，开启了自己的地图业务。如今经过十年的持续耕耘，Google 地图拥有了丰富的产品形态和功能，早期通过众包的形式获得了不少关键数据，如今 Google 逐渐取消了第三方数据提供，派出自己的员工去世界各地收集数据。<br><br>2007 年 Google 推出街景，覆盖了超过 500 万英里的城区。到今天，Google 地图拥有卫星视图、3D、45 度鸟瞰图、建筑和基础设施的渲染图，所有的这些都集成在一个 Google 地图里。<br><br>Google 的速度十分之快，2008 年 Google 地图覆盖了 22 个国家，提供 1300 万英里的导航服务。而到了 2012 年，覆盖到 187 个国家，2600 万英里的导航。由于足够精确的数据，Google 地图成为许多人出行的第一选择。<br><br>地图的业务是耐力赛，光有金钱的投入远远不够，苹果在地图服务上的折戟就说明了这一点。Google 在地图业务十年的持续改进，大量用户数据的收集分析，让其迅速建立了竞争壁垒，领先于其他的地图服务商。<br><br>精确、实用和数据丰富是 Google 地图最大的优势，不过 Google 的优势不止这些。<br><br>### 实际驾驶<br><br>基于在搜索领域的巨大优势，Google 在数据收集和处理方面得心应手。<br><br>未来会有大量的针对自动驾驶的基础设施部署在路上，这些设施部署之后，高速公路可以容纳更多汽车，车流更加顺畅，且更快更安全。自动驾驶车辆将由专门的系统安排重组，更顺畅的和其他车子融合，或者在经过十字路口时重新排列。<br><br>将这些功能应用到数百万辆车、交通以及基础设施上，将会发生无比庞大的数据处理需求。还需要编写软件、利用数据来控制汽车，处理天气和道路信息，停车位数据和燃油数据，甚至和日常生活结合，比如个人日历、上下班时间等，Google 可能是唯一一个可以包揽所有事情的公司。<br><br>综上所述，地图和实际驾驶的处理能力，是卫报认为 Google 的两大优势。但我个人认为，Google 在移动智能终端的优势也能辅助无人驾驶。贯穿无人驾驶的一个核心，就是数据的收集和处理。Google 的 4 亿台（或更多）Android 手机，只要用户允许，这些设备上的地图软件都会将使用者的位置、时速匿名发送给 Google，某种程度上，Google 掌握了未来使用 Android 设备人群的交通状况。<br><br>这类似于 Google 地图的众包服务，但这种众包是对交通状况的展现。举个简单例子，比如周末北京大量私家车外出旅游，允许调用数据的移动设备能实时将交通状况反映给 Google，哪条道路最热门、堵车最严重、人们最常去的几个地方，Google 都能知道。<br><br>对交通流的掌握，可以为 Google 无人驾驶上路做很好的铺垫，并在后续的使用中持续发挥作用。<br><br>以上几点，可以看到 Google 是如何利用自身优势的整合改变无人驾驶，也表明 Google 是一家拥有长远眼光的公司。我们都知道，要真正实现无人驾驶还有很长的时间，但这一天迟早要到来。Google 也不是一帆风顺，不久前我就写过一篇<a href="http://www.ifanr.com/256942" target="_blank" rel="external">《那些阻碍 Google 自动驾驶上路的因素》</a>，Google 还面临一些让人头疼的问题需要解决。<br><br>总之，无人驾驶很美好，但确是一项浩大的工程，Google 的优势十分明显。<br><br>题图来自 <a href="http://googleblog.blogspot.hk/2012/08/the-self-driving-car-logs-more-miles-on.html" target="_blank" rel="external">Googleblog</a><br><br></div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/03/20/ubuntu-e8-ae-a1-e5-88-92-e7-bc-a9-e7-9f-ad-e9-9d-9e-lts-e7-89-88-e6-9c-ac-e6-94-af-e6-8c-81-e6-97-b6-e9-97-b4/" rel="next" title="Ubuntu 计划缩短非 LTS 版本支持时间">
+                <i class="fa fa-chevron-left"></i> Ubuntu 计划缩短非 LTS 版本支持时间
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/03/22/e6-98-93-e7-99-be-e7-a7-91-e8-a7-a3-e6-94-be-e5-86-9b-e7-ba-a7-e5-88-ab-e8-b5-84-e5-8e-86-e7-ab-a0/" rel="prev" title="易百科:解放军级别资历章">
+                易百科:解放军级别资历章 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

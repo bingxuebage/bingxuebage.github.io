@@ -1,0 +1,767 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="# Android开发在路上：少去踩坑，多走捷径mary  发表于 2014.6.30     55浏览    1讨论作者：gzjay，腾讯MIG无线产品部 高级工程师最近一朋友提了几个Android问题让我帮忙写个小分享，我觉得对新人还是挺有帮助的，所以有了这个小分享。&amp;nbsp;1.目前， Android APP开发完成后，通常需要在哪些机型上进行测试？&amp;nbsp;2.目前， 开发Androi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android开发在路上：少去踩坑，多走捷径">
+<meta property="og:url" content="http://www.yangjungou.com/2014/07/01/android-e5-bc-80-e5-8f-91-e5-9c-a8-e8-b7-af-e4-b8-8a-ef-bc-9a-e5-b0-91-e5-8e-bb-e8-b8-a9-e5-9d-91-ef-bc-8c-e5-a4-9a-e8-b5-b0-e6-8d-b7-e5-be-84/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="# Android开发在路上：少去踩坑，多走捷径mary  发表于 2014.6.30     55浏览    1讨论作者：gzjay，腾讯MIG无线产品部 高级工程师最近一朋友提了几个Android问题让我帮忙写个小分享，我觉得对新人还是挺有帮助的，所以有了这个小分享。&amp;nbsp;1.目前， Android APP开发完成后，通常需要在哪些机型上进行测试？&amp;nbsp;2.目前， 开发Androi">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30111443315.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30111511149.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30111539222.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30111611961.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30111656598.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30111734458.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30111951710.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30112244745.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30112308707.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30112953637.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30113034397.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30113059767.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30113143645.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30113217152.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30113748688.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30113825894.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30113904200.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30113923416.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30113945327.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30114007966.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30114051131.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30114123669.jpg?nothumb=false">
+<meta property="og:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30114150523.jpg?nothumb=false">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.179Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android开发在路上：少去踩坑，多走捷径">
+<meta name="twitter:description" content="# Android开发在路上：少去踩坑，多走捷径mary  发表于 2014.6.30     55浏览    1讨论作者：gzjay，腾讯MIG无线产品部 高级工程师最近一朋友提了几个Android问题让我帮忙写个小分享，我觉得对新人还是挺有帮助的，所以有了这个小分享。&amp;nbsp;1.目前， Android APP开发完成后，通常需要在哪些机型上进行测试？&amp;nbsp;2.目前， 开发Androi">
+<meta name="twitter:image" content="http://djt.qq.com/upload/public/common/2014/06/images/30111443315.jpg?nothumb=false">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2014/07/01/android-e5-bc-80-e5-8f-91-e5-9c-a8-e8-b7-af-e4-b8-8a-ef-bc-9a-e5-b0-91-e5-8e-bb-e8-b8-a9-e5-9d-91-ef-bc-8c-e5-a4-9a-e8-b5-b0-e6-8d-b7-e5-be-84/"/>
+
+
+
+
+
+  <title>Android开发在路上：少去踩坑，多走捷径 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2014/07/01/android-e5-bc-80-e5-8f-91-e5-9c-a8-e8-b7-af-e4-b8-8a-ef-bc-9a-e5-b0-91-e5-8e-bb-e8-b8-a9-e5-9d-91-ef-bc-8c-e5-a4-9a-e8-b5-b0-e6-8d-b7-e5-be-84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Android开发在路上：少去踩坑，多走捷径</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-07-01T22:09:59+08:00">
+                2014-07-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2014/" itemprop="url" rel="index">
+                    <span itemprop="name">2014</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2014/文摘/" itemprop="url" rel="index">
+                    <span itemprop="name">文摘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div class="article-header"><br><div class="article-header-detail"><br><br># Android开发在路上：少去踩坑，多走捷径<br><br></div><br><div class="article-header-info"><br><br>mary  发表于 2014.6.30     55浏览    1讨论<br><br></div><br></div><br><div class="article-body" style="color: #555555;"><br><div><strong>作者：</strong>gzjay，腾讯MIG无线产品部 高级工程师</div><br><div></div><br><div>最近一朋友提了几个Android问题让我帮忙写个小分享，我觉得对新人还是挺有帮助的，所以有了这个小分享。</div><br>&nbsp;<br><br>1.目前， Android APP开发完成后，通常需要在哪些机型上进行测试？<br><br>&nbsp;<br><br>2.目前， 开发Android APP时，需要考虑的分辨率有哪些？<br><br>&nbsp;<br><br>这两个问题可以合起来回答的。<br><br><a href="http://developer.android.com/about/dashboards/index.html" target="_blank" rel="external">http://developer.android.com/about/dashboards/index.html</a><br><br>源自Google Play的数据，每月都会进行update，可以及时了解Android版本比例趋势。<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30111443315.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>屏幕密度数据<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30111511149.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>OpenGL ES版本<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30111539222.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>也可以参考一下国内一个第三方数据：<a href="http://www.umindex.com/#android_device" target="_blank" rel="external">http://www.umindex.com/#android_device</a><br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30111611961.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>目前三星和小米市场占有率是遥遥领先的，三星Note2、Note3、S3、S4、S5、小米123、红米必须测试，魅族也比较坑爹，加入测试名单吧。再选中小屏幕各一款（譬如华为C8650、Moto ME511）。<br><br>Android 1.5、1.6、2.0、2.1和小屏幕的属于古董级别的机器，市场存量也很少，新出的机器都是4.0以上的了，所以必要时需要舍弃对古董的支持，因为适配成本很高，对于新开发的应用，这个适配不值得投入。<br><br>&nbsp;<br><br><strong>3.目前， 开发Android APP时，适应多个分辨率的技术方案有哪些？</strong><br><br>&nbsp;<br><br><a href="http://developer.android.com/guide/practices/screens_support.html" target="_blank" rel="external">http://developer.android.com/guide/practices/screens_support.html</a><br><br>Android的屏幕适配，可以在工程res目录下进行处理，无需写代码，Android自动找最适合的资源进行显示，相信大家都相当熟悉的了。<br><br>&nbsp;<br><br>目前我使用的是ADT22.6，新建一个Android工程，会自动在res目录下生成这个目录结构。这里有5个前缀drawable的文件夹，对应不同密度屏幕时所取的图片资源或者样式。<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30111656598.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>做一个功能正常的App，开发者需要遵循一些开发守则，与此同时，设计师也需要有一套标准来设计Android UI，所有的Android UI设计指南都在这里了。<br><br><a href="http://developer.android.com/design/style/devices-displays.html" target="_blank" rel="external">http://developer.android.com/design/style/devices-displays.html</a><br><br>&nbsp;<br><br>9Path这个简单易用的工具，很实用，必须推荐。<br><br>&nbsp;<br><br>画个图标，都要出N种分辨率，每次机械操作实在有点弱爆，推荐一个牛X的工具：<br><br>&nbsp;<br><br>其中的功能可以自动切图输出各种屏幕密度的icon，可视化构建布局，自动生成布局文件。<br><br><a href="http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html" target="_blank" rel="external">http://android-ui-utils.googlecode.com/hg/asset-studio/dist/index.html</a><br><br>&nbsp;<br><br>推荐这个，设计师应该会很喜欢，秒切图。<br><br><a href="http://www.cutandslice.me/" target="_blank" rel="external">http://www.cutandslice.me/</a><br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30111734458.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>实际开发中，考虑到包体积大小，不会在所有drawable中都放不同size的图片资源，而是只使用一套图片资源，编写不同的布局。个别特殊的图片资源就每个drawable文件夹中放相应的size，譬如程序图标，不按文件夹放可能会导致在Launcher显示失真。<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30111951710.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>虽然不作任何改动也可以在Android Pad上跑，但由于Pad屏幕较大，操作体验不一样，建议重新设计。<br><br>&nbsp;<br><br><strong>4.开发Android APP**</strong>时，配置文件应放在哪里（APP<strong><strong>本地、远程WeB Server</strong></strong>中）？应该如何考虑？<strong>
+
+</strong> <strong><br><br>这个就要看需求了，如果只是本机使用，譬如保存软件设置，不需要联网操作的，那首选当然是保存在本地。<br><br>&nbsp;<br><br>如果业务需要和服务器交互，可以做成云配置方式。为了跨平台的兼容性，可以考虑使用Google的ProtoBuf，比XML更小更快更简单，后台和终端定义一套协议，自动生成C++、Java或者Python代码。<a href="https://developers.google.com/protocol-buffers/docs/overview?hl=zh-CN" target="_blank" rel="external">https://developers.google.com/protocol-buffers/docs/overview?hl=zh-CN</a>
+
+</strong> <strong>
+
+</strong>5.Android APP<strong>**测试方案通常考虑哪些因素？有测试方案的参考实例吗？</strong><br><br><strong> </strong><br><br><strong>机型适配：</strong>屏幕大小，这个只能人工检验了（程序不知道你的UI长得好不好看）<br><br>&nbsp;<br><br>Android版本（某些API在低版本上没有的，会Crash，推荐Lint静态扫描）<br><br>&nbsp;<br><br><strong>网络质量：</strong>联通、电信、移动、WiFi、弱网络等<br><br>&nbsp;<br><br><strong>安全性：</strong>网络数据必定经过加密处理；本地不保存安全信息（帐号密码等），或者加密保存<br><br>&nbsp;<br><br>代码中敏感信息尽量使用byte数组而不是字符串代码混淆处理(Proguard)<br><br>&nbsp;<br><br>SD卡剩余空间很少，没SD卡，双SD卡，飞行模式，时间有误等。<br><br>&nbsp;<br><br><strong>性能：</strong>CPU、内存占用（开发可以使用Linux的top命令或者DDMS里面的工具）<br><br>&nbsp;<br><br>网络流量消耗（有各种第三方流量监控软件）<br><br>&nbsp;<br><br><strong>6.**</strong>开发Android APP<strong><strong>时，为了提高工作效率，提高项目质量、通常需要抽象出一些lib</strong></strong>出来，请列出经常用到的接口的名称和用途。<strong>
+
+</strong> <strong><br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30112244745.jpg?nothumb=false" alt=""><br><div></div></strong> <strong></strong></div><br><div>更多精彩可以上github搜搜，这就不班门弄斧了。</div><br><div></div><br><div><img src="http://djt.qq.com/upload/public/common/2014/06/images/30112308707.jpg?nothumb=false" alt=""></div><br><div></div><br><div></div><br><div>
+
+7.Android APP开发中其它需要提醒的问题<strong><br><br>&nbsp;<br><br>android4.4在UI线程无法进行网络操作不单只android API版本不一定导致运行异常，有些机型还使用Java 1.5进行编译，使用某些Java 1.6的函数会Crash的。<br><br>&nbsp;<br><br>注意OOM问题，目前android手机已经有3G内存了，但并非一个应用就能使用全部内存。了解一下堆内存，一个软件至少一个进程，一个进程跑一个虚拟机，进程使用的堆内存大小，每部手机不一定一样。<br><br>&nbsp;<br><br>Show Dialog的问题，永远要判断Activity是否还在。<br><br>&nbsp;<br><br>使用了高版本的API函数，在低版本机器上挂了。<br><br>非UI线程不能操作UI。可能有各种权限被禁的问题。<br><br>&nbsp;<br><br>没有浏览器、没有软件安装器、没有Email等发生ActivityNotFoundexception。<br><br>&nbsp;<br><br>超快速连续点击按钮可能触发跑多个线程的问题。<br><br>&nbsp;<br><br>Android4.4短信权限设置，原生系统带有新接口，第三方系统可能裁剪掉了。<br><br>&nbsp;
+
+</strong>8.什么情况下发生OOM，如何避免？<strong><br><br>&nbsp;<br><br>图片操作（图片缩放、bitmap生成等）、序列化反序列化数据等会消耗大量内存。合理使用数据结构（链表和数组），及时释放引用，使用弱引用等能降低OOM情况发生。<br><br>&nbsp;
+
+</strong>9.出现ANR怎么办？<strong><br><br>&nbsp;<br><br>如果Android程序某个操作执行等待超过5s，会出现ANR（Application Not Responding）的对话框，对于执行耗时的操作，譬如网络操作，就不能在主线程上进行了（Android 4.4不让你这样做了），这些任务应该跑在主线程外，譬如新建一个线程处理，或者自己写一个网络引擎对所有网络请求进行管理。<br><br>&nbsp;
+
+</strong>10.如何跟踪研发质量？<strong><br><br>&nbsp;<br><br>Coverity接入：<a href="https://scan.coverity.com/" target="_blank" rel="external">https://scan.coverity.com/</a><br><br>代码缺陷扫描，不扫不知道，一扫吓一跳。满分推荐！Fro Free！如果你写的是开源代码，还能直接接入GitHub，超方便。<br><br>&nbsp;<br><br>Crash是无法避免的，我们能做的是尽量把Crash的情况减少。发出去的版本，用户发生Crash了，我们需要把Crash数据收集起来。所以软件需要做一个Crash上报，汇总整理。统计每个版本的Crash率，并把Crash按优先级进行修复。<br><br>&nbsp;<br><br>当然，版本检查更新也少不了。<br><br>&nbsp;
+
+</strong>11.如果跟踪用户对产品的反馈？<strong><br><br>&nbsp;<br><br>不管你写软件所用的技术有多么牛B，用户是不知道的，也不关心的。用户关心的是你的产品体验到底有多牛B。加上用户可以轻松反馈的反馈功能，你会发现有时用户的idea还不错的。<br><br>&nbsp;<br><br>做出来的产品好还是不好，需要有产品数据支撑，所以加插相关数据统计上报点，哪个功能热门，新增用户多少，活跃用户多少，一目了然。<br><br>&nbsp;
+
+</strong>12.安全检查<strong><br><br>&nbsp;<br><br>为避免异常情况的跳转或者恶意攻击，Android组件在启动时都需要判断传入的参数是否为空。<br><br>&nbsp;<br><br>敏感信息需要进行权限限制或者加密处理。<br><br>&nbsp;<br><br>能不暴露的组件就不暴露，在AndroidManifest中为组件加上android:exported=”false”属性。<br><br>&nbsp;<br><br>需要暴露的组件通过自定义权限进行调用，添加自定义权限android:permission=”yourapp.permission.CALL”检测WebView漏洞<a href="http://security.tencent.com/index.php/opensource/detail/1" target="_blank" rel="external">http://security.tencent.com/index.php/opensource/detail/1</a><br><br>&nbsp;
+
+</strong>13.常用工具有哪些：<strong><br><br>&nbsp;<br><br>Lint（清理资源、安全检查、layout优化等）<br><br>一般在提测前清理一下冗余资源，查一下有没有用了一些高API Level才有的接口，查一下安全问题。<br><div></div><br></strong></div><br><div><img src="http://djt.qq.com/upload/public/common/2014/06/images/30112953637.jpg?nothumb=false" alt=""></div><br><div></div><br><div></div><br><div><br><br>Findbugs（检查java代码缺陷）<br><br>&nbsp;<br><br>在开发工程中就可以对单个文件进行检查，有问题可以及时处理。<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30113034397.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>MAT（内存泄漏调试工具）<a href="http://www.eclipse.org/mat/" target="_blank" rel="external">http://www.eclipse.org/mat/</a><br><br>&nbsp;<br><br>遇到内存或者性能问题时，一般会结合几种工具来查问题，找解决方法。<br><div></div><br></div><br><div><img src="http://djt.qq.com/upload/public/common/2014/06/images/30113059767.jpg?nothumb=false" alt=""></div><br><div></div><br><div>Method Profiling（统计方法耗时）</div><br><div></div><br><div><img src="http://djt.qq.com/upload/public/common/2014/06/images/30113143645.jpg?nothumb=false" alt=""></div><br><div></div><br><div><br><br>Eclipse Class Decompiler（从此Eclipse不怕看不到jar包内的代码了）<a href="http://feeling.sourceforge.net/update" target="_blank" rel="external">http://feeling.sourceforge.net/update</a><br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30113217152.jpg?nothumb=false" alt=""><br><div></div><br></div><br><div><br><br>Hierarchy Viewer（查看Activity堆栈、layout加载层次、像素眼）<br><br>&nbsp;<br><br>只能连接开发板手机或者模拟器，如果你的手机连不上，搜一下“Hierarchy Viewer 真机”，各种教程教你如何连上。<br><br>&nbsp;<br><br>Activity太多，有时出问题了，但又想不起这个页面叫什么名字，插上去，一目了然。<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30113748688.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>很清晰看出Layout布局层次， 还能显示计算layout耗时，绘图耗时，UI性能优化好帮手。<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30113825894.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>TinyPNG（压缩图片资源利器，山崩地裂推荐）<a href="https://tinypng.com/" target="_blank" rel="external">https://tinypng.com/</a><br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30113904200.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>7z（压缩APK利器，上线前压一下就可以，简单实用，五星推荐）<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30113923416.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>Apktool、Dex2jar 、jd-gui（反编译套装，你懂的）<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30113945327.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>Mark Man（设计师何苦为难工程师）<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30114007966.jpg?nothumb=false" alt=""><br><br>&nbsp;<br><br>Beyond Compare（各种神对比，我喜欢对比代码）<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30114051131.jpg?nothumb=false" alt="">
+
+ <strong>
+
+</strong>Tcpdump<strong><strong>（Linux dump</strong></strong>包工具）**<br><br>adb shell tcpdump -p -vv-s 0 -w /sdcard/capturenet.pcap<br><br>&nbsp;<br><br>WireShark（查看网络dump包）<br><br>遇到棘手问题时，还是需要他们帮忙解决的。<br><br>&nbsp;<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30114123669.jpg?nothumb=false" alt=""><br><div></div><br></div><br><div><br><br>CMD (很简单的脚本却能大大提高效率，大家多学多分享)<br><br>一些经常操作的动作，使用手工操作又耗时又麻烦还可能出错，使用命令行去操作的话会极大提供效率。<br><br><img src="http://djt.qq.com/upload/public/common/2014/06/images/30114150523.jpg?nothumb=false" alt=""><br><br>拖放安装应用，不用再弹出xx助手xx宝来的蜗牛速度安装了（速度快了，心情好了）：<br><br>adb install %1<br><br>pause<br><br>卸载应用：<br><br>adb uninstall com.tencent.qqpim<br><br>拉去SD卡目录文件<br><br>adb pull /sdcard/test/log c:testlog<br><br>获取联系人db<br><br>adb pull /data/data/com.android.providers.contacts/databases/contacts2.db C:contact2.db<br><br>tcpdump包<br><br>adb shell tcpdump -p -vv -s 0 -w /sdcard/capturenet.pcap<br><br>SDK裁剪打包<br><br>裁目录：rd/s/q S:tencentsrcAGJ<br><br>裁文件：del S:tencentsrccomtencenttestTestApplication.java<br><br></div><br>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/07/01/go-e8-af-ad-e8-a8-80-e5-b0-86-e7-99-bb-e9-99-86-e5-ae-89-e5-8d-93-e5-b9-b3-e5-8f-b0/" rel="next" title="Go 语言将登陆安卓平台">
+                <i class="fa fa-chevron-left"></i> Go 语言将登陆安卓平台
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/08/11/e4-b8-ad-e5-9b-bd-e6-89-8b-e6-9c-ba-e5-8e-82-e5-95-86-e5-b0-b4-e5-b0-ac-ef-bc-9a4g-e6-9c-aa-e5-85-b4-ef-bc-8c3g-e5-b7-b2-e6-ad-bb/" rel="prev" title="中国手机厂商尴尬：4G未兴，3G已死">
+                中国手机厂商尴尬：4G未兴，3G已死 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

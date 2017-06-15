@@ -1,0 +1,810 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="本文由码农网 – 小峰原创翻译，转载请看清文末的转载要求，欢迎参与我们的付费投稿计划！ 我们有三个系列的小技巧要分享：与你的客户沟通，保护你的声誉以及解决常见的自由职业问题。下面让我们开始吧！ 1.与你的客户沟通作为一个自由职业者，这是你最重要的事情之一！我发现客户更认同以下的做法： 可靠：做一个可靠的沟通者，及时回复电子邮件和回答问题。另外，通过发送定期状态报告和/或让他们第一时间知道你完成了一">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自由程序员的 3 个开发技巧">
+<meta property="og:url" content="http://www.yangjungou.com/2016/03/21/e8-87-aa-e7-94-b1-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-3-e4-b8-aa-e5-bc-80-e5-8f-91-e6-8a-80-e5-b7-a7/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="本文由码农网 – 小峰原创翻译，转载请看清文末的转载要求，欢迎参与我们的付费投稿计划！ 我们有三个系列的小技巧要分享：与你的客户沟通，保护你的声誉以及解决常见的自由职业问题。下面让我们开始吧！ 1.与你的客户沟通作为一个自由职业者，这是你最重要的事情之一！我发现客户更认同以下的做法： 可靠：做一个可靠的沟通者，及时回复电子邮件和回答问题。另外，通过发送定期状态报告和/或让他们第一时间知道你完成了一">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.181Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自由程序员的 3 个开发技巧">
+<meta name="twitter:description" content="本文由码农网 – 小峰原创翻译，转载请看清文末的转载要求，欢迎参与我们的付费投稿计划！ 我们有三个系列的小技巧要分享：与你的客户沟通，保护你的声誉以及解决常见的自由职业问题。下面让我们开始吧！ 1.与你的客户沟通作为一个自由职业者，这是你最重要的事情之一！我发现客户更认同以下的做法： 可靠：做一个可靠的沟通者，及时回复电子邮件和回答问题。另外，通过发送定期状态报告和/或让他们第一时间知道你完成了一">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2016/03/21/e8-87-aa-e7-94-b1-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-3-e4-b8-aa-e5-bc-80-e5-8f-91-e6-8a-80-e5-b7-a7/"/>
+
+
+
+
+
+  <title>自由程序员的 3 个开发技巧 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2016/03/21/e8-87-aa-e7-94-b1-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-3-e4-b8-aa-e5-bc-80-e5-8f-91-e6-8a-80-e5-b7-a7/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">自由程序员的 3 个开发技巧</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-21T14:40:42+08:00">
+                2016-03-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2016/" itemprop="url" rel="index">
+                    <span itemprop="name">2016</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2016/文摘/" itemprop="url" rel="index">
+                    <span itemprop="name">文摘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>本文由<a href="http://www.codeceo.com/" title="码农网" target="_blank" rel="external">码农网</a> – 小峰原创翻译，转载请看清文末的转载要求，欢迎参与我们的<a href="http://www.codeceo.com/article/2016-codeceo-post-plan.html" target="_blank" rel="external">付费投稿计划</a>！</strong></p>
+<p>我们有三个系列的小技巧要分享：与你的客户沟通，保护你的声誉以及解决常见的自由职业问题。下面让我们开始吧！</p>
+<h2 id="1-与你的客户沟通"><a href="#1-与你的客户沟通" class="headerlink" title="1.与你的客户沟通"></a>1.与你的客户沟通</h2><p>作为一个自由职业者，这是你最重要的事情之一！我发现客户更认同以下的做法：</p>
+<p><strong>可靠：</strong>做一个可靠的沟通者，及时回复电子邮件和回答问题。另外，通过发送定期状态报告和/或让他们第一时间知道你完成了一个阶段目标，可以避免让你的客户猜疑你究竟在干什么。</p>
+<p><strong>礼貌：</strong>礼貌和专业，但同样重要的是，还要友好。毕竟我们是人！</p>
+<p><strong>诚实：</strong>不要说谎，信守诺言。不要承诺那些你不打算履行的承诺。例如，不要在项目结束时承诺实现一定的功能，如果你已经知道，就算不加上这个功能，在预计期限内完成项目也是有困难的。</p>
+<p><strong>不要隐藏问题：</strong>如果问题很严重和/或无论无何迟早会暴露出来，那么尽快通知客户问题。</p>
+<p><strong>跟踪你的时间：</strong>如果你按小时收费的话，那就应该跟踪你的时间，并定期分享给客户。如果你每个项目都采取统一的收费率，那么它可以帮助你找出估计工作量和实际工作量之间的差异。</p>
+<p><strong>提供技术咨询：</strong>如果你发现客户做了错误的技术决策时，一定要对他们指出这一点，而不要应该让他们在错误的路上越走越远，直到举步维艰。一起讨论决策，但要记住，最后的决定权一定以及始终在客户手里。</p>
+<p><strong>提问：</strong>不要害怕问问题：这可以避免你和你的客户走弯路。有疑问，就问，遇到有歧义的地方，不要按自作主张自以为是。当需求没有正确定义，或缺少重要细节的时候，让客户提供更多的细节，或给出你的版本，这样对方就可以立即发现错误。</p>
+<p><strong>发布客户期望的内容，而不是你认为他们期望的内容：</strong>在软件开发中，常常存在着一种期望代沟——客户的期望和他们真正得到的结果之间的差异。当事情未指明的时候，消除歧义，避免假设是减少这种代沟的好方法。</p>
+<p>例如，如果需求上声明，用户必须通过提供一个电子邮件地址和密码才能进行注册，而另一条则说要求用户通过输入用户名和密码登录，这时你会发现这里有一个不一致的地方：注册需要电子邮件（而不是用户名），而登录期望使用用户名。那么应不应该在登录时使用电子邮件，或者在注册时也要求输入用户名？除了客户，没人能回答这个问题。</p>
+<p><strong>解决问题：</strong>碰到问题，那就专心致志地去解决这个问题，而不是在一边怨天尤人。</p>
+<p>&nbsp;</p>
+<h2 id="2-保护你的声誉"><a href="#2-保护你的声誉" class="headerlink" title="2.保护你的声誉"></a>2.保护你的声誉</h2><p>作为一个自由职业者，这是最重要的资本！俗话说，好事不出门，坏事传千里。</p>
+<p>我认为，其实我们应该铭记好事，遗忘坏事，但这个世界就是这么残忍。如果你有一个不好的名声，那么就可能很难找到项目，尤其是网上的自由职业者，因为你的名声是公开的。</p>
+<p>几年前，我在Upwork上雇了一个开发人员帮我做一个JEE项目，虽然他没有JEE的特定经验。我愿意支付他去学习他所需要的东西，并且安排的任务也简单，是一个非开发任务，技术写作。</p>
+<p>大约一个星期后，他改变了主意，说JEE太复杂了。更糟的是，他开始毁谤我和我的客户所选择的框架，用一些令人非常反感的话。即使这样，他依然要求我向他支付所有他在这个项目上花的时间，并且指责我让他工作于他不想要处理的技术。</p>
+<p>最后，我只支付了他一小部分的时间费用，并且还在Upwork上给他写了长长的负面评价，我敢肯定这将破坏他在该平台上的声誉。我是有意的。请不要误解我的意思：我不是为了报复。我只是觉得我有必要提醒未来的潜在客户，他们应该预见这个家伙的服务水平和专业性。</p>
+<p>保护和提高声誉的最好方法就是保证客户的满意！</p>
+<p>那么该怎么做呢？有一种方法是暂时将自己想象成是客户。我从Freelancer和Upwork等平台上雇过几次开发人员，感谢这些经历，因为这让我懂得了：</p>
+<ul>
+<li>如何从若干候选人中选择最好人选</li>
+<li>在工作进行中该期待什么</li>
+<li>当碰到开发人员不发送更新、不回复电子邮件时，会有多么沮丧</li>
+<li>当开发人员总是让你了解内情，能够预料到你的问题，并提供更新时，会有多么开心<br>当然，你不必为了表现得像一个客户而真的去雇佣开发人员。这成本太高了。 ：]</li>
+</ul>
+<p>但这种代入的思维可以帮助你从客户的角度看问题。尤其是当你故意做一些事来隐藏问题或者欺骗客户的时候。有一句我最喜欢的格言是：己所不欲，勿施于人。</p>
+<p>&nbsp;</p>
+<h2 id="3-解决常见的自由职业问题"><a href="#3-解决常见的自由职业问题" class="headerlink" title="3.解决常见的自由职业问题"></a>3.解决常见的自由职业问题</h2><p>和任何职业一样，自由职业也有危险区域。以下就是关于如何预测和预防最常见的问题。</p>
+<h3 id="解决前期所有模棱两可的问题"><a href="#解决前期所有模棱两可的问题" class="headerlink" title="解决前期所有模棱两可的问题"></a>解决前期所有模棱两可的问题</h3><p>上面我就提到过，让客户满意的关键方法是明确客户的期望，消除有歧义的地方。项目一开始可能充斥着很多关于费率，酬劳，付款条件和时间期限等有歧义的地方。一定要正确地解决这些问题！</p>
+<h3 id="不要在稀里糊涂的情况下签署保密协议"><a href="#不要在稀里糊涂的情况下签署保密协议" class="headerlink" title="不要在稀里糊涂的情况下签署保密协议"></a>不要在稀里糊涂的情况下签署保密协议</h3><p>我曾被多次要求在不告知相关项目任何细节之前签署保密协议。我的态度就是拒绝，即便有失去项目的风险。</p>
+<p>为什么呢？问题就是，在对我需要保密什么都不知道的时候，我怎么能签署保密协议？如果我已经工作过的项目和这份保密协议发生了冲突怎么办？</p>
+<p>如果你遇到这种情况，那么不妨问问客户是否能给一个项目的大概想法，不需要透露太多——只要足以让你评估你是否可以负责任地签署这份保密协议即可。</p>
+<p>是什么样的项目？是社交app吗？——哦，好吧，我想我应该告诉你我最近开发过类似的项目。</p>
+<p>是什么样的项目？一个用来计算太空火箭的轨迹和油耗的app？——那行，我可以签署保密协议。我敢肯定我从来没有参与过任何哪怕是一点点相似的项目。</p>
+<h3 id="阅读和理解合同"><a href="#阅读和理解合同" class="headerlink" title="阅读和理解合同"></a>阅读和理解合同</h3><p>这是显而易见的，但是这个话题要格外小心地处理。合同是你和你的客户之间具有法律约束力的协议，但由于通常是你的客户要求你签署得，所以合同主要用来保护他和他的项目，而不是你。</p>
+<p>这里很难给出建议，因为没有两份合同是一样的，最重要的是，我不是律师。但这里有几条通用的指导：</p>
+<ul>
+<li>仔细阅读合同。</li>
+<li>再次仔细阅读，然后再来一遍！</li>
+<li>只管去联系有经验的律师来帮你审查合同，尤其是有任何困惑，不清楚或令人不安的地方。诚然，法律咨询是昂贵的，但最后如果有用的话，绝对物超所值。</li>
+<li>如果你发现任何错误，或含糊不清不利于你的条款，那么只管提出修改。</li>
+<li>如果客户拒绝修改，那么退一步去寻找其他的项目。</li>
+</ul>
+<h3 id="做好突然没工作的准备"><a href="#做好突然没工作的准备" class="headerlink" title="做好突然没工作的准备"></a>做好突然没工作的准备</h3><p>没有提前通知，项目就停了下来，这是自由职业的属性之一。我的对策是一次至少接两个兼职项目，而不是单单一个全职项目。</p>
+<p>每一个项目都是其他项目的后备：如果其中一个被中止，我还有其他工作。毕竟，一半收入总比什么都没有要好。</p>
+<p>当发生这种情况时，你可能会感到沮丧 ——至少，这有时会发生在我身上。我知道沮丧是正常的反应，并且当我觉得自己调整好心态之后，我会去寻找其他的挑战。</p>
+<p>有时候，如果一两天过去了，我还是没有行动的激情，那么我会选择和家人一起共享天伦之乐，也许会去做一些我平时因为工作太多而没办法做的事情，比如参与业余活动（近日，我在学习打鼓：]），学习新的东西或看书。</p>
+<p>最后，我不知道是运气，巧合，还是其他什么东西。当项目结束时，无论是突然发生的还是因为其自然而然地到了时间期限，我经常收到主动和意想不到的offer。例如上一次，在项目突然被冻结的第二天，我在Stack Overflow上收到了一个方案，过了几天之后在LinkedIn上又收到了另一个。这两个都是新的联系人，而不是朋友的朋友。</p>
+<p>不知道在你的身上是否发生过同样神奇的事情。</p>
+<p>然而，无论是否是主动提供的offer，我会保持搜索，保持申请项目，询问我的联系人等，直到我终于找到一个值得我下功夫的新项目。这个过程有时需要几天，有时甚至要几个月。</p>
+<p>如果你想了解更多，这里有一些有趣的读物：</p>
+<ul>
+<li><p><a href="http://www.raywenderlich.com/114368/staying-motivated-work-home-developer" target="_blank" rel="external">Staying motivated as a work-from-home developer</a></p>
+</li>
+<li><p><a href="http://www.nomadned.com/interviews/piero-toffanin/" target="_blank" rel="external">Interview to Piero Toffanin</a>, a former digital nomad</p>
+</li>
+<li><a href="https://digitalleaves.com/blog/2014/03/why-you-shouldnt-be-scared-of-going-freelance/" target="_blank" rel="external">Why you shouldn’t be scared of going freelance</a>, by Ignacio Nieto</li>
+<li><a href="https://digitalleaves.com/blog/2015/08/dos-and-donts-of-a-freelance-developer/" target="_blank" rel="external">Do’s and Don’ts of a Freelance Developer</a>, by Ignacio Nieto</li>
+<li><a href="http://mariano.zerously.com/post/28497816299/fixed-quotes" target="_blank" rel="external">Fixed quotes</a>, by Mariano Abdala</li>
+<li><a href="http://www.toptal.com/freelance/busting-the-top-5-myths-about-remote-workers" target="_blank" rel="external">Busting the Top 5 Myths About Remote Workers</a>, by Scott Ritter</li>
+<li><a href="http://www.toptal.com/freelance/the-traveling-engineers-survival-guide" target="_blank" rel="external">How to Travel While Working: The Traveling Engineer’s Survival Guide</a>, by Breanden Beneschott</li>
+<li><a href="http://www.toptal.com/freelance/don-t-be-fooled-the-real-cost-of-employees-and-consultants" target="_blank" rel="external">Don’t Be Fooled: Calculate the Real Cost of Employees and Consultants</a>, by Hyam Singer<br>有人曾推荐给我《<a href="http://weidelonwinning.com/" target="_blank" rel="external">Serial Winner</a>》，一本并不是专门针对自由职业者，但任何想要成功的人都必须阅读的伟大书籍。我还没有看过，但我已经添加到我的阅读列表。</li>
+</ul>
+<p>另一本是我个人建议的，并非全部有关于自由职业，但在管理财务状况方面比较实用的书籍是《<a href="http://www.amazon.com/The-Richest-Babylon-George-Clason/dp/1505339111" target="_blank" rel="external">The Richest Man in Babylon</a>》。</p>
+<p>欢迎留下任何你想分享的问题或建议！</p>
+<p><a id="soft-link" name="soft-link"></a></p>
+<div></div><br><div class="article-entry"><br><br>译文链接：<a href="http://www.codeceo.com/article/freelance-programmer-tips.html" target="_blank" rel="external">http://www.codeceo.com/article/freelance-programmer-tips.html</a><br>英文原文：<a href="https://www.raywenderlich.com/122835/freelance-software-development-tips" target="_blank" rel="external">Freelance Software Development Tips</a><br>翻译作者：<a href="http://www.codeceo.com/" target="_blank" rel="external">码农网</a> – 小峰<br>[ <strong>转载必须在正文中标注并保留原文链接、译文链接和译者等信息。</strong>]<br><br></div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/26/google-protocol-buffer-e4-bb-8b-e7-bb-8d-e4-b8-8e-e4-bd-bf-e7-94-a8/" rel="next" title="Google Protocol Buffer 介绍与使用">
+                <i class="fa fa-chevron-left"></i> Google Protocol Buffer 介绍与使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/05/11/e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-13-e7-a7-8d-e5-99-a9-e6-a2-a6-ef-bc-8c-e4-bd-a0-e9-81-87-e5-88-b0-e8-bf-87-e5-93-aa-e4-ba-9b-ef-bc-9f/" rel="prev" title="程序员的 13 种噩梦，你遇到过哪些？">
+                程序员的 13 种噩梦，你遇到过哪些？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-与你的客户沟通"><span class="nav-number">1.</span> <span class="nav-text">1.与你的客户沟通</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-保护你的声誉"><span class="nav-number">2.</span> <span class="nav-text">2.保护你的声誉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-解决常见的自由职业问题"><span class="nav-number">3.</span> <span class="nav-text">3.解决常见的自由职业问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#解决前期所有模棱两可的问题"><span class="nav-number">3.1.</span> <span class="nav-text">解决前期所有模棱两可的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不要在稀里糊涂的情况下签署保密协议"><span class="nav-number">3.2.</span> <span class="nav-text">不要在稀里糊涂的情况下签署保密协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阅读和理解合同"><span class="nav-number">3.3.</span> <span class="nav-text">阅读和理解合同</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#做好突然没工作的准备"><span class="nav-number">3.4.</span> <span class="nav-text">做好突然没工作的准备</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

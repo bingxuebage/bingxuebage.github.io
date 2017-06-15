@@ -1,0 +1,848 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="编者按：近日有玩家已经把Chromium OS装到Nexus 7平板上运行，但具体的操作方法尚未公布出来。不过先前的在Nexus 7上安装Ubuntu方法已经被国内的玩家公布了，教程指导非常详细，感兴趣的朋友不妨试一下。 后期我们还会带来Nexus 7上安装Chromium OS的方法，Nexus 7被赋予“平板刷机王”的成为可以说是当之无愧了。 谷歌Nexus 7拥有最新的Android系统版本">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在 Nexus 7上运行 Ubuntu">
+<meta property="og:url" content="http://www.yangjungou.com/2012/11/05/e5-9c-a8-nexus-7-e4-b8-8a-e8-bf-90-e8-a1-8c-ubuntu/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="编者按：近日有玩家已经把Chromium OS装到Nexus 7平板上运行，但具体的操作方法尚未公布出来。不过先前的在Nexus 7上安装Ubuntu方法已经被国内的玩家公布了，教程指导非常详细，感兴趣的朋友不妨试一下。 后期我们还会带来Nexus 7上安装Chromium OS的方法，Nexus 7被赋予“平板刷机王”的成为可以说是当之无愧了。 谷歌Nexus 7拥有最新的Android系统版本">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213130_kYco.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213130_OCqT.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213130_JE3c.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_ZEnX.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_t1bh.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_F9CG.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_e0Rs.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_LJf3.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_qVAk.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_5YzU.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_ICTn.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_hm18.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_pGwH.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_6Xyg.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_c2sJ.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_wCYp.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_UO0o.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213131_hLc4.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213132_N3H4.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213132_J06S.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213132_9RcE.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213132_CzlX.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213132_kEDD.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213132_pjaG.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213132_uE2a.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213132_o7iR.jpg">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201211/04213132_glfK.jpg">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.174Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在 Nexus 7上运行 Ubuntu">
+<meta name="twitter:description" content="编者按：近日有玩家已经把Chromium OS装到Nexus 7平板上运行，但具体的操作方法尚未公布出来。不过先前的在Nexus 7上安装Ubuntu方法已经被国内的玩家公布了，教程指导非常详细，感兴趣的朋友不妨试一下。 后期我们还会带来Nexus 7上安装Chromium OS的方法，Nexus 7被赋予“平板刷机王”的成为可以说是当之无愧了。 谷歌Nexus 7拥有最新的Android系统版本">
+<meta name="twitter:image" content="http://static.oschina.net/uploads/img/201211/04213130_kYco.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2012/11/05/e5-9c-a8-nexus-7-e4-b8-8a-e8-bf-90-e8-a1-8c-ubuntu/"/>
+
+
+
+
+
+  <title>在 Nexus 7上运行 Ubuntu | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2012/11/05/e5-9c-a8-nexus-7-e4-b8-8a-e8-bf-90-e8-a1-8c-ubuntu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">在 Nexus 7上运行 Ubuntu</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-11-05T09:04:22+08:00">
+                2012-11-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/热点新闻/" itemprop="url" rel="index">
+                    <span itemprop="name">热点新闻</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>编者按：近日有玩家已经把Chromium OS装到Nexus 7平板上运行，但具体的操作方法尚未公布出来。不过先前的在Nexus 7上安装Ubuntu方法已经被国内的玩家公布了，教程指导非常详细，感兴趣的朋友不妨试一下。 后期我们还会带来Nexus 7上安装Chromium OS的方法，Nexus 7被赋予“平板刷机王”的成为可以说是当之无愧了。</strong></p>
+<p>谷歌Nexus 7拥有最新的Android系统版本，现在也有很多第三方固件可以刷，这的确值得自豪。但刷来刷去，无论是原生，还是都是4.1.1系统，差别并不大。想 玩点新奇的吗，这里就介绍一下在Nexus 7上安装Ubuntu系统的方法，以小7的配置跑起来也完全没问题，如果能外接个键盘鼠标的话，用小7上上网，或者用用 Open Office处理文档，会比Android系统强大一些。</p>
+<p>在小7上安装Ubuntu会不会操作会不会比较复杂，会不会有危险？放心，这里介绍的方法绝对安全，不是将原有的系统删掉装Ubuntu，也不是想 智器的平板那样专门为Ubuntu系统单独划分分区去安装上，而是在Android系统的基础上加载运行，也就是运行现有的Android系统上，毕竟 Android的内核就是Linux系统，所以这也就说明了本帖所介绍的方法，并不会损坏现有的系统与软件，所以大家可以毫无顾虑的安装，不用担心会变 砖。</p>
+<h2 id="一、准备篇："><a href="#一、准备篇：" class="headerlink" title="一、准备篇："></a><strong>一、准备篇：</strong></h2><p>总体来说安装运行Ubuntu的方法相对并不难，但也相对较为复杂，需要花费一定的时间，需要的文件也较多，所以最开始先说一下安装条件，以及提供所有需要的文件下载：</p>
+<p><strong>1、安装Ubuntu系统的前提是你的Nexus 7已经破解ROOT</strong></p>
+<p><strong>2、busybox安装器</strong></p>
+<p>如果你的系统是原生的，不是刷的其他第三方固件，那么应该还没有安装BusyBox，需要先安装一下。 BusyBox 是一个集成了一百多个最常用linux命令和工具的软件，所以有人称之为“Linux 工具里的瑞士军刀”，我们这里要耍的就是Linux系统，所以busybox自然也要用到，由于原生系统并没有提供，所以需要额外安装。</p>
+<p><strong>下载：</strong><a href="http://s.yunio.com/uUXBIh" target="_blank" rel="external">busybox.rar</a></p>
+<p><strong>3、超级终端 Terminal Emulator</strong></p>
+<p>Terminal Emulator是Android平台上的一款Linux外壳工具，大致相当于Windows中的DOS命令提示符，可以在Android系统上进行linux命令操作。</p>
+<p><strong>下载：</strong><a href="http://s.yunio.com/K9fIhy" target="_blank" rel="external">超级终端.rar</a></p>
+<p><strong>4、VNC viewer</strong></p>
+<p>VNC viewer是安装上一款远程桌面登陆工具，我们需要使用它登陆显示Ubuntu界面。</p>
+<p><strong>下载：</strong><a href="http://s.yunio.com/4d%21RDq" target="_blank" rel="external">VNCviewer.rar</a></p>
+<p><strong>5、Ubuntu系统镜像文件及运行脚本</strong></p>
+<p>Ubuntu系统本身，网上有多种版本的Ubuntu镜像，这几天我下载了好几个版本，本来以Nexus 7那有限的内存，应该用小一点的精简版比较好，但是测试了发现无法在小7上运行使用，最后测试了完整版才终于成功。这个完整版Linux是10.10发行 版，自带LXDE和Gnome两个界面，压缩后体积1.7G，解压缩后为3.6G，很庞大吧，如果你的是8G乞丐版小7，那么装Ubuntu压力有点大， 需要把机身内存差不多清空了。</p>
+<p>另外为了简化操作，这里将配置过程做成了一个脚本文件，里面已经对系统进行了各种模块的加载与设定，所以这些操作就不再需要我们手动去设置了，直接运行脚本批处理文件即可。</p>
+<p><strong>Ubuntu完整镜像下载：</strong><a href="http://sourceforge.net/projects/linuxonandroid/files/Ubuntu/ubuntuV5-image.zip/download" target="_blank" rel="external">网盘下载</a></p>
+<p><strong>脚本文件下载：</strong><a href="http://s.yunio.com/zcoEqc" target="_blank" rel="external">ubuntuV6-1-script.zip</a></p>
+<h2 id="二、安装方法步骤："><a href="#二、安装方法步骤：" class="headerlink" title="二、安装方法步骤："></a><strong>二、安装方法步骤：</strong></h2><p><strong>1、Nexus 7开启USB调试</strong>，然后用USB连接电脑，在Nexus 7的根目录下新建一个名为“ubuntu”的目录（这个目录也可以起为其他的名字，随便了，不过下面的命令操作之类的都已ubuntu目录为例），然后将下载好的Ubuntu镜像和脚本文件解压缩，复制到ubuntu目录中。</p>
+<p><strong>2、安装busybox</strong></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179269" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213130_kYco.jpg" alt="" title="01"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179270" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213130_OCqT.jpg" alt="" title="02"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179271" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213130_JE3c.jpg" alt="" title="03"></a></p>
+<p>安装并运行busybox安装器，运行时会提示root授权，授权后按照提示就可以了，这个软件的安装提示毕竟多，耐心选择后安装即可。</p>
+<p><strong>3、加载Ubuntu系统脚本</strong></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179272" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_ZEnX.jpg" alt="" title="04"></a></p>
+<p>Terminal Emulator安装打开后，就是一个类似于Windows中CMD的命令输入窗口，在这个界面里，我们首先需要输入下面命令： su（回车）</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179273" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_t1bh.jpg" alt="" title="05"></a></p>
+<p>然后会有root授权特使，选择是即可，这样既可以获取root权限，以ROOT身份登录，以ROOT身份登录成功的标志就是原来的$变成了#号。</p>
+<p>接下来输入下面的命令：</p>
+<p>cd /sdcard/ubuntu/（回车）</p>
+<p>sh ubuntu.sh（回车）</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179274" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_F9CG.jpg" alt="" title="06"></a></p>
+<p>输入后开始执行脚本，然后屏幕会显示一些英文，然后又2个选项。第一个选项是提示输入屏幕分辨率，为了保证可以恰好全屏显示，分辨率要填写正确。我 们知道Nexus7的屏幕分辨率是1280×800，但是这里可别填写这个，因为4.x系统的状态栏要占用一部分分辨率显示状态栏，这个状态栏正如大家随 见不能隐藏，所以不能算作屏幕实际分辨率里，至于占用了多少，可以用安安兔之类的软件，看一下系统信息里显示的实际分辨率是多少，然后根据实际情况填写。</p>
+<p>如果你的Nexus7是原生的系统，并且也没有改变成平板界面，那么实际分辨率就是1280*736了，这里我们输入“ 1280×736  ，注意这里面的x并不是数学符号，而是英文字母x！输入后回车继续。</p>
+<p>之后还有一个选项，是选择使用哪一套系统界面的，1是LXDE，2是Gnome界面。这里我们要选1，因为选择Gnome无法成功登陆。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179275" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_e0Rs.jpg" alt="" title="07"></a></p>
+<p>然后继续执行脚本文件，如果最后一条显示的是“root@localhost：/#”说明脚本运行成功。 如果没有成功的话，检查一下上面的操作是否有所遗漏，重新做一遍。</p>
+<p><strong>4、使用VNC viwer登陆Ubuntu</strong></p>
+<p>上面在超级终端输入好命令后，不要关闭超级终端，直接按Home键退出桌面，然后安装并打开VNC viwer，里面有一些东西需要进行设置，具体的设置如图所示。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179276" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_LJf3.jpg" alt="" title="08"></a></p>
+<p>其中Nickname，随便填写一个，比如我这里写为ubuntu</p>
+<p>密码要写：ubuntu</p>
+<p>Adress这里，直接填写 localhost</p>
+<p>Port端口默认的就是5900，一般不用改</p>
+<p>Username一般不用填。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179277" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_qVAk.jpg" alt="" title="09"></a></p>
+<p>然后下面还有几个选项，如下设置：</p>
+<p>Color Format是设置系统颜色的，这里建议选择“24bit-color（4bpp）”真彩色。</p>
+<p>Local mouse pointer建议打上钩</p>
+<p>Fore Full-screen bitmap强制全屏，默认的Auto就可以，不用改。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179278" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_5YzU.jpg" alt="" title="10"></a></p>
+<p>都设置好后，选择软件界面上面的“Connect”按钮，就开始连接并登陆Ubuntu系统的桌面了，如果上面的操作都没有问题的话，很快就可以进入现实Ubuntu系统的桌面了，这时就开始享用吧！</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179279" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_ICTn.jpg" alt="" title="11"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179280" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_hm18.jpg" alt="" title="12"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179281" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_pGwH.jpg" alt="" title="13"></a></p>
+<p>退出Ubuntu并不能直接关闭软件，而是需要现在Ubuntu界面下按一下Android系统状态栏的菜单键，然后弹出菜单，选择 disconnect即可退回VNC界面，然后退出VNC，在打开超级终端 Terminal Emulator ，然后输入下面一个命令：exit（回车）</p>
+<p>回车后既可以完全退出Ubuntu系统，当然你不输入命令，直接重启一下Nexus 7就行。如果推出登陆后，想再次使用Ubuntu，还需要安装上面的步骤，重装做一下！</p>
+<h2 id="三、Ubuntu系统展示及一些使用说明："><a href="#三、Ubuntu系统展示及一些使用说明：" class="headerlink" title="三、Ubuntu系统展示及一些使用说明："></a><strong>三、Ubuntu系统展示及一些使用说明：</strong></h2><p>Linux系统的优点之一就是可以跨平台，在X86的电脑，还是arm架构的电脑都能运行，所以Nexus 7运行Ubuntu并不是通过模拟器，还是切切实实的运行，可以保证系统速度与全部的功能都可以用，这点明显有别于Android上用模拟器运行 Windows，那真是做个样子，速度卡的要死，还神马都无法用。</p>
+<p>一般双核处理器的机器跑Ubuntu速度已经不错了，在Nexus 7上就更没问题了，现象前2年东芝有一款超便携的笔记本电脑（型号貌似是东芝AC100，价格当时好像只有1K多），就是用Android系统与双核 Tegra2处理器，装上Ubuntu速度很流畅，日常办公都没问题，所以四核Tegra3的Nexus7就更没问题了。不过Nexus 7玩Ubuntu系统主要的问题并不是流畅与否，而是操作，因为Ubuntu和Windows系统一样，主要是针对键盘鼠标操作设计的，所以使用纯触屏操 作，就会有些问题，比如鼠标左键和右键点击、单击双击等问题，光用触屏不是很好操作，特别是Nexus 7的屏幕只有7寸，屏幕分辨率还很高，所以字体图标什么的特效，纯用触屏操作会感觉很难受的。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179282" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_6Xyg.jpg" alt="" title="14"></a></p>
+<p>既然Nexus 7原生就支持OTG外接键盘鼠标，所以这里强烈建议至少外接个鼠标用，如果能找到与Nexus 7合适的键盘套装的话，那Nexus 7可真是摇身一变，变成一个。</p>
+<p>另外还必须要说明的是，进入Ubuntu后，对于触控操作，可以有几种模式可以选择，这个操作选项，先按菜单键，然后调出来VNC的菜单，再选择。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179283" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_c2sJ.jpg" alt="" title="15"></a></p>
+<p>按菜单，可以弹出来选项，其中Input Mode可以进行触控方式选择。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179284" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_wCYp.jpg" alt="" title="16"></a></p>
+<p>默认的是第一项“Touch Mouse Pan and Zoom”触控板和放缩，这个模式可以通过触屏移动屏幕显示（因为一屏幕不能显示完全整个桌面），可以放缩桌面显示，可以进行移动鼠标、点击等操作，看起 来比较万能的模式，但是移动鼠标和点击操作的精确度很低，经常会误操作。但是这个输入方式可以调出来 键盘，需要输入内容，比如浏览器网址的地方，还需要切换到这个输入模式。</p>
+<p>调出来键盘的方法是，使在“Touch Mouse Pan and Zoom”模式时，点击屏幕空白位置或在屏幕上滑动一下，屏幕下方会有个放大、所需等3个图标，其中中间那个就是弹出软键盘。如果是在其他输入模式下，可 能就不会有那个放缩图标，无法弹出键盘，这时也可以点击菜单键，选择“sent text”等方式进行文字内容输入。</p>
+<p>第二项“Touchpad”模式，只是触控不能移动桌面显示，不能放缩，只可以拿触屏当做鼠标使用，这样的优点是操作精度很高，所以大部分时间建议使用这个模式进行操作，当因为画面显示不全需要移动是，在切换到其他模式，比如第1个或第4个进行移动一下。</p>
+<p>第五项“Mouse Pointer Control Mode”应该是最正常，最好用的触屏操作方式，就是屏幕点哪里鼠标指针就移动哪里，但点一下屏幕是单机，快速点2下屏幕是双击。平常操作都直接用这个模式就好了，需要输入的时候在切换回第一种方法。</p>
+<p>如果外接鼠标的话，也是选择Mouse Pointer Control Mode操作模式比较好用，不过如果没外接键盘的话，是无法填出虚拟键盘的，只能用外接的实体键盘。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179285" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_UO0o.jpg" alt="" title="17"></a></p>
+<p>▲另外菜单里“更多”里面还有一些控制键功能，比如方向键什么的，可以利用。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179286" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213131_hLc4.jpg" alt="" title="18"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179287" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213132_N3H4.jpg" alt="" title="19"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179288" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213132_J06S.jpg" alt="" title="20"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179289" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213132_9RcE.jpg" alt="" title="21"></a></p>
+<p>另外就是Ubuntu系统默认的是英文界面，而且完全无法显示中文。所以很必要先将其设置为中文。可以设置成中文。具体放方法是选择线选择“开始” （Linux下貌似不叫开始菜单，不过就是那个意思了），然后选Preferences，在选择“Language &amp; format”，当打开是应该会提示语言支持没有安装，然后确认后可以自动下载，要下载的东西还挺大，连接的是国外服务器，速度比较慢，估计要等几个小时 了。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179290" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213132_CzlX.jpg" alt="" title="22"></a></p>
+<p>▲在Ubuntu中，可以直接读取机身内存中的文件</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179291" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213132_kEDD.jpg" alt="" title="23"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179292" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213132_pjaG.jpg" alt="" title="24"></a></p>
+<p>打开浏览器，可以上网，Ubuntu的浏览器可比Android的浏览器强大太多了，就是速度有些慢，另外如果系统没有安装中文支持包的话，会完全无法显示中文。</p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179293" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213132_uE2a.jpg" alt="" title="25"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179294" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213132_o7iR.jpg" alt="" title="26"></a></p>
+<p><a href="http://yangjungoublog.sinaapp.com/?attachment_id=179295" target="_blank" rel="external"><img src="http://static.oschina.net/uploads/img/201211/04213132_glfK.jpg" alt="" title="27"></a></p>
+<p>还有最重要的，完整版Ubuntu里预装了Open Office 3.2可以用，光看界面就知道这个Office可是Android系统上任何软件都无法相比的。外接个键盘、鼠标，用Nexus 7办公也未尝不可。</p>
+<p>Nexus7上安装Ubuntu简单的就介绍到这里，关于如何使用Linux系统，添加各种功能各种模块，大家可以去找到相应资料来学习，Ubuntu系统比较强大，还有很多的功能大家可以去发掘。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/11/02/char-p/" rel="next" title="char ****p">
+                <i class="fa fa-chevron-left"></i> char ****p
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2012/11/05/chrome-e4-b8-8b-e5-bc-ba-e5-88-b6http-e9-87-8d-e5-ae-9a-e5-90-91-e5-88-b0https-e7-9a-84-e6-96-b9-e6-b3-95/" rel="prev" title="Chrome下强制http重定向到https的方法">
+                Chrome下强制http重定向到https的方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、准备篇："><span class="nav-number">1.</span> <span class="nav-text">一、准备篇：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、安装方法步骤："><span class="nav-number">2.</span> <span class="nav-text">二、安装方法步骤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Ubuntu系统展示及一些使用说明："><span class="nav-number">3.</span> <span class="nav-text">三、Ubuntu系统展示及一些使用说明：</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

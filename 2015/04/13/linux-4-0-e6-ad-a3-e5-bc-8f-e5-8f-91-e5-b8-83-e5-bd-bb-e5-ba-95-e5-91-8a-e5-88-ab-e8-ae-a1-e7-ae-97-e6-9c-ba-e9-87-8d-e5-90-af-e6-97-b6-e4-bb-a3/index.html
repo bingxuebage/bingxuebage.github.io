@@ -1,0 +1,718 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="4月13日消息，今天早些时候 Linux 创始人 Linus Torvalds 在 Kernel 的 GitHub Master 中提交了一个改动，将 Kernel 正式从 3 时代带入 4 时代。Linux内核正式进入 4.0 时代。Linux 4.0 主要包括以下特性：——“实时内核补丁”特性，该特性由 Red Hat 的Kpatch 和 SUSE 的 kGraft 合并而来，可以实时修补内核">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux 4.0 正式发布 彻底告别计算机重启时代">
+<meta property="og:url" content="http://www.yangjungou.com/2015/04/13/linux-4-0-e6-ad-a3-e5-bc-8f-e5-8f-91-e5-b8-83-e5-bd-bb-e5-ba-95-e5-91-8a-e5-88-ab-e8-ae-a1-e7-ae-97-e6-9c-ba-e9-87-8d-e5-90-af-e6-97-b6-e4-bb-a3/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="4月13日消息，今天早些时候 Linux 创始人 Linus Torvalds 在 Kernel 的 GitHub Master 中提交了一个改动，将 Kernel 正式从 3 时代带入 4 时代。Linux内核正式进入 4.0 时代。Linux 4.0 主要包括以下特性：——“实时内核补丁”特性，该特性由 Red Hat 的Kpatch 和 SUSE 的 kGraft 合并而来，可以实时修补内核">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.180Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linux 4.0 正式发布 彻底告别计算机重启时代">
+<meta name="twitter:description" content="4月13日消息，今天早些时候 Linux 创始人 Linus Torvalds 在 Kernel 的 GitHub Master 中提交了一个改动，将 Kernel 正式从 3 时代带入 4 时代。Linux内核正式进入 4.0 时代。Linux 4.0 主要包括以下特性：——“实时内核补丁”特性，该特性由 Red Hat 的Kpatch 和 SUSE 的 kGraft 合并而来，可以实时修补内核">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2015/04/13/linux-4-0-e6-ad-a3-e5-bc-8f-e5-8f-91-e5-b8-83-e5-bd-bb-e5-ba-95-e5-91-8a-e5-88-ab-e8-ae-a1-e7-ae-97-e6-9c-ba-e9-87-8d-e5-90-af-e6-97-b6-e4-bb-a3/"/>
+
+
+
+
+
+  <title>Linux 4.0 正式发布 彻底告别计算机重启时代 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2015/04/13/linux-4-0-e6-ad-a3-e5-bc-8f-e5-8f-91-e5-b8-83-e5-bd-bb-e5-ba-95-e5-91-8a-e5-88-ab-e8-ae-a1-e7-ae-97-e6-9c-ba-e9-87-8d-e5-90-af-e6-97-b6-e4-bb-a3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Linux 4.0 正式发布 彻底告别计算机重启时代</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-04-13T17:28:15+08:00">
+                2015-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2015/" itemprop="url" rel="index">
+                    <span itemprop="name">2015</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/2015/文摘/" itemprop="url" rel="index">
+                    <span itemprop="name">文摘</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <div id="OSChina_News_61467" class="Body NewsContent TextContent"><br><br>4月13日消息，今天早些时候 Linux 创始人 Linus Torvalds 在 Kernel 的 GitHub Master 中提交了一个改动，将 Kernel 正式从 3 时代带入 4 时代。Linux内核正式进入 4.0 时代。<br><br>Linux 4.0 主要包括以下特性：<br><br>——“实时内核补丁”特性，该特性由 Red Hat 的Kpatch 和 SUSE 的 kGraft 合并而来，可以实时修补内核，而无需重启；<br>——改进图形支持，Radeon DRM 驱动支持显示端口的音频输出，改良了风扇控制。HSA AMDKFD 开始对 Carrizo APU 进行开发；Intel 图形驱动方面，Skylake 支持已经基本成型；对 N 系显示方案的支持也有所改进。<br>——储存系统方面的改进，包括 pNFS 、Btrfs RAID 5/6 的相关支持， OverlayFS 也加入了一些新功能。<br>——此外，新内核支持更多硬件，包括 Intel Quark SoC 以及更多 ARM 设备、IBM z13，改进了东芝系列笔记本、罗技输入设备的支持。<br><br>Linux 4.0 的发布让用户可以不需要重启操作系统。在大多数的服务器或者数据中心里，喜欢用 Linux 的一个原因是你不需要频繁的进行重启操作。诚然，某些关键性的补丁必须要进行重启，但你也可以等到数月后再做此操作。现在，得益于 Linux 4.0 内核的发布 你也许可以数年间都不用重启。<br><br>Linux 发布版指的就是通常所说的“Linux操作系统”，它一般是由一些组织、团体、公司或者个人制作并发布的。Linux内核主要作为 Linux 发布版的一部分而使用。通常来讲，一个Linux 发布版包括 Linux 内核，以及将整个软件安装到电脑上的一套安装工具，还有各种 GNU 软件，和其他的一些自由软件，在一些 Linux 发布版中可能会包含一些专有软件。发布版为许多不同的目的而制作，包括对不同电脑硬件结构的支持，对普通用户或开发者使用方式的调整，针对实时应用或嵌入式系统的开发等等。目前，超过三百个发布版被积极的开发，最普遍被使用的发布版有大约十二个。较为知名的有 Fedora、Debian、Ubuntu 和Mageia 等。Linux 发行版也经常使用作为超级计算机的操作系统，2010 年 11 月公布的超级计算机前 500 强，有 459 个（91.8％）运行 Linux 发行版。<br><br>1991 年的 10 月 5 日，Linus Torvalds 在 comp.os.minix 新闻组上发布消息，正式向外宣布 Linux 内核的诞生，1994 年 3 月，Linux1.0 发布，代码量 17 万行。<br><br></div><br><div class="NewsLinks"><br><br>### 相关链接<br><br><em>   <span class="pn">Linux Kernel</span> 的详细介绍：<a href="http://www.oschina.net/p/linuxkernel" target="_blank" rel="external">请点这里</a>
+</em>   <span class="pn">Linux Kernel</span> 的下载地址：<a href="http://www.oschina.net/action/project/go?id=10549&amp;p=download" target="_blank" rel="external">请点这里</a><br></div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/03/31/e4-bb-8a-e6-97-a5-e6-98-af-e6-95-b0-e6-8d-ae-e5-a4-87-e4-bb-bd-e6-97-a5-ef-bc-8c-e5-88-ab-e5-bf-98-e4-ba-86-e5-9c-a8-e6-84-9a-e4-ba-ba-e8-8a-82-e5-89-8d-e5-a4-87-e4-bb-bd-e6-95-b0-e6-8d-ae/" rel="next" title="今日是数据备份日，别忘了在愚人节前备份数据">
+                <i class="fa fa-chevron-left"></i> 今日是数据备份日，别忘了在愚人节前备份数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/05/19/protocol-buffer-e4-bd-bf-e7-94-a8-e7-ae-80-e4-bb-8b/" rel="prev" title="Protocol Buffer使用简介">
+                Protocol Buffer使用简介 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

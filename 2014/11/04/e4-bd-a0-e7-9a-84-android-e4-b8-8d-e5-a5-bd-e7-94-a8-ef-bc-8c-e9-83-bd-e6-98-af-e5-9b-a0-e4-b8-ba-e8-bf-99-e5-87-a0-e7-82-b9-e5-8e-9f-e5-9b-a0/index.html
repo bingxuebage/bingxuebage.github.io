@@ -1,0 +1,758 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="Android早已是全球最大、用户最多的移动操作系统，不过它离全球最好用还差得很远。 大家随手就能举出些曾经历过的糟心体验，如手机卡顿！电量不禁用！广告弹窗老是出现！不过很少有人会追根寻底的去问为何如此，Android原生设计是怎样的？官方有修正吗？有民间大神来做补丁方案吗？ 可能很少有人会知道，其实你对Android的印象已经远远落伍，它的问题很多都有了相应解决之道。下边宅客君将告诉大家，An">
+<meta property="og:type" content="article">
+<meta property="og:title" content="你的 Android 不好用，都是因为这几点原因">
+<meta property="og:url" content="http://www.yangjungou.com/2014/11/04/e4-bd-a0-e7-9a-84-android-e4-b8-8d-e5-a5-bd-e7-94-a8-ef-bc-8c-e9-83-bd-e6-98-af-e5-9b-a0-e4-b8-ba-e8-bf-99-e5-87-a0-e7-82-b9-e5-8e-9f-e5-9b-a0/index.html">
+<meta property="og:site_name" content="冰雪.俊构">
+<meta property="og:description" content="Android早已是全球最大、用户最多的移动操作系统，不过它离全球最好用还差得很远。 大家随手就能举出些曾经历过的糟心体验，如手机卡顿！电量不禁用！广告弹窗老是出现！不过很少有人会追根寻底的去问为何如此，Android原生设计是怎样的？官方有修正吗？有民间大神来做补丁方案吗？ 可能很少有人会知道，其实你对Android的印象已经远远落伍，它的问题很多都有了相应解决之道。下边宅客君将告诉大家，An">
+<meta property="og:image" content="http://static.oschina.net/uploads/img/201411/04051139_4Y7S.jpg">
+<meta property="og:updated_time" content="2017-06-15T08:14:33.180Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="你的 Android 不好用，都是因为这几点原因">
+<meta name="twitter:description" content="Android早已是全球最大、用户最多的移动操作系统，不过它离全球最好用还差得很远。 大家随手就能举出些曾经历过的糟心体验，如手机卡顿！电量不禁用！广告弹窗老是出现！不过很少有人会追根寻底的去问为何如此，Android原生设计是怎样的？官方有修正吗？有民间大神来做补丁方案吗？ 可能很少有人会知道，其实你对Android的印象已经远远落伍，它的问题很多都有了相应解决之道。下边宅客君将告诉大家，An">
+<meta name="twitter:image" content="http://static.oschina.net/uploads/img/201411/04051139_4Y7S.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.yangjungou.com/2014/11/04/e4-bd-a0-e7-9a-84-android-e4-b8-8d-e5-a5-bd-e7-94-a8-ef-bc-8c-e9-83-bd-e6-98-af-e5-9b-a0-e4-b8-ba-e8-bf-99-e5-87-a0-e7-82-b9-e5-8e-9f-e5-9b-a0/"/>
+
+
+
+
+
+  <title>你的 Android 不好用，都是因为这几点原因 | 冰雪.俊构</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">冰雪.俊构</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">never try never know</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2014/11/04/e4-bd-a0-e7-9a-84-android-e4-b8-8d-e5-a5-bd-e7-94-a8-ef-bc-8c-e9-83-bd-e6-98-af-e5-9b-a0-e4-b8-ba-e8-bf-99-e5-87-a0-e7-82-b9-e5-8e-9f-e5-9b-a0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="jeson.yang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="冰雪.俊构">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">你的 Android 不好用，都是因为这几点原因</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-11-04T13:24:38+08:00">
+                2014-11-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/热点新闻/" itemprop="url" rel="index">
+                    <span itemprop="name">热点新闻</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><img src="http://static.oschina.net/uploads/img/201411/04051139_4Y7S.jpg" alt=""></p>
+<p>Android早已是全球最大、用户最多的移动操作系统，不过它离全球最好用还差得很远。</p>
+<p>大家随手就能举出些曾经历过的糟心体验，如手机卡顿！电量不禁用！广告弹窗老是出现！不过很少有人会追根寻底的去问为何如此，Android原生设计是怎样的？官方有修正吗？有民间大神来做补丁方案吗？</p>
+<p>可能很少有人会知道，其实你对Android的印象已经远远落伍，它的问题很多都有了相应解决之道。下边宅客君将告诉大家，Android的不好用是因为什么？现在的Android又是怎样？</p>
+<h2 id="手机卡顿"><a href="#手机卡顿" class="headerlink" title="手机卡顿"></a>手机卡顿</h2><p>从技术角度来说，卡顿主要有三方面原因：<strong>Android应用采用Java语言，相比iOS的Object C它更耗费硬件资源；Android设备过于分散，至少一半以上是中低档机型；Android对前台进程没有提高优先级，后台过多容易抢占更多资源。</strong></p>
+<p>虽然“天生卡顿”，但经过几年的艰难努力，现在最新Android设备已经很少出现卡顿问题了。来看看这个问题是怎样被改善的。</p>
+<blockquote>
+<p>早期的Android版本（v1.5+）没有进程管理，当每次多开了几个应用，大家都会用atk等第三方工具来杀后台。</p>
+<p>Android 2.3加入了进程管理，终于可以用系统设置来关闭应用，不过只能一个一个的关。这时已有许多工具类应用支持一键清内存。</p>
+<p>Android 4.1-4.4的“黄油计划”以及后续改善，对小内存设备做了极大优化，桌面切换效果绚烂些也很流畅。这也是得益于硬件更迭的加快，从单核到双核、四核升级的时间只在2013一年多的时间内就完成了。</p>
+<p>Android 4.4里开发了一个新的应用运行环境ART，切换到ART后，应用打开、切换变得非常流畅，可以媲美“黄油计划”后的桌面切换效果。不过ART需要开发者去做应用兼容，目前大部分主流应用做出了兼容性更新。<br>其实在2013-14年，硬件的性能已经可以让Android足够顺畅，但我们还是能听到一些卡顿抱怨。原因在<a title="微信" target="_blank" rel="nofollow">微信</a>（游戏大家有预期，反而不会那么抱怨），如果你的微信好友和群稍微多些，它将逐渐吞噬掉这台设备的内存，清理工具也只能些许缓解状况。微信变成了现在很多人升级设备的理由。</p>
+</blockquote>
+<h2 id="电量不禁用"><a href="#电量不禁用" class="headerlink" title="电量不禁用"></a>电量不禁用</h2><p>移动设备的电量不禁用，但Android这点特别明显。很容易比较，3000mAh电池的Android手机使用时间和1500mAh的iPhone差不多，有时还不如。</p>
+<p>不过这已经是很大进步了，因为现在的Android系统效果比以前丰富的多，还能一直开着Wi-Fi、蓝牙和GPS。Android的耗电优化分为 两方面：硬件、软件。硬件端大概在2013年左右完成优化，此前“开着Wi-Fi”和“不开Wi-Fi”电量差别在10%以上，而现在开不开差别不大。</p>
+<p>软件端主要是待机后后台应用还在工作，比如联网检查新消息。iOS上所有消息推送都使用<a title="苹果" target="_blank" rel="nofollow">苹果</a>官方的推送服务，Android上由于<a title="Google" target="_blank" rel="nofollow">Google</a>的GCM不强制使用以及在国内不可用，大家都是用自己或合作方的推送服务。打个比方，同样三个应用接收消息，苹果上一次推送完成，Android上要三次推送。部分厂商在ROM中增加了“对齐唤醒”可以让Android一次推送完成，不过它被认为可以绕过。</p>
+<p><strong>推送服务泛滥变成现在Android耗电的最大由头。这时“一键清后台”就有了新的意义，从开始的缓解卡顿变成现在的省电，把后台一清，就一了百了。</strong></p>
+<h2 id="其它"><a href="#其它" class="headerlink" title="其它"></a>其它</h2><p>Google一直着力改善Android的体验，不过它更着重基础体验，比如卡顿、续航。在其它方面则余力不足，比如广告弹窗横飞、权限滥用、应用缓存文件，这些让第三方安全应用有发挥余地，LBE安全大师、360手机卫士、<a title="腾讯" target="_blank" rel="nofollow">腾讯</a>手机管家即基于此。</p>
+<p><strong>这部分不再是Android征服硬件，而是移动安全公司与广告公司之间的战斗。</strong></p>
+<p>广告弹窗插件前几年更泛滥，手机的通知栏几乎全是这些信息。还曾经出现一些奇葩事情，某个应用内的广告插件平时不启动，但微信启动时它就弹广告，让 用户以为是微信在弹窗。后来几乎上规模的广告插件都被识别，由于效果不佳，现在的广告插件收敛很多，只做用户信息收集和固定展示。</p>
+<p>权限滥用也很可怕。最早版本的微信会自动上传用户通讯录，这就是一起很典型的例子。目前应对方式还是使用权限管理软件，大多安全应用都有集成。</p>
+<p>应用缓存清理这点看似很小，但想想猎豹清理助手以及美国上市的猎豹移动就知道这块绝对是个痛点。</p>
+<p>从现在看，Android不好用主要还是软件端的体验，硬件端已经足够。Android系统的过于开放让它拥有最多的用户，但也使得这个系统的最弱 端被无限放大。广告弹窗、权限滥用在塞班时代也有，但那时并不是问题，塞班的用户大多能自己折腾。如果下次在果粉的场子上，可以跟对方科普 下，Android早已今非昔比了。</p>
+<p><em>本文大部分观点采访自LBE安全大师创始人张勇。</em></p>
+<p>&nbsp;</p>
+<p>稿源：<a href="http://www.leiphone.com/news/201411/hhFOxjRBs2itAcUa.html" target="_blank" rel="external">雷锋网</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/10/31/27-e7-a7-8d-e8-bf-b9-e8-b1-a1-e6-98-be-e7-a4-ba-e4-bd-a0-e5-ba-94-e8-af-a5-e8-be-9e-e6-8e-89-e7-a8-8b-e5-ba-8f-e5-91-98-e7-9a-84-e5-b7-a5-e4-bd-9c/" rel="next" title="27 种迹象显示你应该辞掉程序员的工作">
+                <i class="fa fa-chevron-left"></i> 27 种迹象显示你应该辞掉程序员的工作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/11/06/9-e4-b8-aa-e4-bd-bf-e7-94-a8-e5-89-8d-e5-bf-85-e9-a1-bb-e5-86-8d-e4-b8-89-e5-b0-8f-e5-bf-83-e7-9a-84-linux-e5-91-bd-e4-bb-a4/" rel="prev" title="9 个使用前必须再三小心的 Linux 命令">
+                9 个使用前必须再三小心的 Linux 命令 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="https://avatars2.githubusercontent.com/u/2267650?v=3&s=460"
+               alt="jeson.yang" />
+          <p class="site-author-name" itemprop="name">jeson.yang</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自光州的元</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">171</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">54</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/bingxuebage" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/binxuebage" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#手机卡顿"><span class="nav-number">1.</span> <span class="nav-text">手机卡顿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电量不禁用"><span class="nav-number">2.</span> <span class="nav-text">电量不禁用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其它"><span class="nav-number">3.</span> <span class="nav-text">其它</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">jeson.yang</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
