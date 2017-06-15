@@ -97,7 +97,7 @@
 <meta name="keywords" content="android nfc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【又4】Android NFC 开发简介">
-<meta property="og:url" content="http://www.yangjungou.com/2012/12/29/e3-80-90-e5-8f-884-e3-80-91android-nfc-e5-bc-80-e5-8f-91-e7-ae-80-e4-bb-8b/index.html">
+<meta property="og:url" content="https://bingxuebage.github.io/2012/12/29/e3-80-90-e5-8f-884-e3-80-91android-nfc-e5-bc-80-e5-8f-91-e7-ae-80-e4-bb-8b/index.html">
 <meta property="og:site_name" content="冰雪.俊构">
 <meta property="og:description" content="今天上海终于下雪了，虽然是雨夹雪，不过还是有点惊喜的，元旦休息5天，只要不是连续阴雨，我感觉应该还是满足了吧。昨天在公司的时候和我们部门一起分享了自己开发Android的心得，今天稍微整理一下，这篇文章就能搞定了； 了解Android的NFC开发，我们需要打开Android的开发文档找到NFC部分： http://developer.android.com/guide/topics/connect">
 <meta property="og:image" content="http://www.yangjungou.com/wp-content/uploads/2012/12/nfc1.png">
@@ -134,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://www.yangjungou.com/2012/12/29/e3-80-90-e5-8f-884-e3-80-91android-nfc-e5-bc-80-e5-8f-91-e7-ae-80-e4-bb-8b/"/>
+  <link rel="canonical" href="https://bingxuebage.github.io/2012/12/29/e3-80-90-e5-8f-884-e3-80-91android-nfc-e5-bc-80-e5-8f-91-e7-ae-80-e4-bb-8b/"/>
 
 
 
@@ -259,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://www.yangjungou.com/2012/12/29/e3-80-90-e5-8f-884-e3-80-91android-nfc-e5-bc-80-e5-8f-91-e7-ae-80-e4-bb-8b/">
+    <link itemprop="mainEntityOfPage" href="https://bingxuebage.github.io/2012/12/29/e3-80-90-e5-8f-884-e3-80-91android-nfc-e5-bc-80-e5-8f-91-e7-ae-80-e4-bb-8b/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jeson.yang">
@@ -379,7 +379,7 @@
 <table><br><tbody><br><tr><br><td valign="top" width="195">Class</td><br><td valign="top" width="366">Description</td><br></tr><br><tr><br><td valign="top" width="195"><a href="http://developer.android.com/reference/android/nfc/NfcManager.html" target="_blank" rel="external">NfcManager</a></td><br><td valign="top" width="366">一个NFC adapter的管理器，可以列出所有此android设备支持的NFC adapter.只不过大部分android 设备只有一个NFC adapter，所以你大部分情况下可以直接用静态方法getDefaultAdapter(context)来取适配器。</td><br></tr><br><tr><br><td valign="top" width="195"><a href="http://developer.android.com/reference/android/nfc/NfcAdapter.html" target="_blank" rel="external">NfcAdapter</a></td><br><td valign="top" width="366">表示本设备的NFC adapter,可以定义Intent来请求将系统检测到tags的提醒发送到你的Activity.并提供方法去注册前台tag提醒发布和前台NDEF推送。 前台NDEF推送是当前android版本唯一支持的p2p NFC通信方式。</td><br></tr><br><tr><br><td valign="top" width="195"><a href="http://developer.android.com/reference/android/nfc/NdefMessage.html" target="_blank" rel="external">NdefMessage</a>and<a href="http://developer.android.com/reference/android/nfc/NdefRecord.html" target="_blank" rel="external">NdefRecord</a></td><br><td valign="top" width="366">NDEF是NFC论坛定义的数据结构，用来有效的存数据到NFC tags.比如文本，URL，和其他MIME类型。一个NdefMessage扮演一个容器，这个容器存哪些发送和读到的数据。一个NdefMessage对象包含0或多个NdefRecord,每个NDEF record有一个类型，比如文本，URL，智慧型海报/广告，或其他MIME数据。在NDEFMessage里的第一个NfcRecord的类型用来发送tag到一个android设备上的activity.</td><br></tr><br><tr><br><td valign="top" width="195"><a href="http://developer.android.com/reference/android/nfc/Tag.html" target="_blank" rel="external">Tag</a></td><br><td valign="top" width="366">标示一个被动的NFC目标，比如tag，card，钥匙挂扣，甚至是一个电话模拟的的NFC卡.当一个tag被检测到，一个tag对象将被创建并且封装到一个Intent里，然后NFC 发布系统将这个Intent用startActivity发送到注册了接受这种Intent的activity里。你可以用getTechList()方法来得到这个tag支持的技术细节和创建一个android.nfc.tech提供的相应的TagTechnology对象。</td><br></tr><br></tbody><br></table><br><a href="http://developer.android.com/reference/android/nfc/tech/package-summary.html" target="_blank" rel="external">android.nfc.tech</a> package 包含那些对tag查询属性和进行I/O操作的类。这些类分别标示一个tag支持的不同的NFC技术标准。<br><table><br><tbody><br><tr><br><td valign="top" width="139">Class</td><br><td valign="top" width="422">Description</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/TagTechnology.html" target="_blank" rel="external">TagTechnology</a></td><br><td valign="top" width="422">这个接口是下面所有tag technology类必须实现的。</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/NfcA.html" target="_blank" rel="external">NfcA</a></td><br><td valign="top" width="422">支持ISO 14443-3A 标准的操作。Provides access to NFC-A (ISO 14443-3A) properties and I/O operations.</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/NfcB.html" target="_blank" rel="external">NfcB</a></td><br><td valign="top" width="422">Provides access to NFC-B (ISO 14443-3B) properties and I/O operations.</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/NfcF.html" target="_blank" rel="external">NfcF</a></td><br><td valign="top" width="422">Provides access to NFC-F (JIS 6319-4) properties and I/O operations.</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/NfcV.html" target="_blank" rel="external">NfcV</a></td><br><td valign="top" width="422">Provides access to NFC-V (ISO 15693) properties and I/O operations.</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/IsoDep.html" target="_blank" rel="external">IsoDep</a></td><br><td valign="top" width="422">Provides access to ISO-DEP (ISO 14443-4) properties and I/O operations.</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/Ndef.html" target="_blank" rel="external">Ndef</a></td><br><td valign="top" width="422">提供对那些被格式化为NDEF的tag的数据的访问和其他操作。Provides access to NDEF data and operations on NFC tags that have been formatted as NDEF.</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/NdefFormatable.html" target="_blank" rel="external">NdefFormatable</a></td><br><td valign="top" width="422">对那些可以被格式化成NDEF格式的tag提供一个格式化的操作</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/MifareClassic.html" target="_blank" rel="external">MifareClassic</a></td><br><td valign="top" width="422">如果android设备支持MIFARE，提供对MIFARE Classic目标的属性和I/O操作。</td><br></tr><br><tr><br><td valign="top" width="139"><a href="http://developer.android.com/reference/android/nfc/tech/MifareUltralight.html" target="_blank" rel="external">MifareUltralight</a></td><br><td valign="top" width="422">如果android设备支持MIFARE，提供对MIFARE Ultralight目标的属性和I/O操作。</td><br></tr><br></tbody><br></table>
 
 <h1 id="4-Android-NFC"><a href="#4-Android-NFC" class="headerlink" title="4,Android NFC"></a>4,Android NFC</h1><p>系统操作流程</p>
-<p><a href="http://www.yangjungou.com/wp-content/uploads/2012/12/nfc1.png"><img src="http://www.yangjungou.com/wp-content/uploads/2012/12/nfc1.png" alt="" title="nfc1"></a></p>
+<p><a href="http://www.yangjungou.com/wp-content/uploads/2012/12/nfc1.png" target="_blank" rel="external"><img src="http://www.yangjungou.com/wp-content/uploads/2012/12/nfc1.png" alt="" title="nfc1"></a></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
@@ -392,7 +392,7 @@
 <p>&nbsp;</p>
 <p>应用程序处理流程</p>
 <p>&nbsp;</p>
-<p><a href="http://www.yangjungou.com/wp-content/uploads/2012/12/2.png"><img src="http://www.yangjungou.com/wp-content/uploads/2012/12/2.png" alt="" title="图2"></a></p>
+<p><a href="http://www.yangjungou.com/wp-content/uploads/2012/12/2.png" target="_blank" rel="external"><img src="http://www.yangjungou.com/wp-content/uploads/2012/12/2.png" alt="" title="图2"></a></p>
 <p>&nbsp;</p>
 <h1 id="5-Android-NFC应用开发步骤："><a href="#5-Android-NFC应用开发步骤：" class="headerlink" title="5,Android NFC应用开发步骤："></a>5,Android NFC<span style="font-family: 宋体;">应用开发步骤：</span></h1><h2 id="5-1-声明Android-Manifest-xml的元素"><a href="#5-1-声明Android-Manifest-xml的元素" class="headerlink" title="5.1 声明Android Manifest.xml的元素"></a>5.1 声明Android Manifest.xml的元素</h2><p>在你能访问一个设备的NFC硬件和正确的处理NFC的Intent之前，需要在AndroidManifest.xml中先声明下面的项：</p>
 <p>1. NFC使用 &lt;uses-permission&gt; 元素来访问NFC硬件:</p>
